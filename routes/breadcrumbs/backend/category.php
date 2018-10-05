@@ -13,3 +13,5 @@ Breadcrumbs::for('admin.product.add', function ($trail) {
     $trail->parent('admin.product');
     $trail->push(__('admin.product.add'), url('admin.product.add'));
 });
+
+

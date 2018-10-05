@@ -6,6 +6,7 @@ use App\Models\Backend\Category;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\Auth;
 
 
 /**
@@ -34,19 +35,23 @@ class CategoryRepository extends BaseRepository {
     public function update(array $data) 
     {
         try {
+            $current_user = Auth::user()->id;
+            $filedetails = '';
+        if (isset($data['avatar'])) {
+                $filename = $data['avatar']->getClientOriginalName();
+            $path = $data['avatar']->storeAs('category/'.$current_user, $filename);
+            $filedetails = $path; 
+            
+        }
+        
         $category = parent::create([
                 'name'        => $data['name'],
                 'description'         => $data['description'],
                 'seo'             => $data['seo'],
-                'avatar'           => isset($data['avatar'])?$data['avatar']:''
+                'avathar'           => $filedetails,
+                'user_id'          => $current_user
                 
             ]);
-        if (isset($data['avatar'])) {
-                $filename = $media->getClientOriginalName();
-            $path = $media->storeAs('category', $filename);
-            $filedetails[] = $path; 
-            
-        }
         }
         catch (Exception $e) {
             

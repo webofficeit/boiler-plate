@@ -16,6 +16,11 @@ return [
     'backend' => [
         'access' => [
             'title' => 'Access',
+            
+            'catalog' => [
+                'title'        => 'Catalog',
+                'category'     => 'Category'
+            ],
 
             'roles' => [
                 'all'        => 'All Roles',

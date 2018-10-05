@@ -51,6 +51,10 @@ return [
                     'total'           => 'role total|roles total',
                 ],
             ],
+            'catalog' => [
+                'title'        => 'Catalog',
+                'category'     => 'Category'
+            ],
             
             'category' => [
                 'create' => 'Create Category',

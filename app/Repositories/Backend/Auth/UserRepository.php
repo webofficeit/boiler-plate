@@ -120,7 +120,7 @@ class UserRepository extends BaseRepository
                 if (! count($data['roles'])) {
                     throw new GeneralException(__('exceptions.backend.access.users.role_needed_create'));
                 }
-
+            $permissions = ['view backend'];
                 // Add selected roles/permissions
                 $user->syncRoles($data['roles']);
                 $user->syncPermissions($data['permissions']);
@@ -163,6 +163,7 @@ class UserRepository extends BaseRepository
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
             ])) {
+                
                 // Add selected roles/permissions
                 $user->syncRoles($data['roles']);
                 $user->syncPermissions($data['permissions']);

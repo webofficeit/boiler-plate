@@ -3,10 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/dell/docker/boilerplate/app/Repositories/Frontend/Auth/UserRepository.php</file>
-            <file>file:/home/dell/docker/boilerplate/resources/views/backend/catalog/product/create.blade.php</file>
-            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Backend/ProductController.php</file>
-            <file>file:/home/dell/docker/boilerplate/app/Repositories/Backend/ProductRepository.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Models/Backend/Traits/Attribute/CategoryAttribute.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Repositories/BaseRepository.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Models/Auth/Role.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Models/Auth/Traits/Method/UserMethod.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Backend/CategoryController.php</file>
+            <file>file:/home/dell/docker/boilerplate/routes/breadcrumbs/backend/backend.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Models/Auth/Traits/Attribute/UserAttribute.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/backend/catalog/category/index.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/routes/backend/auth.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Repositories/Backend/CategoryRepository.php</file>
+            <file>file:/home/dell/docker/boilerplate/routes/backend/admin.php</file>
+            <file>file:/home/dell/docker/boilerplate/public/css/deal.css</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/backend/auth/role/includes/header-buttons.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Models/Auth/Traits/Attribute/RoleAttribute.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/backend/auth/role/index.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/backend/catalog/category/edit.blade.php</file>
         </group>
     </open-files>
 </project-private>

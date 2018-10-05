@@ -2,6 +2,8 @@
 
 namespace App\Models\Backend;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Auth\Traits\Attribute\RoleAttribute;
+use App\Models\Backend\Traits\Attribute\CategoryAttribute;
 
 /**
  * Description of Category
@@ -9,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @author dell
  */
 class Category  extends Model {
+    use CategoryAttribute;
     
      /**
      * The database table used by the model.
@@ -22,5 +25,5 @@ class Category  extends Model {
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'seo', 'avathar'];
+    protected $fillable = ['name', 'description', 'seo', 'avathar', 'user_id'];
 }

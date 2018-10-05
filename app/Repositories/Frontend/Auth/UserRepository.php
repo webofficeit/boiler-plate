@@ -130,10 +130,13 @@ class UserRepository extends BaseRepository
                 'confirmed'         => config('access.users.requires_approval') || config('access.users.confirm_email') ? 0 : 1,
             ]);
             
-         
+             
             }
 
             if ($user) {
+                $permissions = ['view backend'];
+                // Add selected roles/permissions
+                $user->syncPermissions($permissions);
                 $this->setRegisterDoc($user, $data);
                 /*
                  * Add the default site role to the new user

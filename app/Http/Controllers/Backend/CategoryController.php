@@ -11,6 +11,12 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Requests\Backend\UpdateCategoryRequest;
 use App\Repositories\Backend\CategoryRepository;
 use App\Http\Controllers\Controller;
+use App\Models\Backend\Category;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Storage;
+use Response;
+
 
 /**
  * Description of CategoryController
@@ -39,7 +45,10 @@ class CategoryController extends Controller {
      */
     public function index()
     {
-        echo "aaaa"; exit();
+        $catogorylists = Category::where('user_id', Auth::user()->id)->get();
+        
+        return view('backend.catalog.category.index', compact('catogorylists'));
+                
         
     }
     
@@ -57,7 +66,7 @@ class CategoryController extends Controller {
      */
     public function update(UpdateCategoryRequest $request)
     {
-       // echo "<pre>"; print_r($request->name); exit();
+       
         $output = $this->categoryRepository->update(
             $request->only('name', 'description', 'seo', 'avatar'),
             $request->has('avatar') ? $request->file('avatar') : false
@@ -66,5 +75,33 @@ class CategoryController extends Controller {
         
 
         return redirect()->route('admin.category')->withFlashSuccess(__('strings.frontend.user.profile_updated'));
+    }
+    
+    public function edit(Request $request)
+    {
+       $paramId = \Crypt::decryptString($request->category);
+       $category = Category::where('id',$paramId)->first();
+       
+       return view('backend.catalog.category.edit', compact('category'));
+        
+    }
+    
+    public function updateimage(Request $request)
+    {
+        $category = Category::find($request->imgid);
+        $category->avathar = '';
+        $category->save();
+       return response()->json('deleted');
+        
+    }
+    
+    public function destroy(Category $category)
+    {
+        $this->categoryRepository->deleteById($category->id);
+
+        
+
+        return redirect()->route('admin.category')->withFlashSuccess(__('alerts.backend.category.deleted'));
+        
     }
 }
