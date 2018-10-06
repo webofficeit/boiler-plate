@@ -13,6 +13,10 @@ Breadcrumbs::for('admin.category.edit', function ($trail, $id) {
     $trail->parent('admin.category');
     $trail->push(__('menus.backend.access.category.edit'), route('admin.category.edit', $id));
 });
+Breadcrumbs::for('admin.product.edit', function ($trail, $id) {
+    $trail->parent('admin.product');
+    $trail->push(__('menus.backend.access.product.edit'), route('admin.product.edit', $id));
+});
 
 require __DIR__.'/auth.php';
 require __DIR__.'/log-viewer.php';

@@ -57,4 +57,28 @@ class CategoryRepository extends BaseRepository {
             
         }
     }
+    
+     public function saveCategory($request) {
+        
+        $current_user = Auth::user()->id;
+            
+            if (isset($request->avatar)) {
+              
+                $filename = $request->avatar->getClientOriginalName();
+            $path = $request->avatar->storeAs('category/'.$current_user, $filename);
+            $filedetails = $path; 
+            
+             }
+        
+        $category = Category::find($request->catgid);
+        $category->name = $request->name;
+        $category->description = $request->description;
+        $category->seo = $request->seo;
+        $category->avathar = (isset($request->avatar))?$filedetails:'';
+        $category->user_id = $current_user;
+        $category->save();
+        
+        
+        
+    }
 }

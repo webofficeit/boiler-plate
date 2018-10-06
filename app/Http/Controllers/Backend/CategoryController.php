@@ -104,4 +104,11 @@ class CategoryController extends Controller {
         return redirect()->route('admin.category')->withFlashSuccess(__('alerts.backend.category.deleted'));
         
     }
+    
+    public function editupdate(Request $request)
+    {
+        
+      $this->categoryRepository->saveCategory($request);  
+      return redirect()->route('admin.category')->withFlashSuccess(__('strings.frontend.user.profile_updated'));
+    }
 }

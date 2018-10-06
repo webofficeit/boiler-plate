@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-    {{ html()->form('POST', route('admin.category.update'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
+    {{ html()->form('POST', route('admin.category.editupdate'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -23,6 +23,7 @@
 
                 <div class="row mt-4 mb-4">
                     <div class="col">
+                        <input type='hidden' id="catgid" name="catgid" value="{{$category->id}}">
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.name'))->class('col-md-2 form-control-label')->for('name') }}
 
@@ -92,7 +93,7 @@
                     </div><!--col-->
 
                     <div class="col text-right">
-                        {{ form_submit(__('buttons.general.crud.create')) }}
+                        {{ form_submit(__('buttons.general.crud.edit')) }}
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-footer-->

@@ -28,5 +28,5 @@ class Offerimage extends Model {
      *
      * @var array
      */
-    protected $fillable = ['name', 'productofferid'];
+    protected $fillable = ['name', 'product_offer_id'];
 }

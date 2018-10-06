@@ -9,6 +9,7 @@
 namespace App\Models\Backend;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Backend\Traits\Relationship\ProductOfferRelationship;
+use App\Models\Backend\Traits\Attribute\ProductAttribute;
 
 /**
  * Description of ProductOffer
@@ -17,6 +18,7 @@ use App\Models\Backend\Traits\Relationship\ProductOfferRelationship;
  */
 class ProductOffer extends Model {
     use ProductOfferRelationship;
+    use ProductAttribute;
    
     /**
      * The database table used by the model.
@@ -30,5 +32,5 @@ class ProductOffer extends Model {
      *
      * @var array
      */
-    protected $fillable = ['name', 'descriptionoffer', 'descriptionbussiness', 'categoryid', 'deliverymethodid', 'girapercentage', 'pricelistdocument'];
+    protected $fillable = ['name', 'descriptionoffer', 'descriptionbussiness', 'categoryid', 'deliverymethodid', 'girapercentage', 'pricelistdocument','deleted','confirmed'];
 }

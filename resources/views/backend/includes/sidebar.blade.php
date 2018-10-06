@@ -78,6 +78,15 @@
                                 @endif
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/product*')) }}" href="{{ route('admin.product') }}">
+                                @lang('labels.backend.access.catalog.product')
+
+                                @if ($pending_approval > 0)
+                                    <span class="badge badge-danger">{{ $pending_approval }}</span>
+                                @endif
+                            </a>
+                        </li>
                         
                     </ul>
             </li>
