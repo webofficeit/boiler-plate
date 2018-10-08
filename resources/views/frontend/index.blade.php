@@ -4,24 +4,16 @@
 
 @section('content')
     <div id="chartdiv"></div>
-
-    <input id="search_name" type="textbox" onclick="selectArea(this);" value="" placeholder="validation.attributes.frontend.first_name">                                    
+    <div >
+        <button class="search-bar"> Search </button>
+    <input id="search_name" type="textbox" value="" placeholder="validation.attributes.frontend.first_name"> 
+    </div>
     
 @endsection
 @push('after-scripts')
 <script>
     
-    function selectArea(select) {
-//    var id = select.value;
-//    if ( '' == id ) {
-//        map.clickMapObject(map.dataProvider);
-//    }
-//    else {
-//        map.clickMapObject(map.getObjectById(id));
-//    }
-//e.stopImmediatePropagation();
-          map.updateSelection();
-}
+  
 
 
 
@@ -29,7 +21,7 @@
 var map = AmCharts.makeChart( "chartdiv", {
   type: "map",
   "theme": "light",
-  "showDescriptionOnHover": true,
+  "showDescriptionOnHover": false,
   dataProvider: {
     map: "worldLow",
         "images":{!! $partner !!},
@@ -39,17 +31,23 @@ var map = AmCharts.makeChart( "chartdiv", {
   areasSettings: {
     unlistedAreasColor: "#FFCC00"
   },
-"zoomControl": {
-		"zoomControlEnabled": true
-	},
+
   imagesSettings: {
     color: "#CC0000",
     rollOverColor: "#CC0000",
     selectedColor: "#000000",
-    balloonText: "City: <strong>[[title]]</strong>"
+    balloonText: "<strong>[[title]]</strong>"
   }
   
 } );
+
+map.addListener("clickMapObject", function(event) {
+  var zoomlevel_value = map.zoomLevel();
+  if(zoomlevel_value > 1) {
+      
+  }
+  
+});
 
 
 
@@ -60,7 +58,8 @@ map.addListener( "rendered", function() {
   map.addListener( "zoomCompleted", revealMapImages );
 } );
 
-map.updateSelection = function() {
+map.updateSelection = function(searchdata) {
+    alert(searchdata);
     var areas = [];
     //jQuery(".section-map-list input:checked").each(function() {
       var CC = this.value;
@@ -94,5 +93,10 @@ function revealMapImages( event ) {
     map.showGroup( "minZoom-2.5" );
   }
 }
+
+$('.search-bar').click(function(){
+    var searchdata = $('#search_name').val();
+    map.updateSelection(searchdata);
+});
 </script>
 @endpush

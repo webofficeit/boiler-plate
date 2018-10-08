@@ -28,8 +28,8 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  => 'required|max:191',
-            'seo' => 'required|max:191',
+            'first_name'  => 'required|max:191',
+            'last_name' => 'required|max:191',
             'avatar' => 'sometimes|image|max:191',
         ];
     }

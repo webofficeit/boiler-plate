@@ -13,6 +13,7 @@
         <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
         @yield('meta')
         <link rel="stylesheet" href="{{ URL::asset('css/ammap.css') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('css/frontenddeal.css') }}" />
         {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
         @stack('before-styles')
 
