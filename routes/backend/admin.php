@@ -16,6 +16,7 @@ Route::get('product',[ProductController::class, 'index'])->name('product');
 Route::get('product/add', [ProductController::class, 'store'])->name('product.add');
 Route::post('product/update', [ProductController::class, 'update'])->name('product.update');
 Route::post('category/editupdate', [CategoryController::class, 'editupdate'])->name('category.editupdate');
+Route::post('product/editupdate', [ProductController::class, 'editupdate'])->name('product.editupdate');
 Route::post('category/updateimage', [CategoryController::class, 'updateimage'])->name('category.updateimage');
 Route::post('product/updateimage', [ProductController::class, 'updateimage'])->name('product.updateimage');
 
