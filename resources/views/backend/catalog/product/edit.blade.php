@@ -27,7 +27,7 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.name'))->class('col-md-2 form-control-label')->for('name') }}
 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 {{ html()->text('name')
                                     ->class('form-control')
                                     ->placeholder(__('validation.attributes.backend.access.product.nameplaceholder'))
@@ -41,7 +41,7 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.descriptionoffer'))->class('col-md-2 form-control-label')->for('descriptionoffer') }}
                                 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 {{ html()->textarea('descriptionoffer')
                                     ->class('form-control')
                                     ->value($product->descriptionoffer)
@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.category'))->class('col-md-2 form-control-label')->for('productcategory') }}
-                            <div class="col-md-10"> 
+                            <div class="col-md-6"> 
                                 <select name="category" class="form-control">
                                     <option value="">select</option>
                                     @foreach ($Acategorys as $Acategorys)
@@ -62,7 +62,7 @@
                         </div>  
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.descriptionbussiness'))->class('col-md-2 form-control-label')->for('descriptionbussiness') }}
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 {{ html()->textarea('descriptionbussiness')
                                     ->class('form-control')
                                     ->value($product->descriptionbussiness)
@@ -74,14 +74,16 @@
                         @foreach ($product->picture as $keypicture => $picture)
                             <div class="form-group row">                              
                                 {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
-                                <div class="col-md-10">
+                                <div class="col-md-6">
                                     <div class="input-group control-group">
                                         <input type="file" name="imagelist[]" class="custom-file-input">
                                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                     </div>
+                                </div>
+                                <div class="col-md-2">
                                     <div class="img-wrap" data-id = {{$keypicture}}>
                                         <span class="close">&times;</span>
-                                        <img src="{{ url('storage/'.$picture) }}"  >
+                                        <img src="{{ url('storage/'.$picture) }}" class="img-fluid" >
                                     </div>
                                 </div>
                             </div><!--form-group-->
@@ -91,7 +93,7 @@
                               
                             {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
 
-                            <div class="input-group control-group " >
+                            <div class="input-group control-group">
                                 <input type="file" name="imagelist[]" class="custom-file-input">
                                 <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                             </div>
@@ -114,7 +116,7 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.deliverymethod'))->class('col-md-2 form-control-label')->for('deliverymethod') }}
                                 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 <select name="delivery" class="form-control">
                                     <option value="">select</option>
                                     @foreach ($Adeliverys as $Adelivery)
@@ -127,15 +129,15 @@
                         <div class="form-group row">
                               
                             {{ html()->label(__('validation.attributes.backend.access.product.pricelist'))->class('col-md-2 form-control-label')->for('pricelist') }}
-                            <div class="col-md-10" >
+                            <div class="col-md-6" >
                                 <div class="input-group">
                                     <input type="file" name="pricelist" class="custom-file-input">
                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                 </div>
-                            </div> 
-                        </div>
-                        <div>                    
-                            <a href="{{ URL::to( 'storage/' . $product->pricelistdocument)  }}" target="_blank"> {{ str_after(str_replace_last('/','#',$product->pricelistdocument, '/'),'#') }} </a>
+                            </div>
+                            <div class="col-md-4">                    
+                                <a href="{{ URL::to( 'storage/' . $product->pricelistdocument)  }}" target="_blank"> {{ str_after(str_replace_last('/','#',$product->pricelistdocument, '/'),'#') }} </a>
+                            </div>
                         </div>
                         
                         <div class="form-group row">
@@ -152,7 +154,7 @@
                                     
                         <div class="form-group row timeperiod ">
                             {{ html()->label(__('validation.attributes.backend.access.product.timefrom'))->class('col-md-2 form-control-label')->for('timefrom') }}
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <div class="input-group date form_datetime">                                    
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -160,7 +162,7 @@
                                     <input id="datepickerfrom" name="datepickerfrom" class="form-control calendar-datepicker">
                                 </div>
                             </div>
-                            <div class="col-md-5" >
+                            <div class="col-md-3" >
                                 <div class="input-group date form_datetime">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
