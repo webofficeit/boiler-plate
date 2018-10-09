@@ -18,6 +18,7 @@
 
     <!-- Check if the language is set to RTL, so apply the RTL layouts -->
     <!-- Otherwise apply the normal LTR layouts -->
+    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datetimepicker-build.css') }}" />
     {{ style(mix('css/backend.css')) }}
     <link rel="stylesheet" href="{{ URL::asset('css/deal.css') }}" />
 
@@ -56,6 +57,8 @@
     {!! script(mix('js/manifest.js')) !!}
     {!! script(mix('js/vendor.js')) !!}
     {!! script(mix('js/backend.js')) !!}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
     @stack('after-scripts')
 </body>
 </html>

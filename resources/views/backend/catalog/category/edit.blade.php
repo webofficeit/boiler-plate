@@ -40,19 +40,19 @@
 
                      
 
-                      <div class="form-group row">
-                          {{ html()->label(__('validation.attributes.backend.access.category.description'))->for('description') }}
+                        <div class="form-group row">
+                            {{ html()->label(__('validation.attributes.backend.access.category.description'))->class('col-md-2 form-control-label')->for('description') }}
                                 
-                                <div class="col-md-10">
-                                    {{ html()->textarea('description')
-                                        ->class('form-control')
-                                        ->value($category->description)
-                                        ->placeholder(__('validation.attributes.backend.access.category.descriptionplaceholder'))
-                                         }}
-                                         </div>
+                            <div class="col-md-10">
+                                {{ html()->textarea('description')
+                                    ->class('form-control')
+                                    ->value($category->description)
+                                    ->placeholder(__('validation.attributes.backend.access.category.descriptionplaceholder'))
+                                        }}
                             </div>
+                        </div>
                         
-                          <div class="form-group row">
+                        <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.seo'))->class('col-md-2 form-control-label')->for('seo') }}
 
                             <div class="col-md-10">
@@ -66,19 +66,20 @@
                             </div><!--col-->
                         </div><!--form-group-->
                         
-                         <div class="form-group row">
+                        <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.image'))->class('col-md-2 form-control-label')->for('image') }}
 
                             <div class="col-md-10">
-                                 <input type="file" class= "form-control"  name="avatar" >
-                                 @if($category->picture)
-                                 <div class="img-wrap">
-    <span class="close">&times;</span>
-    <img src="{{ $category->picture  }}"  >
-    
-</div>   
-                                 @endif
-                                 
+                                <div class="input-group">
+                                    <input type="file" class= "form-control custom-file-input"  name="avatar" >
+                                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                </div>
+                                @if($category->picture)
+                                    <div class="img-wrap">
+                                        <span class="close">&times;</span>
+                                        <img src="{{ $category->picture  }}"  >
+                                    </div>   
+                                 @endif                                 
                             </div><!--col-->
                         </div>
                         
@@ -104,26 +105,27 @@
 @push('after-scripts')
     <script>
         $(function() {
-
                 
-                $(".close").click(function() {
-                   var imghide = this;
-                                $.ajax({
+            $(".close").click(function() {
+                var imghide = this;
+                $.ajax({
                     url:      '/admin/category/updateimage',
                     type:     'post',
                     dataType: 'json',
                     data:     {"_token": "{{ csrf_token() }}",'imgid':"{{ $category->id }}"},
-                    success: function(data) {
-                        
-                            $(imghide).parent().hide();
+                    success: function(data) {                        
+                        $(imghide).parent().hide();
                     },
                     error: function(xhr, textStatus, errorThrown) {
                         alert('AJAX ERROR ! Check the console !');
                         
                     }
-               });
-   
-});
+                });   
+            });
+
+            $('.custom-file-input').change(function (e) {
+                $(this).next('.custom-file-label').html(e.target.files[0].name);
+            });
             
         });
     </script>
