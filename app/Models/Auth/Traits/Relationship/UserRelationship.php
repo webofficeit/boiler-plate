@@ -6,6 +6,7 @@ use App\Models\System\Session;
 use App\Models\Auth\SocialAccount;
 use App\Models\Auth\PasswordHistory;
 use App\Models\Auth\BussinessRegistrationDoc;
+use App\Models\Backend\ProductOffer;
 
 /**
  * Class UserRelationship.
@@ -43,4 +44,6 @@ trait UserRelationship
     {
         return $this->hasMany(BussinessRegistrationDoc::class);
     }
+    
+    
 }
