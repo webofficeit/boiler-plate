@@ -1,5 +1,18 @@
+
+.map-search {
+  float: right;
+}
+.map-search #search_name {
+  position: initial;
+  border: 1px solid #ccc;
+}
 .search-bar {
   position: relative;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-left: 0;
+  padding: 9px 12px;
+  margin-left: -4px;
 }
 
 .search-bar .icon {
