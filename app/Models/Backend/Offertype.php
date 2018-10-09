@@ -10,18 +10,18 @@ namespace App\Models\Backend;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Description of Offerexpire
+ * Description of Offertype
  *
  * @author dell
  */
-class Offerexpire extends Model {
+class Offertype extends Model {
     
      /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'offer_expire';
+    protected $table = 'offer_types';
 
     /**
      * The attributes that are mass assignable.

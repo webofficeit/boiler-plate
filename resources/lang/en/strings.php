@@ -140,6 +140,9 @@ return [
             'profile_updated'  => 'Profile successfully updated.',
             'password_updated' => 'Password successfully updated.',
         ],
+        'catalog' => [
+            'category_updated' => 'Category successfully updated.'
+        ],
 
         'welcome_to' => 'Welcome to :place',
     ],

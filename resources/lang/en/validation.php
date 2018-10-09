@@ -180,7 +180,16 @@ return [
                     'descriptionbussinessplaceholder' => 'Description of Bussiness',
                     'seo' => 'SEO friendly url',
                     'seoplaceholder' => 'SEO friendly url',
-                    'image' => 'Upload Images'
+                    'image' => 'Upload Images',
+                    'category' => 'Category',
+                    'percentage' => 'Gira Percentage',
+                    'deliverymethod' => 'Delivery Method',
+                    'pricelist' => 'Price List',
+                    'offervalid' => 'Offer Type',
+                    'from' => 'from',
+                    'to' => 'to',
+                    'timeperiod' => 'Time Period',
+                    'confirmation' => 'Confirm'
                 ],
 
                 'roles' => [

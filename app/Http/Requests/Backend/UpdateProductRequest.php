@@ -32,10 +32,22 @@ class UpdateProductRequest extends FormRequest {
      */
     public function rules()
     {
+        
         return [
             'name'  => 'required|max:191',
-//            'imagelist' => 'image|mimes:jpg,png|max:10000',
-//            'pricelist' => 'mimes:doc,pdf,docx'
+            'imagelist.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pricelist' => 'mimes:doc,pdf,docx',
+            'datepickerfrom' => 'required_if:toggle_option,==,1',
+            'datepickerto' => 'required_if:toggle_option,==,1'
+            
         ];
     }
+    
+    public function messages()
+{
+    return [
+        'datepickerfrom.required_if' => 'datepickerfrom required for option TimePeriod',
+        'datepickerto.required_if'  => 'datepickerto required for option TimePeriod'
+    ];
+}
 }

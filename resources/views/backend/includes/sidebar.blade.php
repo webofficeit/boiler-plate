@@ -63,8 +63,8 @@
                     </li>
                 </ul>
             </li>
-            @else
-            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/category*'), 'open') }}">
+            @endif
+            <li class="nav-item nav-dropdown {{ active_class(Active::checkUriPattern('admin/category*'), 'open') }} {{ active_class(Active::checkUriPattern('admin/product*'), 'open') }}">
                     <a class="nav-link nav-dropdown-toggle {{ active_class(Active::checkUriPattern('admin/category*')) }}" href="#">
                         <i class="fa fa-cogs"></i> @lang('menus.backend.access.catalog.title')     
                     </a>
@@ -90,7 +90,7 @@
                         
                     </ul>
             </li>
-            @endif
+            
         </ul>
     </nav>
 

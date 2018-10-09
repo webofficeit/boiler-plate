@@ -48,13 +48,13 @@
         <div class="row">
             <div class="col-7">
                 <div class="float-left">
-                   {!! $catogorylists->count() !!} {{ trans_choice('labels.backend.access.users.table.total', $catogorylists->count()) }}
+                   {!! $catogorylists->count() !!} {{ trans_choice('labels.backend.access.category.table.total', $catogorylists->count()) }} {!! $catogorylists->total() !!}
                 </div>
             </div><!--col-->
 
             <div class="col-5">
                 <div class="float-right">
-                    
+                    {!! $catogorylists->render() !!}
                 </div>
             </div><!--col-->
         </div><!--row-->

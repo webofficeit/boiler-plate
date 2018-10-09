@@ -2,9 +2,10 @@
 
 namespace App\Models\Backend\Traits\Relationship;
 
-use App\Models\Backend\Offerexpire;
+use App\Models\Backend\Offertype;
 use App\Models\Backend\Offerimage;
 use App\Models\Auth\User;
+use App\Models\Backend\Category;
 
 
 /**
@@ -15,9 +16,9 @@ trait ProductOfferRelationship
     /**
      * @return mixed
      */
-    public function Offerexpire()
+    public function Offertype()
     {
-        return $this->hasMany(Offerexpire::class);
+        return $this->hasMany(Offertype::class);
     }
 
     /**
@@ -31,6 +32,11 @@ trait ProductOfferRelationship
     public function users()
     {
         return $this->belongsTo(User::class,'user_id','id');
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'categoryid','id');
     }
 
     

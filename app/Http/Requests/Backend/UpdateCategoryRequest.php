@@ -28,10 +28,18 @@ class UpdateCategoryRequest extends FormRequest {
      */
     public function rules()
     {
+        //dd(name);
         return [
             'name'  => 'required|max:191',
             'seo'  => 'required|max:191',
-            'avatar_location' => 'sometimes|image|max:191',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ];
+    }
+    
+    public function messages() {
+        return [
+            //'slug.unique' => 'That  unique URL has already been taken.',
+            'avatar_location.image' => 'Only jpeg, jpg, png, bmp, gif and svg formats are supported.',
         ];
     }
 }

@@ -1,5 +1,11 @@
 
-
+.app-header .navbar-brand {
+  padding: 0 15px;
+  width: 220px;
+}
+.app-header .navbar-brand .navbar-brand-full {
+  height: auto;
+}
 .range-slider-container {
   margin-top: 3em;
   margin-bottom: 3em; 

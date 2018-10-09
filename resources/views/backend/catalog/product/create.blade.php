@@ -26,7 +26,7 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.name'))->class('col-md-2 form-control-label')->for('name') }}
 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 {{ html()->text('name')
                                     ->class('form-control')
                                     ->placeholder(__('validation.attributes.backend.access.product.nameplaceholder'))
@@ -39,9 +39,9 @@
                      
 
                       <div class="form-group row">
-                          {{ html()->label(__('validation.attributes.backend.access.product.descriptionoffer'))->for('descriptionoffer') }}
+                          {{ html()->label(__('validation.attributes.backend.access.product.descriptionoffer'))->class('col-md-2 form-control-label')->for('descriptionoffer') }}
                                 
-                                <div class="col-md-10">
+                                <div class="col-md-6">
                                     {{ html()->textarea('descriptionoffer')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.backend.access.product.descriptionofferplaceholder'))
@@ -49,10 +49,9 @@
                                          </div>
                             </div>
                         <div class="form-group row">
-                          {{ html()->label(__('validation.attributes.backend.access.product.category'))->for('productcategory') }}
-                                
-                                <div class="col-md-10">
-                                    <select name="category">
+                            {{ html()->label(__('validation.attributes.backend.access.product.category'))->class('col-md-2 form-control-label')->for('productcategory') }}
+                            <div class="col-md-6"> 
+                                <select name="category" class="form-control">
                                         <option value="">select</option>
  @foreach ($Acategorys as $Acategorys)
                                         <option value={{ $Acategorys['id'] }}>{{ $Acategorys['name'] }}</option>
@@ -62,9 +61,8 @@
                                          </div>
                             </div>  
                         <div class="form-group row">
-                          {{ html()->label(__('validation.attributes.backend.access.product.descriptionbussiness'))->for('descriptionbussiness') }}
-                                
-                                <div class="col-md-10">
+                            {{ html()->label(__('validation.attributes.backend.access.product.descriptionbussiness'))->class('col-md-2 form-control-label')->for('descriptionbussiness') }}
+                            <div class="col-md-6">
                                     {{ html()->textarea('descriptionbussiness')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.backend.access.product.descriptionbussinessplaceholder'))
@@ -73,37 +71,42 @@
                             </div>
                         
                  
-                        
-                          <div class="form-group row increment clone">
+                        <div class='clone'>
+                          <div class="form-group row increment">
                               
                             {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
 
-                                   <div class="input-group control-group" >
-          <input type="file" name="imagelist[]" class="form-control">
-          
+                  <div class="col-md-6">
+                                    <div class="input-group control-group">
+                                        <input type="file" name="imagelist[]" class="custom-file-input">
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                    </div>
+                                </div>
         </div>
+                        </div>
                               
-                            
-                        </div><!--form-group-->
-                        <div class="input-group-btn"> 
-            <button class="btn btn-success addmorepicture" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                        <div class="row">
+                            <div class="col-md-10 offset-md-2 input-group-btn"> 
+                                <button class="btn btn-primary addmorepicture" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
           </div>
+                        </div>   
+                         
                         
-                        <div class="form-group row">
-                          {{ html()->label(__('validation.attributes.backend.access.product.percentage'))->for('percentage') }}
-                                
-                                <div class="range-slider">
-  <input class="range-slider__range" name="rangeslider" type="range" value="20" min="20" max="100">
+                        
+                        <div class="form-group row range-slider-container">
+                            {{ html()->label(__('validation.attributes.backend.access.product.percentage'))->class('col-md-2 form-control-label align-self-end')->for('percentage') }}    
+                            <div class="range-slider col-md-6">
+                                <input class="range-slider__range" name="rangeslider" type="range" value="20" min="20" max="100">
   <span class="range-slider__value">20</span>
 </div>
                         
                </div>
                         
 <div class="form-group row">
-                          {{ html()->label(__('validation.attributes.backend.access.product.deliverymethod'))->for('deliverymethod') }}
+                            {{ html()->label(__('validation.attributes.backend.access.product.deliverymethod'))->class('col-md-2 form-control-label')->for('deliverymethod') }}
                                 
-                                <div class="col-md-10">
-                                    <select name="delivery">
+                                <div class="col-md-6">
+                                    <select name="delivery" class="form-control">
                                         <option value="">select</option>
                                         @foreach ($Adeliverys as $Adelivery)
                                         <option value={{ $Adelivery['id'] }}>{{ $Adelivery['name'] }}</option>
@@ -119,8 +122,11 @@
                               
                             {{ html()->label(__('validation.attributes.backend.access.product.pricelist'))->class('col-md-2 form-control-label')->for('pricelist') }}
 
-                                   <div class="col-md-10" >
-          <input type="file" name="pricelist" class="form-control">
+                                   <div class="col-md-6" >
+                                    <div class="input-group">
+                                    <input type="file" name="pricelist" class="custom-file-input">
+                                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                </div>
           
         </div>
                               
@@ -128,37 +134,54 @@
                         </div>
                         
                          <div class="form-group row">
-                              
                             {{ html()->label(__('validation.attributes.backend.access.product.offervalid'))->class('col-md-2 form-control-label')->for('offervalid') }}
-
-                                   <div class="col-md-10" >
-                                       
-                                        <input type="radio" name="toggle_option" checked value="1" /> Forever
-                    <input type="radio" name="toggle_option" value="2"  /> Timeperiod
-         
-        </div>
-   </div>
+                            <div class="col-md-10" >
+                                <div class="radio-toggle">
+                                     <input type="radio" name="toggle_option" value="1" id="timeperiod" checked="checked" />
+                                    <label for="timeperiod">Timeperiod</label>
+                                    <input type="radio" name="toggle_option" value="2" id="forever"  />
+                                    <label for="forever">Forever</label>
+                                   
+                                </div>
+                            </div>
+                        </div>
                         
-                        <div class="form-group row timeperiod hide">
-                              
-                            {{ html()->label(__('validation.attributes.backend.access.product.timefrom'))->class('col-md-2 form-control-label')->for('timefrom') }}
-
-                                   <div class="col-md-10 input-append date form_datetime" >
-          <input data-date-format="dd/mm/yyyy" id="datepickerfrom" name="datepickerfrom">
-          
-        </div>
-                            <div class="col-md-10 input-append date form_datetime" >
-          <input data-date-format="dd/mm/yyyy" id="datepickerto" name="datepickerto">
-          
-        </div>
-                              
-                            
+                        <div class="form-group row timeperiod">
+                            {{ html()->label(__('validation.attributes.backend.access.product.timeperiod'))->class('col-md-2 form-control-label')->for('timefrom') }}
+                            <div class="col-md-3">
+                                <div class="input-group date form_datetime">                                    
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input id="datepickerfrom"  placeholder=" {{ __('validation.attributes.backend.access.product.from') }}" name="datepickerfrom" class="form-control calendar-datepicker">
+                                </div>
+                            </div>
+                            <div class="col-md-3" >
+                                <div class="input-group date form_datetime">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input id="datepickerto" placeholder=" {{ __('validation.attributes.backend.access.product.to') }}" name="datepickerto" class="form-control calendar-datepicker">
+                                </div>
+                            </div>
                         </div>
                         
                         
                         
+                            
                         
-                        
+                              
+                        <div class="form-group row">
+                            {{ html()->label(__('validation.attributes.backend.access.product.confirmation'))->class('col-md-2 form-control-label')->for('offervalid') }}
+                            <div class="col-md-10" >
+                                <div class="radio-toggle">
+                                    <input type="radio" name="toggle_option_confirm" value="1" id="yes" checked="checked" />
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" name="toggle_option_confirm" value="2" id="no" />
+                                    <label for="no">No</label>
+                        </div>
+                            </div>
+                        </div>
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-body-->
@@ -166,7 +189,7 @@
             <div class="card-footer clearfix">
                 <div class="row">
                     <div class="col">
-                        {{ form_cancel(route('admin.auth.user.index'), __('buttons.general.cancel')) }}
+                        {{ form_cancel(route('admin.product'), __('buttons.general.cancel')) }}
                     </div><!--col-->
 
                     <div class="col text-right">
@@ -182,10 +205,19 @@
 <script src="<?php echo e(URL::asset('js/slider.js')); ?>"></script>
     <script>
         $(document).ready(function() {
+       var max_fields      = 5;
+       var intialval = 1; 
+       var clonehtml = '';
+      $(".addmorepicture").click(function(e){ 
+          e.preventDefault();
+        if(intialval < max_fields){ //max input box allowed
+            intialval++; //text box increment
+            if(clonehtml=='') {
+                clonehtml = $(".clone").html();
+            }
+            $(".clone").append(clonehtml); //add input box
+        }
 
-      $(".addmorepicture").click(function(){ 
-          var html = $(".clone").html();
-          $(".increment").after(html);
       });
       
       
@@ -195,10 +227,36 @@ rangeSlider();
     });
     
     $('input[name=toggle_option]').change(function() {
-                
-                alert($(this).val());
+                if($(this).val() == 2) {
+                    $('.timeperiod').hide()
+                }
+                else {
+                    $('.timeperiod').show()
+                }
             });
     
+    $('.custom-file-input').change(function (e) {
+            $(this).next('.custom-file-label').html(e.target.files[0].name);
+        });
+
+        $('#datepickerfrom').datetimepicker({
+            icons: {
+                time: 'far fa-clock'
+            },
+            format: 'DD/MM/YYYY'
+        });
+        $('#datepickerto').datetimepicker({
+            
+            icons: {
+                time: 'far fa-clock'
+            },
+            format: 'DD/MM/YYYY',
+           
+        });
+        
+        $("#datepickerfrom").on("dp.change", function (e) {
+            $('#datepickerto').data("DateTimePicker").minDate(e.date);
+        });
     </script>
     
 @endpush    

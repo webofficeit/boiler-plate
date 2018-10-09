@@ -171,6 +171,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            {{ html()->label(__('validation.attributes.backend.access.product.confirmation'))->class('col-md-2 form-control-label')->for('offervalid') }}
+                            <div class="col-md-10" >
+                                <div class="radio-toggle">
+                                    <input type="radio" name="toggle_option_confirm" value="1" id="yes" checked="checked" />
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" name="toggle_option_confirm" value="2" id="no" />
+                                    <label for="no">No</label>
+                                </div>
+                            </div>
+                        </div>
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-body-->
@@ -237,11 +249,13 @@
             icons: {
                 time: 'far fa-clock'
             },
+            format: 'DD/MM/YYYY'
         });
         $('#datepickerto').datetimepicker({
             icons: {
                 time: 'far fa-clock'
             },
+            format: 'DD/MM/YYYY'
         });
     
     </script>

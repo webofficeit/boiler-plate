@@ -39,9 +39,9 @@
                      
 
                       <div class="form-group row">
-                          {{ html()->label(__('validation.attributes.backend.access.category.description'))->for('description') }}
+                            {{ html()->label(__('validation.attributes.backend.access.category.description'))->class('col-md-2 form-control-label')->for('description') }}
                                 
-                                <div class="col-md-10">
+                            <div class="col-md-6">
                                     {{ html()->textarea('description')
                                         ->class('form-control')
                                         ->placeholder(__('validation.attributes.backend.access.category.descriptionplaceholder'))
@@ -52,7 +52,7 @@
                           <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.seo'))->class('col-md-2 form-control-label')->for('seo') }}
 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 {{ html()->text('seo')
                                     ->class('form-control')
                                     ->placeholder(__('validation.attributes.backend.access.category.seoplaceholder'))
@@ -65,9 +65,10 @@
                          <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.image'))->class('col-md-2 form-control-label')->for('image') }}
 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
+                                <div class="input-group">
                                  <input type="file" class= "form-control"  name="avatar" >
-                                    
+                                </div>   
                             </div><!--col-->
                         </div>
                         
@@ -78,7 +79,7 @@
             <div class="card-footer clearfix">
                 <div class="row">
                     <div class="col">
-                        {{ form_cancel(route('admin.auth.user.index'), __('buttons.general.cancel')) }}
+                        {{ form_cancel(route('admin.category'), __('buttons.general.cancel')) }}
                     </div><!--col-->
 
                     <div class="col text-right">

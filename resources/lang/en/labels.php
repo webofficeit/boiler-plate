@@ -53,7 +53,8 @@ return [
             ],
             'catalog' => [
                 'title'        => 'Catalog',
-                'category'     => 'Category'
+                'category'     => 'Category',
+                'product'      => 'Product'
             ],
             
             'category' => [
@@ -63,12 +64,22 @@ return [
                 'edit' => 'Edit',
                 'table' => [
                     'name' => 'Name',
-                    'description' => 'Description'
+                    'description' => 'Description',
+                    'total' => 'Category out of',
+                    'confirm' => 'Confirm'
                 ]
             ],
             'product' => [
                 'create' => 'Create Product',
-                'management' => 'Offer Product'
+                'management' => 'Offer Product',
+                'table' => [
+                    'name' => 'Name',
+                    'description' => 'Description',
+                    'category' => 'Category',
+                    'confirm' => 'Confirm',
+                    'total' => 'Product out of',
+                    'user' => 'User'
+                ],
             ],
 
             'users' => [

@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Backend\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Auth\User; 
 use Storage;
 use Response;
 
@@ -29,6 +30,7 @@ class CategoryController extends Controller {
      * @var UserRepository
      */
     protected $categoryRepository;
+    
 
     /**
      * RegisterController constructor.
@@ -43,9 +45,14 @@ class CategoryController extends Controller {
     /**
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(User $user)
     {
-        $catogorylists = Category::where('user_id', Auth::user()->id)->get();
+        
+        if ($user::find(Auth::user()->id)->isAdmin()) {
+           $catogorylists = Category::paginate(10); 
+        } else {
+        $catogorylists = Category::where('user_id', Auth::user()->id)->paginate(15);
+        }
         
         return view('backend.catalog.category.index', compact('catogorylists'));
                 
@@ -74,7 +81,7 @@ class CategoryController extends Controller {
 
         
 
-        return redirect()->route('admin.category')->withFlashSuccess(__('strings.frontend.user.profile_updated'));
+        return redirect()->route('admin.category')->withFlashSuccess(__('strings.frontend.catalog.category_updated'));
     }
     
     public function edit(Request $request)
@@ -109,6 +116,6 @@ class CategoryController extends Controller {
     {
         
       $this->categoryRepository->saveCategory($request);  
-      return redirect()->route('admin.category')->withFlashSuccess(__('strings.frontend.user.profile_updated'));
+      return redirect()->route('admin.category')->withFlashSuccess(__('strings.frontend.catalog.category_updated'));
     }
 }

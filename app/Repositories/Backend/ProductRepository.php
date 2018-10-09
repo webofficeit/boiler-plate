@@ -41,6 +41,7 @@ class ProductRepository extends BaseRepository {
     public function update(array $data) 
     {
         try {
+            dd($data);
             $current_user = Auth::user()->id;
             
             if (isset($data['pricelist'])) {
@@ -79,6 +80,10 @@ class ProductRepository extends BaseRepository {
 'product_offer_id' => $productoffer->id
  
 ]);
+        }
+        
+        if (isset($data['toggle_option'])) {
+                
         }
         }
         catch (Exception $e) {

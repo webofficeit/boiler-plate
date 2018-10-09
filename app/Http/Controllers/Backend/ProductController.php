@@ -17,6 +17,7 @@ use App\Http\Requests\Backend\UpdateProductRequest;
 use App\Repositories\Backend\ProductRepository;
 use App\Models\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 /**
  * Description of ProductController
  *
@@ -32,18 +33,25 @@ class ProductController extends Controller {
     /**
      * @return \Illuminate\View\View
      */
-    public function index()
-    {
-        $productlists = ProductOffer::all();
-        
-        
+    public function index(User $user)
+    { 
+        if ($user::find(Auth::user()->id)->isAdmin()) {
+           $productlists = ProductOffer::paginate(15); 
+        } else {
+        $productlists = ProductOffer::where('user_id', Auth::user()->id)->paginate(15);
+        }
         return view('backend.catalog.product.index', compact('productlists'));
         
     }
     
-    public function store()
+    public function store(User $user)
     {
-        $categorylist = Category::all();
+        
+        if ($user::find(Auth::user()->id)->isAdmin()) {
+           $categorylist = Category::all(); 
+        } else {
+        $categorylist = Category::where('user_id', Auth::user()->id)->get();
+        }
         $Acategorys=[];
         foreach($categorylist as $keycategory => $valuecategory) {
             $Acategorys[$keycategory]=[
@@ -71,9 +79,9 @@ class ProductController extends Controller {
     
     public function update(UpdateProductRequest $request)
     {
-       //echo "<pre>"; print_r($request->rangeslider); exit();
+       
         $output = $this->productRepository->update(
-            $request->only('name', 'descriptionoffer', 'category', 'descriptionbussiness','imagelist','rangeslider','delivery','pricelist','toggle_option','datepickerfrom','datepickerto')
+            $request->only('name', 'descriptionoffer', 'category', 'descriptionbussiness','imagelist','rangeslider','delivery','pricelist','toggle_option','datepickerfrom','datepickerto','toggle_option_confirm')
             
         );
 
