@@ -21,6 +21,9 @@ return [
                 'title'        => 'Catalog',
                 'category'     => 'Category'
             ],
+            'category'=> [
+               'edit' => 'Edit' 
+            ],
 
             'roles' => [
                 'all'        => 'All Roles',

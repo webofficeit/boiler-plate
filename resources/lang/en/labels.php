@@ -58,7 +58,13 @@ return [
             
             'category' => [
                 'create' => 'Create Category',
-                'offerservicemanagement' => 'Offer Service'
+                'offerservicemanagement' => 'Offer Service',
+                'management' => 'Category',
+                'edit' => 'Edit',
+                'table' => [
+                    'name' => 'Name',
+                    'description' => 'Description'
+                ]
             ],
             'product' => [
                 'create' => 'Create Product',
@@ -97,6 +103,7 @@ return [
                     'roles'          => 'Roles',
                     'social'         => 'Social',
                     'total'          => 'user total|users total',
+                    'accountype'     => 'Account Type'
                 ],
 
                 'tabs' => [

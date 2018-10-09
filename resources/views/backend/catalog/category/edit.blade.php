@@ -69,7 +69,7 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.image'))->class('col-md-2 form-control-label')->for('image') }}
 
-                            <div class="col-md-10">
+                            <div class="col-md-10">{{$category->picture}}
                                 <div class="input-group">
                                     <input type="file" class= "form-control custom-file-input"  name="avatar" >
                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
@@ -77,7 +77,7 @@
                                 @if($category->picture)
                                     <div class="img-wrap">
                                         <span class="close">&times;</span>
-                                        <img src="{{ $category->picture  }}"  >
+                                        <img src="{{ url('storage/category/'.Auth::user()->id.'/'.$category->picture)  }}"  >
                                     </div>   
                                  @endif                                 
                             </div><!--col-->

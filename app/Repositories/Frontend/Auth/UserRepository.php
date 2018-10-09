@@ -380,8 +380,8 @@ foreach($data['avatar_location'] as $media)
             if(!empty($media))
             {
             $filename = $media->getClientOriginalName();
-            $path = $media->storeAs('register-doc', $filename);
-            $filedetails[] = $path; 
+            $path = $media->storeAs('/public/register-doc', $filename);
+            $filedetails[] = $filename; 
             
             }
         }

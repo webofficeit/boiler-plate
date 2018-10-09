@@ -47,8 +47,8 @@ class ProductRepository extends BaseRepository {
             
                 
                 $filename = $data['pricelist']->getClientOriginalName();
-            $path = $data['pricelist']->storeAs('category/product/'.$current_user.'/doc', $filename);
-            $filedetails = $path; 
+            $path = $data['pricelist']->storeAs('/public/category/product/'.$current_user.'/doc', $filename);
+            $filedetails = $filename; 
             
              }
             
@@ -70,8 +70,8 @@ class ProductRepository extends BaseRepository {
             foreach($data['imagelist'] as $imagefile) {
                 
                 $filename = $imagefile->getClientOriginalName();
-            $path = $imagefile->storeAs('category/product/'.$current_user.'/images', $filename);
-            $imagedetails[] = $path; 
+            $path = $imagefile->storeAs('/public/category/product/'.$current_user.'/images', $filename);
+            $imagedetails[] = $filename; 
             }
             Offerimage::create([
 
@@ -102,8 +102,8 @@ class ProductRepository extends BaseRepository {
             
                 
                 $filename = $request->pricelist->getClientOriginalName();
-            $path = $request->pricelist->storeAs('category/product/'.$current_user.'/doc', $filename);
-            $filedetails = $path; 
+            $path = $request->pricelist->storeAs('/public/category/product/'.$current_user.'/doc', $filename);
+            $filedetails = $filename; 
             
              }
         
@@ -123,8 +123,8 @@ class ProductRepository extends BaseRepository {
             foreach($request->imagelist as $imagefile) {
                 
                 $filename = $imagefile->getClientOriginalName();
-            $path = $imagefile->storeAs('category/product/'.$current_user.'/images', $filename);
-            $imagedetails[] = $path; 
+            $path = $imagefile->storeAs('/public/category/product/'.$current_user.'/images', $filename);
+            $imagedetails[] = $filename; 
             }
             $Offerimage = Offerimage::where('product_offer_id', $request->prodid)->get();
             

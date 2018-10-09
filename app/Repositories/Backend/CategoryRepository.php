@@ -39,8 +39,8 @@ class CategoryRepository extends BaseRepository {
             $filedetails = '';
         if (isset($data['avatar'])) {
                 $filename = $data['avatar']->getClientOriginalName();
-            $path = $data['avatar']->storeAs('category/'.$current_user, $filename);
-            $filedetails = $path; 
+            $path = $data['avatar']->storeAs('/public/category/'.$current_user, $filename);
+            $filedetails = $filename; 
             
         }
         
@@ -65,8 +65,8 @@ class CategoryRepository extends BaseRepository {
             if (isset($request->avatar)) {
               
                 $filename = $request->avatar->getClientOriginalName();
-            $path = $request->avatar->storeAs('category/'.$current_user, $filename);
-            $filedetails = $path; 
+            $path = $request->avatar->storeAs('/public/category/'.$current_user, $filename);
+            $filedetails = $filename; 
             
              }
         

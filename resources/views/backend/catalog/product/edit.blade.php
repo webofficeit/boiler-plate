@@ -83,7 +83,7 @@
                                 <div class="col-md-2">
                                     <div class="img-wrap" data-id = {{$keypicture}}>
                                         <span class="close">&times;</span>
-                                        <img src="{{ url('storage/'.$picture) }}" class="img-fluid" >
+                                        <img src="{{ url('storage/category/product/'.$picture) }}" class="img-fluid" >
                                     </div>
                                 </div>
                             </div><!--form-group-->

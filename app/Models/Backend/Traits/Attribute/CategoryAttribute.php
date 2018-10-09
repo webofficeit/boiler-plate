@@ -50,7 +50,7 @@ trait CategoryAttribute
     public function getPictureAttribute()
     {
        if($this->avathar!='')
-        return url('storage/'.$this->avathar);
+        return $this->avathar;
        return null;
     }
 }

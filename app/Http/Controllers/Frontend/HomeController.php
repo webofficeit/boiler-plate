@@ -29,7 +29,7 @@ class HomeController extends Controller
         foreach ($partner as $partnerkey => $partnervalue) {
             
             if($partnervalue->avatar_location!='') {
-                $this->profileavatar = 'storage/'.$partnervalue->avatar_location;
+                $this->profileavatar = 'storage/public/'.$partnervalue->avatar_location;
             }
             $tempMap = [
                 'id'=>$partnervalue->first_name." ".$partnervalue->last_name,
@@ -59,7 +59,7 @@ class HomeController extends Controller
         foreach($productresult as $prodkey => $prodvalue) {
             $userDetails = $productresult->find($prodvalue->id)->users;
             if($userDetails->avatar_location!='') {
-                $this->profileavatar = 'storage/'.$userDetails->avatar_location;
+                $this->profileavatar = 'storage/public/'.$userDetails->avatar_location;
             }
             $tempMap = [
                 'id'=>$userDetails->first_name." ".$userDetails->last_name,
