@@ -43,7 +43,7 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.description'))->class('col-md-2 form-control-label')->for('description') }}
                                 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 {{ html()->textarea('description')
                                     ->class('form-control')
                                     ->value($category->description)
@@ -55,7 +55,7 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.seo'))->class('col-md-2 form-control-label')->for('seo') }}
 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 {{ html()->text('seo')
                                     ->class('form-control')
                                     ->placeholder(__('validation.attributes.backend.access.category.seoplaceholder'))
@@ -69,18 +69,20 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.category.image'))->class('col-md-2 form-control-label')->for('image') }}
 
-                            <div class="col-md-10">
+                            <div class="col-md-6">
                                 <div class="input-group">
                                     <input type="file" class= "form-control custom-file-input"  name="avatar" >
                                     <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                 </div>
-                                @if($category->picture)
+                            </div><!--col-->
+                            @if($category->picture)
+                                <div class="col-md-2">
                                     <div class="img-wrap">
                                         <span class="close">&times;</span>
                                         <img src="{{ $category->picture  }}"  >
-                                    </div>   
-                                 @endif                                 
-                            </div><!--col-->
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         
                     </div><!--col-->
