@@ -69,10 +69,21 @@
                                          }}
                                          </div>
                             </div>
-                        
+                        <div class="image-list">
+                        <div class="form-group row increment">
+                              
+                            {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
+
+                  <div class="col-md-6">
+                                    <div class="input-group control-group">
+                                        <input type="file" name="imagelist[]" class="custom-file-input">
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                    </div>
+                                </div>
+                        </div>   </div>
                  
-                        <div class='clone'>
-                          <div class="form-group row increment">
+                        <div class='clone d-none'>
+                          <div class="form-group row">
                               
                             {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
 
@@ -170,7 +181,7 @@
                         
                             
                         
-                              
+                          @if ($logged_in_user->isAdmin())    
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.confirmation'))->class('col-md-2 form-control-label')->for('offervalid') }}
                             <div class="col-md-10" >
@@ -182,6 +193,7 @@
                         </div>
                             </div>
                         </div>
+                          @endif
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-body-->
@@ -215,7 +227,8 @@
             if(clonehtml=='') {
                 clonehtml = $(".clone").html();
             }
-            $(".clone").append(clonehtml); //add input box
+            
+            $(".image-list").append(clonehtml); //add input box
         }
 
       });
@@ -235,9 +248,11 @@ rangeSlider();
                 }
             });
     
-    $('.custom-file-input').change(function (e) {
+
+        $(document).on('change', '.custom-file-input', function(e) {
+  console.log(e.target);
             $(this).next('.custom-file-label').html(e.target.files[0].name);
-        });
+});
 
         $('#datepickerfrom').datetimepicker({
             icons: {

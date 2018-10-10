@@ -141,7 +141,8 @@ return [
             'password_updated' => 'Password successfully updated.',
         ],
         'catalog' => [
-            'category_updated' => 'Category successfully updated.'
+            'category_updated' => 'Category successfully updated.',
+            'product_updated' => 'Product successfully updated.'
         ],
 
         'welcome_to' => 'Welcome to :place',

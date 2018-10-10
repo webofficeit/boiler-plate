@@ -14,7 +14,7 @@
                     <div class="col-sm-5">
                         <h4 class="card-title mb-0">
                             @lang('labels.backend.access.product.management')
-                            <small class="text-muted">@lang('labels.backend.access.product.create')</small>
+                            <small class="text-muted">@lang('labels.backend.access.product.edit')</small>
                         </h4>
                     </div><!--col-->
                 </div><!--row-->
@@ -70,9 +70,12 @@
                                         }}
                             </div>
                         </div>
-                 
-                        @foreach ($product->picture as $keypicture => $picture)
-                            <div class="form-group row">                              
+                        
+                 <div class="image-list">
+                     
+                        @forelse ($product->picture as $keypicture => $picture)
+                        
+                            <div class="form-group row increment">                              
                                 {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
                                 <div class="col-md-6">
                                     <div class="input-group control-group">
@@ -83,20 +86,39 @@
                                 <div class="col-md-2">
                                     <div class="img-wrap" data-id = {{$keypicture}}>
                                         <span class="close">&times;</span>
-                                        <img src="{{ url('storage/category/product/'.$picture) }}" class="img-fluid" >
+                                        <img src="{{ url('storage/category/product/'.Auth::user()->id.'/images/'.$picture) }}" class="img-fluid" >
                                     </div>
                                 </div>
                             </div><!--form-group-->
-                        @endforeach
                         
-                        <div class="form-group row increment clone hide">
+                        @empty
+              <div class="form-group row increment">
                               
                             {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
 
-                            <div class="input-group control-group">
-                                <input type="file" name="imagelist[]" class="custom-file-input">
-                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                            </div>
+                  <div class="col-md-6">
+                                    <div class="input-group control-group imagelist">
+                                        <input type="file" name="imagelist[]" class="custom-file-input">
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                    </div>
+                                </div>
+        </div>
+@endforelse
+                        </div>
+                        
+                        
+                        <div class='clone d-none'>
+                          <div class="form-group row increment">
+                              
+                            {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
+
+                  <div class="col-md-6">
+                                    <div class="input-group control-group imagelist">
+                                        <input type="file" name="imagelist[]" class="custom-file-input">
+                                        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                    </div>
+                                </div>
+        </div>
                         </div>
                         
                         <div class="row">
@@ -136,7 +158,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">                    
-                                <a href="{{ URL::to( 'storage/' . $product->pricelistdocument)  }}" target="_blank"> {{ str_after(str_replace_last('/','#',$product->pricelistdocument, '/'),'#') }} </a>
+                                <a href="{{ URL::to( 'storage/category/product/'.Auth::user()->id.'/doc/'.$product->pricelistdocument)  }}" target="_blank"> {{ str_after(str_replace_last('/','#',$product->pricelistdocument, '/'),'#') }} </a>
                             </div>
                         </div>
                         
@@ -144,16 +166,19 @@
                             {{ html()->label(__('validation.attributes.backend.access.product.offervalid'))->class('col-md-2 form-control-label')->for('offervalid') }}
                             <div class="col-md-10" >
                                 <div class="radio-toggle">
-                                    <input type="radio" name="toggle_option" value="1" id="forever" checked="checked" />
-                                    <label for="forever">Forever</label>
-                                    <input type="radio" name="toggle_option" value="2" id="timeperiod" />
+                                    <input type="radio" name="toggle_option" value="1" {{($product->Offertype)&&($product->Offertype[0]->type == 1) ? 'checked':''}} id="timeperiod" />
                                     <label for="timeperiod">Timeperiod</label>
+                                    
+                                    <input type="radio" name="toggle_option" value="2" id="forever" {{($product->Offertype)&&($product->Offertype[0]->type == 2) ? 'checked':''}}  />
+                                    <label for="forever">Forever</label>
+                                    
                                 </div>
                             </div>
                         </div>
-                                    
-                        <div class="form-group row timeperiod ">
-                            {{ html()->label(__('validation.attributes.backend.access.product.timefrom'))->class('col-md-2 form-control-label')->for('timefrom') }}
+                           
+                        
+                        <div class="form-group row timeperiod">
+                            {{ html()->label(__('validation.attributes.backend.access.product.timeperiod'))->class('col-md-2 form-control-label')->for('timeperiod') }}
                             <div class="col-md-3">
                                 <div class="input-group date form_datetime">                                    
                                     <div class="input-group-prepend">
@@ -171,14 +196,15 @@
                                 </div>
                             </div>
                         </div>
+                        
 
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.confirmation'))->class('col-md-2 form-control-label')->for('offervalid') }}
                             <div class="col-md-10" >
                                 <div class="radio-toggle">
-                                    <input type="radio" name="toggle_option_confirm" value="1" id="yes" checked="checked" />
+                                    <input type="radio" name="toggle_option_confirm" value="1" id="yes"   {{($product->confirmed == 1) ? 'checked':''}} />
                                     <label for="yes">Yes</label>
-                                    <input type="radio" name="toggle_option_confirm" value="2" id="no" />
+                                    <input type="radio" name="toggle_option_confirm" value="0" {{($product->confirmed == 0) ? 'checked':''}} id="no" />
                                     <label for="no">No</label>
                                 </div>
                             </div>
@@ -190,11 +216,11 @@
             <div class="card-footer clearfix">
                 <div class="row">
                     <div class="col">
-                        {{ form_cancel(route('admin.auth.user.index'), __('buttons.general.cancel')) }}
+                        {{ form_cancel(route('admin.product'), __('buttons.general.cancel')) }}
                     </div><!--col-->
 
                     <div class="col text-right">
-                        {{ form_submit(__('buttons.general.crud.edit')) }}
+                        {{ form_submit(__('buttons.general.crud.update')) }}
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-footer-->
@@ -206,12 +232,27 @@
     <script src="<?php echo e(URL::asset('js/slider.js')); ?>"></script>
     <script>
         $(document).ready(function() {
-            $(".hide").hide();
-            $(".addmorepicture").click(function(){ 
-                $("this .hide").show();
-                var html = $(".clone").html();
-                $(".increment").after(html);
-            });   
+            
+            if({{$product->Offertype[0]->type}} == 2) {
+                $('.timeperiod').hide()
+            }
+            
+            var max_fields = 5;
+       var intialval = $('.increment:visible').length; 
+       var clonehtml = '';
+      $(".addmorepicture").click(function(e){ 
+          e.preventDefault();
+        if(intialval < max_fields){ //max input box allowed
+            intialval++; //text box increment
+            
+            if(clonehtml=='') {
+                clonehtml = $(".clone").html();
+            }
+            
+            $(".image-list").append(clonehtml); //add input box
+        }
+
+      });   
             rangeSlider();
 
             $(".close").click(function() {
@@ -237,25 +278,43 @@
             });
         });
     
-        $('input[name=toggle_option]').change(function() {
-            alert($(this).val());
-        });
+         $('input[name=toggle_option]').change(function() {
+                if($(this).val() == 2) {
+                    $('.timeperiod').hide()
+                }
+                else {
+      
+                    $('.timeperiod').show()
+                   
+                }
+            });
 
-        $('.custom-file-input').change(function (e) {
+             $(document).on('change', '.custom-file-input', function(e) {
             $(this).next('.custom-file-label').html(e.target.files[0].name);
-        });
-
-        $('#datepickerfrom').datetimepicker({
+});
+      
+       $('#datepickerfrom').datetimepicker({
             icons: {
                 time: 'far fa-clock'
             },
-            format: 'DD/MM/YYYY'
+            format: 'DD/MM/YYYY',
+            defaultDate: '{{$product->Offertype[0]->datefrom}}'
+            
+            
         });
         $('#datepickerto').datetimepicker({
+            
             icons: {
                 time: 'far fa-clock'
             },
-            format: 'DD/MM/YYYY'
+            format: 'DD/MM/YYYY',
+            defaultDate:'{{$product->Offertype[0]->dateto}}'
+           
+        });
+        
+        $("#datepickerfrom").on("dp.change", function (e) {
+            
+            $('#datepickerto').data("DateTimePicker").minDate(e.date);
         });
     
     </script>

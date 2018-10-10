@@ -17,6 +17,9 @@ Breadcrumbs::for('admin.product.edit', function ($trail, $id) {
     $trail->parent('admin.product');
     $trail->push(__('menus.backend.access.product.edit'), route('admin.product.edit', $id));
 });
+Breadcrumbs::for('admin.product.confirm', function ($trail) {
+    $trail->push(__('strings.backend.product.offer.title'), route('admin.product.confirm'));
+});
 
 require __DIR__.'/auth.php';
 require __DIR__.'/log-viewer.php';

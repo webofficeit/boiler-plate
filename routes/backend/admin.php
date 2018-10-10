@@ -19,7 +19,7 @@ Route::post('category/editupdate', [CategoryController::class, 'editupdate'])->n
 Route::post('product/editupdate', [ProductController::class, 'editupdate'])->name('product.editupdate');
 Route::post('category/updateimage', [CategoryController::class, 'updateimage'])->name('category.updateimage');
 Route::post('product/updateimage', [ProductController::class, 'updateimage'])->name('product.updateimage');
-
+Route::get('product/confirm', [ProductController::class, 'confirmindex'])->name('product.confirm');
 
 Route::group(['prefix' => 'category/{category}'], function () {
             Route::get('edit', [CategoryController::class, 'edit'])->name('category.edit');

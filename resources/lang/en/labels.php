@@ -54,7 +54,8 @@ return [
             'catalog' => [
                 'title'        => 'Catalog',
                 'category'     => 'Category',
-                'product'      => 'Product'
+                'product'      => 'Product',
+                'confirm'      => 'Product Confirmation'
             ],
             
             'category' => [
@@ -71,6 +72,7 @@ return [
             ],
             'product' => [
                 'create' => 'Create Product',
+                'edit' => 'Edit Product',
                 'management' => 'Offer Product',
                 'table' => [
                     'name' => 'Name',

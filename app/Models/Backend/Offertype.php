@@ -28,5 +28,5 @@ class Offertype extends Model {
      *
      * @var array
      */
-    protected $fillable = ['type', 'datefrom', 'dateto', 'productofferid'];
+    protected $fillable = ['type', 'datefrom', 'dateto', 'product_offer_id'];
 }

@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
 use App\Models\Backend\Offerimage;
+use App\Models\Backend\Offertype;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 /**
  * Description of ProductRepository
@@ -41,7 +43,7 @@ class ProductRepository extends BaseRepository {
     public function update(array $data) 
     {
         try {
-            dd($data);
+            
             $current_user = Auth::user()->id;
             
             if (isset($data['pricelist'])) {
@@ -62,8 +64,9 @@ class ProductRepository extends BaseRepository {
                 'girapercentage'           => $data['rangeslider'],
             'deliverymethodid'           => $data['delivery'],
             'pricelistdocument'           => isset($data['pricelist'])?$filedetails:'',
-            'user_id' => Auth::user()->id,
+            'user_id' => $current_user,
             'toggle_option'           => $data['toggle_option'],
+            'confirmed' => isset($data['toggle_option_confirm'])?$data['toggle_option_confirm']:0,
                 
             ]);
         if (isset($data['imagelist'])) {
@@ -81,9 +84,16 @@ class ProductRepository extends BaseRepository {
  
 ]);
         }
-        
+       
         if (isset($data['toggle_option'])) {
-                
+             Offertype::create([
+
+'type' => $data['toggle_option'],
+'datefrom' =>($data['datepickerfrom']!='')?Carbon::createFromFormat('d/m/Y', $data['datepickerfrom'])->toDateString():null,
+ 'dateto' => ($data['datepickerto']!='')?Carbon::createFromFormat('d/m/Y', $data['datepickerto'])->toDateString():null,
+ 'product_offer_id' =>  $productoffer->id               
+ 
+]);   
         }
         }
         catch (Exception $e) {
@@ -121,6 +131,7 @@ class ProductRepository extends BaseRepository {
         $productoffer->deliverymethodid = $request->delivery;
         $productoffer->pricelistdocument = isset($request->pricelist)?$filedetails:'';
         $productoffer->user_id = Auth::user()->id;
+        $productoffer->confirmed = isset($request->toggle_option_confirm)?$request->toggle_option_confirm:0;
         $productoffer->save();
         
         if (isset($request->imagelist)) {
@@ -149,6 +160,16 @@ class ProductRepository extends BaseRepository {
 ]);
             }
             
+           
+            
+        }
+        
+        if (isset($request->toggle_option)) {
+            $Offertype = Offertype::where('product_offer_id', $request->prodid)->get(); 
+            $Offertype[0]->type = $request->toggle_option;
+            $Offertype[0]->datefrom = ($request->toggle_option==1)?Carbon::createFromFormat('d/m/Y', $request->datepickerfrom)->toDateString():null;
+            $Offertype[0]->dateto = ($request->toggle_option==1)?Carbon::createFromFormat('d/m/Y', $request->datepickerto)->toDateString():null;
+            $Offertype[0]->save();
         }
         
     }

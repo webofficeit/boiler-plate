@@ -35,6 +35,7 @@ class UpdateProductRequest extends FormRequest {
         
         return [
             'name'  => 'required|max:191',
+            'category' => 'required',
             'imagelist.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'pricelist' => 'mimes:doc,pdf,docx',
             'datepickerfrom' => 'required_if:toggle_option,==,1',

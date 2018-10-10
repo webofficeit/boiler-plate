@@ -44,6 +44,15 @@ class ProductController extends Controller {
         
     }
     
+     public function confirmindex(User $user)
+    { 
+        if ($user::find(Auth::user()->id)->isAdmin()) {
+           $productlists = ProductOffer::where('confirmed', 0)->paginate(15); 
+        } 
+        return view('backend.catalog.product.confirm', compact('productlists'));
+        
+    }
+    
     public function store(User $user)
     {
         
@@ -87,12 +96,12 @@ class ProductController extends Controller {
 
         
 
-        return redirect()->route('admin.product')->withFlashSuccess(__('strings.frontend.user.profile_updated'));
+        return redirect()->route('admin.product')->withFlashSuccess(__('strings.frontend.catalog.product_updated'));
     }
     
     public function edit(Request $request)
     {
-        
+      
        $paramId = \Crypt::decryptString($request->product);
        $product = ProductOffer::where('id',$paramId)->first();
       
@@ -150,6 +159,6 @@ class ProductController extends Controller {
     public function editupdate(Request $request)
     {
       $this->productRepository->saveProduct($request);  
-      return redirect()->route('admin.product')->withFlashSuccess(__('strings.frontend.user.profile_updated'));
+      return redirect()->route('admin.product')->withFlashSuccess(__('strings.frontend.catalog.product_updated'));
     }
 }
