@@ -66,7 +66,8 @@ class RegisterController extends Controller
         if($request->input('registration_type')=='1') {
             $user = $this->userRepository->create($request->only('registration_type','first_name', 'last_name', 'email', 'address', 'phone', 'password','latitude','longitude'));
         } else {
-            $user = $this->userRepository->create($request->only('registration_type','first_name', 'last_name', 'email', 'address', 'phone', 'web_site','latitude','longitude','bussiness_description','avatar_location', 'password'));
+            
+            $user = $this->userRepository->create($request->only('registration_type','first_name', 'last_name', 'email', 'address', 'phone', 'web_site','latitude','longitude','bussiness_description','avatar_location','bussinesskyc', 'password'));
           
         }
         //exit();

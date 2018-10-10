@@ -5,6 +5,8 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
+use App\Http\Controllers\Frontend\CategoryController;
+use App\Http\Controllers\Frontend\ProductController;
 
 /*
  * Frontend Controllers
@@ -13,6 +15,9 @@ use App\Http\Controllers\Frontend\User\DashboardController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
+Route::post('ammap/search', [HomeController::class, 'searchmap'])->name('ammap.search');
+Route::get('category/{id}', [CategoryController::class, 'index'])->name('category/{id}');
+Route::get('product/{slug}', [ProductController::class, 'index'])->name('product/{slug}');
 
 /*
  * These frontend controllers require the user to be logged in
@@ -36,6 +41,6 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
          */
         Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
         
-        Route::post('ammap/search', [HomeController::class, 'searchmap'])->name('ammap.search');
+        
     });
 });

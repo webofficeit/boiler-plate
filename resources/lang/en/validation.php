@@ -235,7 +235,10 @@ return [
             'address'                   => 'Address',
             'web_site'                  => 'WebSite',
             'bussiness_description'     => 'Bussiness Description',
-            'business_registration_papers' => 'Business Registration Papers'
+            'business_registration_papers' => 'Business Registration Papers',
+            'productsearch' => 'Offer search',
+            'latitude' => 'latitude',
+            'longitude' => 'longitude'
         ],
     ],
 ];

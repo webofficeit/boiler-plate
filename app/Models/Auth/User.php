@@ -45,6 +45,7 @@ class User extends Authenticatable
         'bussiness_description',
         'account_type',
         'website',
+        'bussiness_kyc',
         'bussiness_description',
         'avatar_type',
         'avatar_location',

@@ -48,8 +48,9 @@ class HomeController extends Controller
         }
        
         $partner = json_encode($partnerMap);
+        $users = User::orderBy('id','desc')->paginate(5);
         
-        return view('frontend.index', compact('partner'));
+        return view('frontend.index', compact('partner','users'));
     }
     
     public function searchmap(Request $request) {

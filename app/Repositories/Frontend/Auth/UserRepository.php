@@ -16,6 +16,7 @@ use App\Events\Frontend\Auth\UserProviderRegistered;
 use App\Notifications\Frontend\Auth\UserNeedsConfirmation;
 use Validator;
 use App\Models\Auth\BussinessRegistrationDoc;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class UserRepository.
@@ -93,7 +94,17 @@ class UserRepository extends BaseRepository
      */
     public function create(array $data)
     {
+         
         return DB::transaction(function () use ($data) {
+            if(isset($data['bussinesskyc'])) {
+                foreach($data['bussinesskyc'] as $bussfile) {
+                
+                $filename = time().'.'.$bussfile->getClientOriginalName();
+            $path = $bussfile->storeAs('/public/userinfo', $filename);
+            $bussinessdetails[] = $filename; 
+            }
+            $dockyc = json_encode($bussinessdetails);
+            }
             if($data['registration_type']==1) {
             $user = parent::create([
                 'first_name'        => $data['first_name'],
@@ -122,6 +133,7 @@ class UserRepository extends BaseRepository
                 'longitude'         => $data['longitude'],
                 'account_type'      => $data['registration_type'],
                 'website'           => $data['web_site'],
+                'bussiness_kyc'     =>(isset($data['bussinesskyc']))?$dockyc:null,
                 'bussiness_description'  => $data['bussiness_description'],
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'active'            => 1,
