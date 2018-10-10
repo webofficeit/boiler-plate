@@ -17,15 +17,20 @@
                     
                     <div class="row">
         <div class="col">
-            <div class="form-group">
-               {{ html()->label(__('validation.attributes.frontend.accounttype'))->for('accounttype') }}
-                <div>
-                    <input type="radio" name="registration_type" checked value="1" /> Private
-                    <input type="radio" name="registration_type" value="2"  /> Business
-
-                    
-                </div>
-            </div><!--form-group-->
+            <div class="form-group row">
+                            {{ html()->label(__('validation.attributes.frontend.accounttype'))->class('col-md-2 form-control-label')->for('accounttype') }}
+                            <div class="col-md-10" >
+                                <div class="radio-toggle">
+                                   <input type="radio" name="registration_type" checked value="1" />
+                                    <label for="private">Private</label>
+                                    
+                                    <input type="radio" name="registration_type" value="2"  />
+                                    <label for="bussiness">Business</label>
+                                    
+                                </div>
+                            </div>
+                        </div>
+            
 
             
         </div><!--col-->

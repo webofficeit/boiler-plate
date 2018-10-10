@@ -37,7 +37,7 @@
                                 @endif
                             </a>
                         </li>
-<!--                        <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link {{ active_class(Active::checkUriPattern('admin/product/confirm')) }}" href="{{ route('admin.product.confirm') }}">
                                 @lang('labels.backend.access.catalog.confirm')
 
@@ -45,7 +45,7 @@
                                     <span class="badge badge-danger">{{ $pending_approval }}</span>
                                 @endif
                             </a>
-                        </li>-->
+                        </li>
                     </ul>
             </li>
 

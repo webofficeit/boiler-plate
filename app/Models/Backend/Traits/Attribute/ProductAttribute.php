@@ -12,6 +12,9 @@ trait ProductAttribute
      */
     public function getEditButtonAttribute()
     {
+        //dd(url()->previous());
+        
+
         
         return '<a href="'.route('admin.product.edit', \Crypt::encryptString($this->id)).'" class="btn btn-primary"><i class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="'.__('buttons.general.crud.edit').'"></i></a>';
     }

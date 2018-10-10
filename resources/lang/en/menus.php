@@ -22,7 +22,10 @@ return [
                 'category'     => 'Category'
             ],
             'category'=> [
-               'edit' => 'Edit' 
+               'edit' => 'Category Edit' 
+            ],
+            'product' => [
+                'edit' => 'Offer Edit'
             ],
 
             'roles' => [

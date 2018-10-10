@@ -24,6 +24,7 @@
                 <div class="row mt-4 mb-4">
                     <div class="col">
                         <input type='hidden' id="prodid" name="prodid" value="{{$product->id}}">
+                        <input type='hidden' id="prevoiusurl" name="prevoiusurl" value="{{$isconfirm}}">
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.name'))->class('col-md-2 form-control-label')->for('name') }}
 

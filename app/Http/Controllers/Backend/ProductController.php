@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Auth;
  * @author dell
  */
 class ProductController extends Controller {
+    
+    
    
     public function __construct(ProductRepository $productRepository)
     {
@@ -101,6 +103,10 @@ class ProductController extends Controller {
     
     public function edit(Request $request)
     {
+        $isconfirm = '';
+        if (strpos(url()->previous(), 'product/confirm') !== false) {
+          $isconfirm  = 'productconfirm';
+     }
       
        $paramId = \Crypt::decryptString($request->product);
        $product = ProductOffer::where('id',$paramId)->first();
@@ -125,9 +131,9 @@ class ProductController extends Controller {
             ];
             
         }
+       $previous1 = 1;
        
-       
-       return view('backend.catalog.product.edit', compact('product','Adeliverys','Acategorys'));
+       return view('backend.catalog.product.edit', compact('product','Adeliverys','Acategorys','isconfirm'));
         
     }
     
@@ -158,7 +164,13 @@ class ProductController extends Controller {
     
     public function editupdate(Request $request)
     {
-      $this->productRepository->saveProduct($request);  
+       
+      $this->productRepository->saveProduct($request); 
+     
+      if ($request->prevoiusurl  == 'productconfirm') {
+          
+        return redirect()->route('admin.product.confirm')->withFlashSuccess(__('strings.frontend.catalog.product_updated'));
+}
       return redirect()->route('admin.product')->withFlashSuccess(__('strings.frontend.catalog.product_updated'));
     }
 }
