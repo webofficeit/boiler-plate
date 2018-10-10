@@ -3,10 +3,17 @@
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
 @section('content')
-    <div id="chartdiv"></div>
-    <div >
-        <button class="search-bar"> Search </button>
-    <input id="search_name" type="textbox" value="" placeholder="validation.attributes.frontend.first_name"> 
+    <div class="map-search">
+      <input id="search_name" type="textbox" value="" placeholder="validation.attributes.frontend.first_name"> 
+      <button class="search-bar"> <i class="fas fa-search-location"></i> </button>
+    </div>
+    <div id="chartdiv"></div>  
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
+      <div class="col-md-3"></div>
     </div>
     
 @endsection

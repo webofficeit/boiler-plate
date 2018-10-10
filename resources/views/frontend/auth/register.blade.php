@@ -18,12 +18,14 @@
                     <div class="row">
         <div class="col">
             <div class="form-group">
-               {{ html()->label(__('validation.attributes.frontend.accounttype'))->for('accounttype') }}
-                <div>
-                    <input type="radio" name="registration_type" checked value="1" /> Private
-                    <input type="radio" name="registration_type" value="2"  /> Business
+                {{ html()->label(__('validation.attributes.frontend.accounttype'))->for('accounttype') }}
 
+                <div class="radio-toggle">
+                    <input type="radio" name="registration_type" checked value="1" id="reg_private" />
+                    <label for="reg_private">Private</label>
                     
+                    <input type="radio" name="registration_type" value="2" id="reg_business" />
+                    <label for="reg_business">Business</label>
                 </div>
             </div><!--form-group-->
 
@@ -156,18 +158,43 @@
                                 </div><!--col-->
                             </div>
                         
-                        <div class="row" id="avatar_location">
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="form-group"  >
-                                    {{ html()->label(__('validation.attributes.frontend.business_registration_papers'))->for('business_registration_papers') }}
+                            <div id="avatar_location">
+                                <div class="image-list">
+                                    <div class="row increment">                            
+                                        <div class="col-12 col-md-6">
+                                            {{-- <div class="form-group"  >
+                                                {{ html()->label(__('validation.attributes.frontend.business_registration_papers'))->for('business_registration_papers') }}
+            
+                                                <input type="file" class= "form-control"  name="avatar_location[]" multiple>
+                                                
+                                            </div><!--col--> --}}
+                                            {{ html()->label(__('validation.attributes.frontend.business_registration_papers'))->for('business_registration_papers') }}
+                                            <div class="input-group control-group imagelist form-group">
+                                                <input type="file" name="avatar_location[]" class="custom-file-input">
+                                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                            </div>
+                                        </div><!--row-->
 
-                                    <input type="file" class= "form-control"  name="avatar_location[]" multiple>
-                                    
-                                </div><!--col-->
-                                
-                            </div><!--row-->
-                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clone d-none">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-group control-group imagelist form-group">
+                                                <input type="file" name="avatar_location[]" class="custom-file-input">
+                                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="row">
+                                    <div class="col-md-12 input-group-btn form-group"> 
+                                        <button class="btn btn-primary addmorepicture" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                                    </div>
+                                </div>
+                            </div>
 
                         <div class="row">
                             <div class="col">
@@ -253,6 +280,24 @@
                     bussiness_description.show();
                     web_site.show();
                 }
+            });
+
+            var max_fields = 5;
+            var intialval = $('.increment:visible').length; 
+            var clonehtml = '';
+            $(".addmorepicture").click(function(e) {
+                e.preventDefault();
+                if(intialval < max_fields){ //max input box allowed
+                    intialval++; //text box increment
+                    if(clonehtml=='') {
+                        clonehtml = $(".clone").html();
+                    }
+                    $(".image-list").append(clonehtml); //add input box
+                }
+            });
+
+            $(document).on('change', '.custom-file-input', function(e) {
+                $(this).next('.custom-file-label').html(e.target.files[0].name);
             });
         });
     </script>
