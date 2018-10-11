@@ -1,171 +1,213 @@
 
+.navbar.navbar-dark {
+    background: #263148;
+    padding: 1.5em 0;
+}
+
 .map-search {
-  float: right;
+    float: right;
 }
+
 .map-search #search_name {
-  position: initial;
-  border: 1px solid #ccc;
+    position: initial;
+    border: 1px solid #ccc;
 }
+.amcharts-main-div .amcharts-chart-div > a {
+    display: none !important;
+}
+
+.recent-users {
+    margin-top: 2em;
+}
+
 .search-bar {
-  position: relative;
-  background: #eee;
-  border: 1px solid #ccc;
-  border-left: 0;
-  padding: 9px 12px;
-  margin-left: -4px;
+    position: relative;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-left: 0;
+    padding: 9px 12px;
+    margin-left: -4px;
 }
 
 .search-bar .icon {
-  position: absolute;
-  top: 47%;
-  left: 10px;
-  transform: translateY(-50%);
+    position: absolute;
+    top: 47%;
+    left: 10px;
+    transform: translateY(-50%);
 }
 
 .search-bar .input-text {
-  width: 0px;
-  border: 0px;
-  background-color: #fff;
-  height: 20px;
-  padding: 8px 8px 8px 35px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-.search-bar .input-text:focus {
-  width: 80%;
-  background-color: #ccc;
+    width: 0px;
+    border: 0px;
+    background-color: #fff;
+    height: 20px;
+    padding: 8px 8px 8px 35px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
 
+.search-bar .input-text:focus {
+    width: 80%;
+    background-color: #ccc;
+}
 
 /***** Radio Toggle ******/
 
 /* TOGGLE STYLING */
+
 .radio-toggle {
-  margin: 0 0 1.5rem;
-  box-sizing: border-box;
-  font-size: 0;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
+    margin: 0 0 1.5rem;
+    box-sizing: border-box;
+    font-size: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
 }
+
 .radio-toggle input {
-  width: 0;
-  height: 0;
-  position: absolute;
-  left: -9999px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -9999px;
 }
-.radio-toggle input + label {
-  margin: 0;
-  padding: .5rem 2rem;
-  box-sizing: border-box;
-  position: relative;
-  display: inline-block;
-  border: solid 1px #DDD;
-  background-color: #FFF;
-  font-size: 1rem;
-  line-height: 140%;
-  font-weight: 600;
-  text-align: center;
-  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-  transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
-  /* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
-  /*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
-  /* ----- */
+
+.radio-toggle input+label {
+    margin: 0;
+    padding: .5rem 2rem;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    border: solid 1px #DDD;
+    background-color: #FFF;
+    font-size: 1rem;
+    line-height: 140%;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    transition: border-color .15s ease-out, color .25s ease-out, background-color .15s ease-out, box-shadow .15s ease-out;
+    /* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
+    /*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
+    /* ----- */
 }
-.radio-toggle input + label:first-of-type {
-  border-radius: 6px 0 0 6px;
-  border-right: none;
+
+.radio-toggle input+label:first-of-type {
+    border-radius: 6px 0 0 6px;
+    border-right: none;
 }
-.radio-toggle input + label:last-of-type {
-  border-radius: 0 6px 6px 0;
-  border-left: none;
+
+.radio-toggle input+label:last-of-type {
+    border-radius: 0 6px 6px 0;
+    border-left: none;
 }
-.radio-toggle input:hover + label {
-  border-color: #213140;
+
+.radio-toggle input:hover+label {
+    border-color: #213140;
 }
-.radio-toggle input:checked + label {
-  background-color: #4B9DEA;
-  color: #FFF;
-  box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
-  border-color: #4B9DEA;
-  z-index: 1;
+
+.radio-toggle input:checked+label {
+    background-color: #4B9DEA;
+    color: #FFF;
+    box-shadow: 0 0 10px rgba(102, 179, 251, 0.5);
+    border-color: #4B9DEA;
+    z-index: 1;
 }
-.radio-toggle input:focus + label {
-  outline: dotted 1px #CCC;
-  outline-offset: .45rem;
+
+.radio-toggle input:focus+label {
+    outline: dotted 1px #CCC;
+    outline-offset: .45rem;
 }
 
 /***** Radio Toggle end *****/
 
 .navbar .navbar-brand {
-  padding: 0 15px;
-  width: 220px;
+    padding: 0 15px;
+    width: 220px;
 }
 
 #myCarousel .list-inline {
-            white-space:nowrap;
-            overflow-x:auto;
-        }
-        #myCarousel .carousel-indicators {
-            position: static;
-            left: initial;
-            width: initial;
-            margin: auto;
-            margin-top: 15px;
-            overflow: initial;
-        }
-        #myCarousel .carousel-indicators > li {
-            width: initial;
-            height: initial;
-            text-indent: initial;
-        }
-        #myCarousel .carousel-indicators > li.active img {
-            opacity: 0.7;
-        }
-        .product-name {
-            font-size: 1.6em;
-            font-weight: bold;
-            margin: 1em 0;
-        }
-        .product-details .product-category {
-            background: #2196f3;
-            border-radius: 4px;
-            color: #fff;
-            display: inline-block;
-            font-size: 0.8em;
-            padding: 2px 10px;
-        }
-        .product-details .product-price {
-            font-size: 1.3em;
-            font-weight: bold;
-            margin: 0.5em 0;
-        }
-        .product-details .product-price span {
-            font-size: 0.7em;
-            font-weight: normal;
-        }
-        .product-details .offer-desc {
-            font-size: 0.9em;
-            margin-bottom: 0.5em;
-        }
-        .product-details .offer-desc ul {
-            padding-left: 20px;
-        }
-        .product-details .business-desc {
-            font-size: 0.9em;
-            margin-bottom: 0.5em;
-        }
-        .product-details .offer-validity {
-            font-size: 0.9em;
-            margin-bottom: 0.5em;
-        }
-        .product-details .offer-validity span {
-            font-size: 1.2em;
-            color: #2196f3;
-            font-weight: bold;
-        }
-        .product-details .view-price-list a {
-            color: #333;
-            font-size: 0.9em;
-        }
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+#myCarousel .carousel-indicators {
+    position: static;
+    left: initial;
+    width: initial;
+    margin: auto;
+    margin-top: 15px;
+    overflow: initial;
+}
+
+#myCarousel .carousel-indicators>li {
+    width: initial;
+    height: initial;
+    text-indent: initial;
+}
+
+#myCarousel .carousel-indicators>li.active img {
+    opacity: 0.7;
+}
+
+.product-name {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+.product-details .product-category {
+    background: #2196f3;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.8em;
+    padding: 2px 10px;
+}
+
+.product-details .product-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+.product-details .product-price span {
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+.product-details .offer-desc {
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+.product-details .offer-desc ul {
+    padding-left: 20px;
+}
+
+.product-details .business-desc {
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+.product-details .offer-validity {
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+.product-details .offer-validity span {
+    font-size: 1.2em;
+    color: #2196f3;
+    font-weight: bold;
+}
+
+.product-details .view-price-list a {
+    color: #333;
+    font-size: 0.9em;
+}
+
+#footer {
+    background: #263148;
+    color: #fff;
+    margin-top: 2em;
+    padding: 1em 0;
+}
