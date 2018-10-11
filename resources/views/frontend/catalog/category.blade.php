@@ -14,7 +14,7 @@
                         <div class="col-lg-3">
                             <div class="caegory-list-item">
                                 <img src='{{ url('storage/category/'.$category->user_id.'/'.$category->picture) }}' class="img-fluid" >
-                                <a href='{{ url($category->seo.'/offers') }}'>{{ $category->seo }}</a>
+                                <a href='{{ url($category->seo.'/offer') }}'>{{ $category->seo }}</a>
                             </div>
                         </div>
                     @endforeach
