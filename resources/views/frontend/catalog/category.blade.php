@@ -6,17 +6,22 @@
     
      
 
-    <div class="card">
+<div class="card">
     <div class="card-body">
-      @foreach($category as $category)
-      <div class="row>
-           <a href='{{ url($category->seo.'/product') }}'>{{ $category->seo }}</a>
-           
-          <img src='{{ url('storage/category/'.$category->user_id.'/'.$category->picture) }}'  >
-      </div>
-      @endforeach
-    </div>    
+        <div class="category-list-view list-view">
+            <div class="row">
+                @foreach($category as $category)
+                    <div class="col-lg-3">
+                        <div class="caegory-list-item">
+                            <img src='{{ url('storage/category/'.$category->user_id.'/'.$category->picture) }}' class="img-fluid" >
+                            <a href='{{ url($category->seo.'/product') }}'>{{ $category->seo }}</a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
     </div>
+</div>
     
 @endsection
 @push('after-scripts')
