@@ -11,8 +11,10 @@
       @foreach($product as $product)
       <div class="row>
            <a href='{{ url($slug.'/product/'.Crypt::encryptString($product['id'])) }}'>{{ $product['name'] }}</a>
-          <img src='{{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }}'  >
-      </div>
+        @if(isset($product['imagees']))
+           <img src='{{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }}'  >
+        @endif
+           </div>
       @endforeach
     </div>    
     </div>

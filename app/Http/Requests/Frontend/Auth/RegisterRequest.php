@@ -31,6 +31,8 @@ class RegisterRequest extends FormRequest
         return [
             'first_name'           => 'required|string|max:191',
             'last_name'            => 'required|string|max:191',
+            'latitude'             => 'required|string|max:191',
+            'longitude'            => 'required|string|max:191',
             'email'                => ['required', 'string', 'email', 'max:191', Rule::unique('users')],
             'password'             => 'required|string|min:6|confirmed',
             'g-recaptcha-response' => ['required_if:captcha_status,true', new CaptchaRule()],

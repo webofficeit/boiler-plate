@@ -11,7 +11,8 @@
       @foreach($category as $category)
       <div class="row>
            <a href='{{ url($category->seo.'/product') }}'>{{ $category->seo }}</a>
-          
+           
+          <img src='{{ url('storage/category/'.$category->user_id.'/'.$category->picture) }}'  >
       </div>
       @endforeach
     </div>    

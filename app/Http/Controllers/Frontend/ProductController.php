@@ -29,8 +29,10 @@ class ProductController extends Controller {
     {
         $slug = $request->slug;
         $category = Category::where('seo',$slug)->get();
-        //$productlist = ProductOffer::where('categoryid',$category[0]->id)->get();
-        $productlist = ProductOffer::where('categoryid',1)->get();
+        $productlist = ProductOffer::where([
+            ['categoryid',$category[0]->id],
+            ['confirmed',1]
+                ])->get();
         $date = new Carbon;
         $product = [];
         foreach($productlist as $productkey => $productvalue) {
