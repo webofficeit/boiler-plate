@@ -33,15 +33,15 @@ class HomeController extends Controller
             }
             $tempMap = [
                 'id'=>$partnervalue->first_name." ".$partnervalue->last_name,
-                'color'=> "#000000",
-                'svgPath'=> 'M40,0C26.191,0,15,11.194,15,25c0,23.87,25,55,25,55s25-31.13,25-55C65,11.194,53.807,0,40,0z     M40,38.8c-7.457,0-13.5-6.044-13.5-13.5S32.543,11.8,40,11.8c7.455,0,13.5,6.044,13.5,13.5S47.455,38.8,40,38.8z',
-                 'showAsSelected'=> true,
+                'color'=> config('deal.ammap.color'),
+                'svgPath'=> config('deal.ammap.svgPath'),
+                 'showAsSelected'=> config('deal.ammap.showAsSelected'),
                 'latitude'=> $partnervalue->latitude,
                 'longitude'=> $partnervalue->longitude,
-                'zoomLevel'=> 5,        
-                'scale'=> 0.5,
-                'title'=> $partnervalue->first_name." ".$partnervalue->last_name,
-                'description' => '<img src='.$this->profileavatar.' /><p>'.$partnervalue->bussiness_description.'</p>'    
+                'zoomLevel'=> config('deal.ammap.zoomLevel'),        
+                'scale'=> config('deal.ammap.scale'),
+                'title'=> '<a href="/category/'.$partnervalue->id.'">'.$partnervalue->first_name." ".$partnervalue->last_name.'</a>',
+                'description' => '<a href=""><img src='.$this->profileavatar.' /><p>'.$partnervalue->bussiness_description.'</p></a>'    
             ];
             array_push($partnerMap, $tempMap);
            
