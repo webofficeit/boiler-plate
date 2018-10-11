@@ -3,14 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Backend/CategoryController.php</file>
             <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Frontend/ProductController.php</file>
             <file>file:/home/dell/docker/boilerplate/resources/lang/en/validation.php</file>
-            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Frontend/CategoryController.php</file>
             <file>file:/home/dell/docker/boilerplate/resources/views/frontend/catalog/product.blade.php</file>
-            <file>file:/home/dell/docker/boilerplate/routes/frontend/home.php</file>
-            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Frontend/Auth/RegisterController.php</file>
-            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Frontend/HomeController.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Backend/Auth/User/UserConfirmationController.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/backend/catalog/product/edit.blade.php</file>
             <file>file:/home/dell/docker/boilerplate/resources/views/frontend/catalog/productdetailview.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/frontend/catalog/category.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Backend/ProductController.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Repositories/Backend/ProductRepository.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/backend/includes/sidebar.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/vendor/log-viewer/bootstrap-4/show.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/backend/catalog/product/index.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Repositories/Backend/CategoryRepository.php</file>
+            <file>file:/home/dell/docker/boilerplate/routes/backend/admin.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Http/Controllers/Frontend/CategoryController.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/frontend/index.blade.php</file>
+            <file>file:/home/dell/docker/boilerplate/routes/frontend/home.php</file>
+            <file>file:/home/dell/docker/boilerplate/config/deal.php</file>
+            <file>file:/home/dell/docker/boilerplate/app/Models/Backend/Traits/Attribute/ProductAttribute.php</file>
+            <file>file:/home/dell/docker/boilerplate/resources/views/backend/catalog/category/edit.blade.php</file>
         </group>
     </open-files>
 </project-private>

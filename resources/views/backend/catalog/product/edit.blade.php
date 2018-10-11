@@ -87,7 +87,7 @@
                                 <div class="col-md-2">
                                     <div class="img-wrap" data-id = {{$keypicture}}>
                                         <span class="close">&times;</span>
-                                        <img src="{{ url('storage/category/product/'.Auth::user()->id.'/images/'.$picture) }}" class="img-fluid" >
+                                        <img src="{{ url('storage/category/product/'.$product->user_id.'/images/'.$picture) }}" class="img-fluid" >
                                     </div>
                                 </div>
                             </div><!--form-group-->
@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">                    
-                                <a href="{{ URL::to( 'storage/category/product/'.Auth::user()->id.'/doc/'.$product->pricelistdocument)  }}" target="_blank"> {{ str_after(str_replace_last('/','#',$product->pricelistdocument, '/'),'#') }} </a>
+                                <a href="{{ URL::to( 'storage/category/product/'.$product->user_id.'/doc/'.$product->pricelistdocument)  }}" target="_blank"> {{ str_after(str_replace_last('/','#',$product->pricelistdocument, '/'),'#') }} </a>
                             </div>
                         </div>
                         

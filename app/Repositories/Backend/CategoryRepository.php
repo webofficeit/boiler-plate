@@ -60,7 +60,8 @@ class CategoryRepository extends BaseRepository {
     
      public function saveCategory($request) {
         
-        $current_user = Auth::user()->id;
+        $category = Category::find($request->catgid); 
+        $current_user = $category->user_id;
             
             if (isset($request->avatar)) {
               
@@ -70,7 +71,7 @@ class CategoryRepository extends BaseRepository {
             
              }
         
-        $category = Category::find($request->catgid);
+        
         $category->name = $request->name;
         $category->description = $request->description;
         $category->seo = $request->seo;

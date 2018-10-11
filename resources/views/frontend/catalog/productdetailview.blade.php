@@ -7,13 +7,13 @@
         <!-- main slider carousel -->
         <div class="row">
             <div class="col-12">
-                <div class="product-name">Product Name</div>
+                <div class="product-name">{{ $productlist->name}}</div>
             </div>
             <div class="col-lg-5" id="slider">
                 <div id="myCarousel" class="carousel slide">
                     <!-- main slider carousel items -->
                     <div class="carousel-inner">
-
+                       @if(count($productlist->Offerimage)>0)
                         @forelse(json_decode($productlist->Offerimage[0]->name) as $slidekey => $productlistimage)
                           <div class="{{$slidekey==0?'active':''}} item carousel-item" data-slide-number="{{$slidekey}}">
                             <img src="{{ url('storage/category/product/'.$productlist->user_id.'/images/'.$productlistimage) }}" class="img-fluid">
@@ -21,7 +21,7 @@
                         @empty
     
                         @endforelse
-                        
+                        @endif
 
                         
 
@@ -30,6 +30,7 @@
 
 
                     <ul class="carousel-indicators list-inline">
+                        @if(count($productlist->Offerimage)>0)
                         @forelse(json_decode($productlist->Offerimage[0]->name) as $slideplacekey =>$productlistimage)
                     
                         <li class="list-inline-item {{$slideplacekey==0?'active':''}}">
@@ -40,7 +41,7 @@
                         @empty
     
                         @endforelse
-                        
+                        @endif
                         
                     </ul>
                 </div>
@@ -56,7 +57,7 @@
                         </ul>
                     </div>
                     <div class="business-desc">{{$productlist->descriptionbussiness}}</div>
-                    @if($productlist->Offertype[0]->type ==1)
+                    @if((isset($productlist->Offertype[0]->type))&& ($productlist->Offertype[0]->type ==1))
                     <div class="offer-validity">Offer valid till <span>{{ \Carbon\Carbon::parse($productlist->Offertype[0]->dateto)->format('d M Y')}}</span></div>
                     
                     @endif

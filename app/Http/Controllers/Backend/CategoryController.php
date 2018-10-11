@@ -49,9 +49,9 @@ class CategoryController extends Controller {
     {
         
         if ($user::find(Auth::user()->id)->isAdmin()) {
-           $catogorylists = Category::paginate(10); 
+           $catogorylists = Category::orderBy('id','desc')->paginate(10); 
         } else {
-        $catogorylists = Category::where('user_id', Auth::user()->id)->paginate(15);
+        $catogorylists = Category::where('user_id', Auth::user()->id)->orderBy('id','desc')->paginate(15);
         }
         
         return view('backend.catalog.category.index', compact('catogorylists'));

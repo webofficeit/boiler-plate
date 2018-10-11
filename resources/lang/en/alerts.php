@@ -22,6 +22,9 @@ return [
         'category' => [
             'deleted' => 'The category was successfully deleted.',
         ],
+        'product' => [
+            'deleted' => 'The product was successfully deleted.',
+        ],
 
         'users' => [
             'cant_resend_confirmation' => 'The application is currently set to manually approve users.',

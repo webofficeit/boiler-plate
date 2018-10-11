@@ -38,12 +38,12 @@ class ProductController extends Controller {
     public function index(User $user)
     { 
         if ($user::find(Auth::user()->id)->isAdmin()) {
-           $productlists = ProductOffer::paginate(15); 
+           $productlists = ProductOffer::orderBy('id','desc')->paginate(15); 
         } else {
         $productlists = ProductOffer::where([
             ['user_id', Auth::user()->id],
             ['deleted', 0]
-            ])->paginate(15);
+            ])->orderBy('id','desc')->paginate(15);
         }
         return view('backend.catalog.product.index', compact('productlists'));
         
@@ -52,7 +52,7 @@ class ProductController extends Controller {
      public function confirmindex(User $user)
     { 
         if ($user::find(Auth::user()->id)->isAdmin()) {
-           $productlists = ProductOffer::where('confirmed', 0)->paginate(15); 
+           $productlists = ProductOffer::where('confirmed', 0)->orderBy('id','desc')->paginate(15); 
         } 
         return view('backend.catalog.product.confirm', compact('productlists'));
         

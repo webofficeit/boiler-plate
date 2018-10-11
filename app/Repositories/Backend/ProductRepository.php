@@ -111,7 +111,8 @@ class ProductRepository extends BaseRepository {
     
     public function saveProduct($request) {
         
-        $current_user = Auth::user()->id;
+        $productoffer = ProductOffer::find($request->prodid);
+        $current_user = $productoffer->user_id;
             
             if (isset($request->pricelist)) {
             
@@ -122,7 +123,7 @@ class ProductRepository extends BaseRepository {
             
              }
         
-        $productoffer = ProductOffer::find($request->prodid);
+        
         $productoffer->name = $request->name;
         $productoffer->descriptionoffer = $request->descriptionoffer;
         $productoffer->descriptionbussiness = $request->descriptionbussiness;
