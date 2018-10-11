@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+
+<nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <div class="container">
     <a href="{{ route('frontend.index') }}" class="navbar-brand">
-         <img class="navbar-brand-full" src="{{ asset('img/giradeals.png') }}" width="100%" height="100%" alt="GiraDeal">
+         <img class="navbar-brand-full" src="{{ asset('img/giradeals-white.png') }}" width="100%" height="100%" alt="GiraDeal">
     </a>
 
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="@lang('labels.general.toggle_navigation')">
@@ -40,4 +42,6 @@
             
         </ul>
     </div>
+</div>
 </nav>
+
