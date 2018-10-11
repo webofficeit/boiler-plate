@@ -6,6 +6,7 @@ use App\Models\Auth\User;
 use App\Models\Backend\ProductOffer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Crypt;
 
 /**
  * Class HomeController.
@@ -40,8 +41,8 @@ class HomeController extends Controller
                 'longitude'=> $partnervalue->longitude,
                 'zoomLevel'=> config('deal.ammap.zoomLevel'),        
                 'scale'=> config('deal.ammap.scale'),
-                'title'=> '<a href="/category/'.$partnervalue->id.'">'.$partnervalue->first_name." ".$partnervalue->last_name.'</a>',
-                'description' => '<a href=""><img src='.$this->profileavatar.' /><p>'.$partnervalue->bussiness_description.'</p></a>'    
+                'title'=> '<a href="/user/'.Crypt::encryptString($partnervalue->id).'">'.$partnervalue->first_name." ".$partnervalue->last_name.'</a>',
+                'description' => '<a href="/user/'.Crypt::encryptString($partnervalue->id).'"><img src='.$this->profileavatar.' /><p>'.$partnervalue->bussiness_description.'</p></a>'    
             ];
             array_push($partnerMap, $tempMap);
            

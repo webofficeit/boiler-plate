@@ -27,7 +27,9 @@ class CategoryController extends Controller {
     public function index(Request $request)
     {
         $paramId = \Crypt::decryptString($request->id);
+        
         $category = Category::where('user_id',$paramId)->get();
+        
         return view('frontend.catalog.category', compact('category'));
         
     }

@@ -40,7 +40,10 @@ class ProductController extends Controller {
         if ($user::find(Auth::user()->id)->isAdmin()) {
            $productlists = ProductOffer::paginate(15); 
         } else {
-        $productlists = ProductOffer::where('user_id', Auth::user()->id)->paginate(15);
+        $productlists = ProductOffer::where([
+            ['user_id', Auth::user()->id],
+            ['deleted', 0]
+            ])->paginate(15);
         }
         return view('backend.catalog.product.index', compact('productlists'));
         
@@ -158,7 +161,7 @@ class ProductController extends Controller {
 
         
 
-        return redirect()->route('admin.product')->withFlashSuccess(__('alerts.backend.category.deleted'));
+        return redirect()->route('admin.product')->withFlashSuccess(__('alerts.backend.product.deleted'));
         
     }
     

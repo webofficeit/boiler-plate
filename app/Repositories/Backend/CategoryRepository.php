@@ -75,7 +75,6 @@ class CategoryRepository extends BaseRepository {
         $category->description = $request->description;
         $category->seo = $request->seo;
         $category->avathar = (isset($request->avatar))?$filedetails:'';
-        $category->user_id = $current_user;
         $category->save();
         
         

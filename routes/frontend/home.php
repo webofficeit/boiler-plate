@@ -16,9 +16,9 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 Route::post('ammap/search', [HomeController::class, 'searchmap'])->name('ammap.search');
-Route::get('category/{id}', [CategoryController::class, 'index'])->name('category/{id}');
-Route::get('{slug}/product', [ProductController::class, 'index'])->name('{slug}/product');
-Route::get('{slug}/product/{id}', [ProductController::class, 'detailview'])->name('{slug}/product/{id}');
+Route::get('user/{id}', [CategoryController::class, 'index'])->name('user/{id}');
+Route::get('{slug}/offer', [ProductController::class, 'index'])->name('{slug}/offer');
+Route::get('{slug}/offer/{id}', [ProductController::class, 'detailview'])->name('{slug}/offer/{id}');
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

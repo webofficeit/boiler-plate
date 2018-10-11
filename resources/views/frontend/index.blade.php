@@ -29,7 +29,7 @@
                             <tr>
                                 <td>{{ $user->last_name }}</td>
                                 <td>{{ $user->first_name }}</td>
-                                <td><a href="{{ url('category/'.Crypt::encryptString($user->id)) }}">{{ $user->email }}</a></td>
+                                <td><a href="{{ url('user/'.Crypt::encryptString($user->id)) }}">{{ $user->email }}</a></td>
                                 <td>{{ $user->accounttype? $user->accounttype->name : '' }}</td>
                               
                             </tr>

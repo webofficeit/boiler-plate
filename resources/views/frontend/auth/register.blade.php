@@ -36,7 +36,7 @@
     </div><!--row-->
                         <div class="row">
                             
-                            <div class="col-12 col-md-6"> {{old('registration_type')}}
+                            <div class="col-12 col-md-6"> 
                                 <div class="form-group">
                                     {{ html()->label(__('validation.attributes.frontend.first_name'))->for('first_name') }}
 

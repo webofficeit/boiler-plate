@@ -60,7 +60,9 @@
                     <div class="offer-validity">Offer valid till <span>{{ \Carbon\Carbon::parse($productlist->Offertype[0]->dateto)->format('d M Y')}}</span></div>
                     
                     @endif
+                    @if($productlist->pricelistdocument)
                     <div class="view-price-list"><a href="{{ URL::to( 'storage/category/product/'.$productlist->user_id.'/doc/'.$productlist->pricelistdocument)  }}"><i class="far fa-file-pdf"></i> View Price List</a></div>
+                    @endif
                 </div>
             </div>
         </div>

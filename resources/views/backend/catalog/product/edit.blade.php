@@ -198,7 +198,7 @@
                             </div>
                         </div>
                         
-
+                        @if ($logged_in_user->isAdmin())
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.confirmation'))->class('col-md-2 form-control-label')->for('offervalid') }}
                             <div class="col-md-10" >
@@ -210,6 +210,8 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        
                     </div><!--col-->
                 </div><!--row-->
             </div><!--card-body-->

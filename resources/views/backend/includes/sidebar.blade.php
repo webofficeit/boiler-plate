@@ -37,6 +37,7 @@
                                 @endif
                             </a>
                         </li>
+                        @if ($logged_in_user->isAdmin())
                         <li class="nav-item">
                             <a class="nav-link {{ active_class(Active::checkUriPattern('admin/product/confirm')) }}" href="{{ route('admin.product.confirm') }}">
                                 @lang('labels.backend.access.catalog.confirm')
@@ -46,6 +47,7 @@
                                 @endif
                             </a>
                         </li>
+                        @endif
                     </ul>
             </li>
 
