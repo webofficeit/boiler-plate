@@ -17,7 +17,7 @@ class HomeController extends Controller
     
     public function __construct()
     {
-        $this->profileavatar = 'img/64e1b8d34f425d19e1ee2ea7236d3028.png';
+        $this->profileavatar = 'img/avatar.png';
     }
     /**
      * @return \Illuminate\View\View
