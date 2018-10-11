@@ -205,6 +205,34 @@
     font-size: 0.9em;
 }
 
+.page-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 1.5em 0;
+}
+.list-view {
+
+}
+.list-view .list-item {
+    background: #eee;
+    box-shadow: 0 0.5em 1em rgba(0,0,0, 0.1);
+    margin-bottom: 1.5em;
+}
+.list-view .list-item a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+.list-view .list-item .list-item-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 100%;
+}
+.list-view .list-item .list-item-title {
+    padding: 1em 0.5em;
+}
+
 #footer {
     background: #263148;
     color: #fff;
