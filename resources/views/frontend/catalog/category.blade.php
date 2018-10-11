@@ -10,7 +10,7 @@
     <div class="card-body">
       @foreach($category as $category)
       <div class="row>
-           <a href='{{ url('product/'.$category->seo) }}'>{{ $category->seo }}</a>
+           <a href='{{ url($category->seo.'/product') }}'>{{ $category->seo }}</a>
           
       </div>
       @endforeach

@@ -102,3 +102,70 @@
   padding: 0 15px;
   width: 220px;
 }
+
+#myCarousel .list-inline {
+            white-space:nowrap;
+            overflow-x:auto;
+        }
+        #myCarousel .carousel-indicators {
+            position: static;
+            left: initial;
+            width: initial;
+            margin: auto;
+            margin-top: 15px;
+            overflow: initial;
+        }
+        #myCarousel .carousel-indicators > li {
+            width: initial;
+            height: initial;
+            text-indent: initial;
+        }
+        #myCarousel .carousel-indicators > li.active img {
+            opacity: 0.7;
+        }
+        .product-name {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin: 1em 0;
+        }
+        .product-details .product-category {
+            background: #2196f3;
+            border-radius: 4px;
+            color: #fff;
+            display: inline-block;
+            font-size: 0.8em;
+            padding: 2px 10px;
+        }
+        .product-details .product-price {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 0.5em 0;
+        }
+        .product-details .product-price span {
+            font-size: 0.7em;
+            font-weight: normal;
+        }
+        .product-details .offer-desc {
+            font-size: 0.9em;
+            margin-bottom: 0.5em;
+        }
+        .product-details .offer-desc ul {
+            padding-left: 20px;
+        }
+        .product-details .business-desc {
+            font-size: 0.9em;
+            margin-bottom: 0.5em;
+        }
+        .product-details .offer-validity {
+            font-size: 0.9em;
+            margin-bottom: 0.5em;
+        }
+        .product-details .offer-validity span {
+            font-size: 1.2em;
+            color: #2196f3;
+            font-weight: bold;
+        }
+        .product-details .view-price-list a {
+            color: #333;
+            font-size: 0.9em;
+        }

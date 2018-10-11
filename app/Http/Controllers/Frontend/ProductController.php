@@ -50,10 +50,16 @@ class ProductController extends Controller {
             
             
         }
-        //dd($product);
         
-        $product['tt']=1;
-        return view('frontend.catalog.product', compact('product'));
+        return view('frontend.catalog.product', compact('product','slug'));
         
+    }
+    
+    public function detailview(Request $request) {
+        $paramId = \Crypt::decryptString($request->id);
+        
+        $productlist = ProductOffer::find($paramId);
+        
+        return view('frontend.catalog.productdetailview', compact('productlist'));
     }
 }

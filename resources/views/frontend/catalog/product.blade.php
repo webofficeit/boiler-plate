@@ -10,7 +10,7 @@
     <div class="card-body">
       @foreach($product as $product)
       <div class="row>
-           <a href='{{ url('productdetails/'.$product['id']) }}'>{{ $product['name'] }}</a>
+           <a href='{{ url($slug.'/product/'.Crypt::encryptString($product['id'])) }}'>{{ $product['name'] }}</a>
           <img src='{{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }}'  >
       </div>
       @endforeach
