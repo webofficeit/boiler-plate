@@ -81,7 +81,7 @@
                                     <div class="img-wrap">
                                         <span class="close">&times;</span>
 
-                                        <img src="{{ url('storage/category/'.$category->user_id.'/'.$category->picture)  }}"  >
+                                        <img src="{{ url('storage/category/'.$category->user_id.'/'.$category->picture)  }}" class="img-fluid"  >
                                     </div>   
                                  @endif                                 
                             </div><!--col-->
