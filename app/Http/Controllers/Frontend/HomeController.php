@@ -60,13 +60,14 @@ class HomeController extends Controller
         foreach($product0ffer as $productkey => $productvalue) {
           
              
-            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&&($date > $productvalue->Offertype[0]->datefrom)) {
+            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&&($date >= $productvalue->Offertype[0]->datefrom)) {
                 continue; 
             }
             
               $product[$productkey]= [
                 'id' => $productvalue->id,
                 'name' => $productvalue->name,
+                'descriptionoffer' => $productvalue->descriptionoffer,  
                 'percentage' => $productvalue->girapercentage,
                 'userid' => $productvalue->user_id,
                 'categoryseo' =>  $productvalue->category->seo
