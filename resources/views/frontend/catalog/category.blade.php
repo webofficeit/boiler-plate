@@ -5,7 +5,7 @@
 @section('content')
     
      
-
+            <div class="page-title">Categories</div>
             <div class="category-list-view list-view">
                 <div class="row">
                     @foreach($category as $category)
