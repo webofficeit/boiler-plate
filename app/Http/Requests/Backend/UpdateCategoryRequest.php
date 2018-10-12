@@ -32,7 +32,7 @@ class UpdateCategoryRequest extends FormRequest {
         return [
             'name'  => 'required|max:191',
             'seo'  => 'required|alpha_num|max:191',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|min:400|max:2048',
         ];
     }
     
