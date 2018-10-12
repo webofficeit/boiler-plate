@@ -1,4 +1,9 @@
 
+#app {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 6em;
+}
 .navbar.navbar-dark {
     background: #263148;
     padding: 1.5em 0;
@@ -238,4 +243,7 @@
     color: #fff;
     margin-top: 2em;
     padding: 1em 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
