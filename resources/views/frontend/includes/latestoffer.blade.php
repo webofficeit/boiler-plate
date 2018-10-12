@@ -9,6 +9,7 @@
                     <div class="list-item-img" style="background-image: url({{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }}"></div>
                   @endif
                   <div class="list-item-title">{{ $product['name'] }}</div>
+                 
                 </a>
               </div>
             </div>
