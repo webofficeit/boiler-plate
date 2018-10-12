@@ -8,7 +8,9 @@
     background: #263148;
     padding: 1.5em 0;
 }
-
+.navbar .navbar-brand {
+    width: 220px;
+}
 .map-search {
     float: right;
 }
@@ -125,11 +127,6 @@
 
 /***** Radio Toggle end *****/
 
-.navbar .navbar-brand {
-    padding: 0 15px;
-    width: 220px;
-}
-
 #myCarousel .list-inline {
     white-space: nowrap;
     overflow-x: auto;
@@ -220,7 +217,8 @@
 }
 .list-view .list-item {
     background: #eee;
-    box-shadow: 0 0.5em 1em rgba(0,0,0, 0.1);
+    border-radius: 4px;
+    /* box-shadow: 0 0.5em 1em rgba(0,0,0, 0.1); */
     margin-bottom: 1.5em;
 }
 .list-view .list-item a {
