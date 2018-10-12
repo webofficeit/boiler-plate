@@ -10,7 +10,7 @@
                 <div class="product-name">{{ $productlist->name}}</div>
             </div>
             <div class="col-lg-5" id="slider">
-                <div id="myCarousel" class="carousel slide">
+                <div id="productCarousel" class="carousel slide">
                     <!-- main slider carousel items -->
                     <div class="carousel-inner">
                        @if(count($productlist->Offerimage)>0)

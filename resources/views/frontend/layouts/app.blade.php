@@ -33,9 +33,10 @@
             @include('frontend.includes.nav')
 
             <div class="container">
-                @include('includes.partials.messages')
-                @yield('content')
+                @include('includes.partials.messages')                
             </div><!-- container -->
+        
+            @yield('content')
 
             @include('frontend.includes.footer')
         </div><!-- #app -->
