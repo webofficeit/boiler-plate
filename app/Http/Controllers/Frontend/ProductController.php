@@ -38,16 +38,19 @@ class ProductController extends Controller {
         $date = new Carbon;
         $product = [];
         foreach($productlist as $productkey => $productvalue) {
-            $product[$productkey]= [
+          
+             
+            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&&($date > $productvalue->Offertype[0]->datefrom)) {
+                continue; 
+            }
+            
+              $product[$productkey]= [
                 'id' => $productvalue->id,
                 'name' => $productvalue->name,
                 'percentage' => $productvalue->girapercentage,
                 'userid' => $productvalue->user_id
             ];
-            
-            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&&($date < $productvalue->Offertype[0]->datefrom)) {
-              continue; 
-            }
+           
             if((isset($productvalue->Offerimage[0])))
                 $product[$productkey]['imagees'] = json_decode ($productvalue->Offerimage[0]->name)[0];
             

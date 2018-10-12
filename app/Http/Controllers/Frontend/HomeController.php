@@ -7,6 +7,7 @@ use App\Models\Backend\ProductOffer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Crypt;
+use Carbon\Carbon;
 
 /**
  * Class HomeController.
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $partner = User::whereNotNull('latitude')->get();
+        $partner = User::whereNotNull('latitude')->whereNotNull('longitude')->get();
         
         $partnerMap = [];
         foreach ($partner as $partnerkey => $partnervalue) {
@@ -48,10 +49,38 @@ class HomeController extends Controller
            
         }
        
+       
         $partner = json_encode($partnerMap);
         $users = User::orderBy('id','desc')->paginate(5);
+        $product0ffer = ProductOffer::where([
+            ['confirmed',1]
+                ])->orderBy('id','DESC')->limit(4)->get();
+        $product = [];
+        $date = new Carbon;
+        foreach($product0ffer as $productkey => $productvalue) {
+          
+             
+            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&&($date > $productvalue->Offertype[0]->datefrom)) {
+                continue; 
+            }
+            
+              $product[$productkey]= [
+                'id' => $productvalue->id,
+                'name' => $productvalue->name,
+                'percentage' => $productvalue->girapercentage,
+                'userid' => $productvalue->user_id,
+                'categoryseo' =>  $productvalue->category->seo
+            ];
+           
+            if((isset($productvalue->Offerimage[0])))
+                $product[$productkey]['imagees'] = json_decode ($productvalue->Offerimage[0]->name)[0];
+            
+            
+            
+        }
         
-        return view('frontend.index', compact('partner','users'));
+        
+        return view('frontend.index', compact('partner','users','product'));
     }
     
     public function searchmap(Request $request) {
