@@ -3,16 +3,17 @@
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
 @section('content')
+  <div class="container">
     <div class="map-search">
       <input id="search_name" type="textbox" value="" placeholder=" Offer Search"> 
       <button class="search-bar"> <i class="fas fa-search-location"></i> </button>
     </div>
     <div id="chartdiv"></div>  
-
-    <div class="row">
-        @include('frontend.includes.latestoffer')
-        @include('frontend.includes.userlist')
-    </div>
+  </div>
+  @include('frontend.includes.latestoffer')
+  <div class="container">      
+      @include('frontend.includes.userlist')
+  </div>
     
 @endsection
 @push('after-scripts')
