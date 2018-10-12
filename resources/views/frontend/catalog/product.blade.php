@@ -7,6 +7,7 @@
     <div class="page-title">Offers</div>
     <div class="product-list-view list-view">
       <div class="row">
+          @if(count($product) > 0 )
           @foreach($product as $product)
             <div class="col-lg-3">
               <div class="product-list-item list-item">
@@ -19,6 +20,9 @@
               </div>
             </div>
           @endforeach
+          @else
+            No records!
+          @endif
       </div>
     </div>
 
