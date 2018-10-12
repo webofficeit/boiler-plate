@@ -133,6 +133,10 @@
     padding: 5em;
     text-align: center;
 }
+.carousel.slide .carousel-item {
+	max-width: 90%;
+	margin: auto;
+}
 .carousel.slide .carousel-percent .percent-val {
     font-size: 1.2em;
 }

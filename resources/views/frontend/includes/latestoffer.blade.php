@@ -41,6 +41,28 @@
         <span class="percent-text">GRC accepted</span>
       </div>
     </div>
+	<div class="carousel-item">
+      <h4 class="carousel-title">Carousel Title</h4>
+      <div class="carousel-desc">Use data attributes to easily control the position of the carousel. 
+        data-slide accepts the keywords prev or next, which alters the slide position relative to its 
+        current position. Alternatively, use data-slide-to to pass a raw slide index to the carousel 
+        data-slide-to="2", which shifts the slide position to a particular index beginning with 0.</div>
+      <div class="carousel-percent">
+        <span class="percent-val">20 %</span>
+        <span class="percent-text">GRC accepted</span>
+      </div>
+    </div>
+<div class="carousel-item">
+      <h4 class="carousel-title">Carousel Title</h4>
+      <div class="carousel-desc">Use data attributes to easily control the position of the carousel. 
+        data-slide accepts the keywords prev or next, which alters the slide position relative to its 
+        current position. Alternatively, use data-slide-to to pass a raw slide index to the carousel 
+        data-slide-to="2", which shifts the slide position to a particular index beginning with 0.</div>
+      <div class="carousel-percent">
+        <span class="percent-val">20 %</span>
+        <span class="percent-text">GRC accepted</span>
+      </div>
+    </div>
     {{-- <div class="carousel-item">
       <img class="d-block w-100" src="..." alt="Second slide">
     </div>
