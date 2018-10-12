@@ -6,6 +6,7 @@ use App\Models\Auth\User;
 use App\Models\Backend\ProductOffer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Backend\Category;
 use Crypt;
 use Carbon\Carbon;
 
@@ -87,9 +88,9 @@ class HomeController extends Controller
     public function searchmap(Request $request) {
         $serarchdate = $request['searchdata'];
         $partnerMap = [];
-        $productresult = ProductOffer::where('name', 'like', '%' . $serarchdate. '%')->get();
-        foreach($productresult as $prodkey => $prodvalue) {
-            $userDetails = $productresult->find($prodvalue->id)->users;
+        $catresult = Category::where('name', 'like', '%' . $serarchdate. '%')->get();
+        foreach($catresult as $catkey => $catvalue) {
+            $userDetails = User::find($catvalue->user_id);
             if($userDetails->avatar_location!='') {
                 $this->profileavatar = 'storage/public/'.$userDetails->avatar_location;
             }

@@ -102,7 +102,6 @@ function revealMapImages( event ) {
 
 $('.search-bar').click(function(){
     var searchdata = $('#search_name').val();
-    alert("dcc");
     //map.updateSelection(searchdata);
              if(searchdata!='') {
                $.ajax({
