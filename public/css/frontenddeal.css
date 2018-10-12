@@ -23,6 +23,26 @@
     display: none !important;
 }
 
+.slider-container {
+    background: #263148;
+    position: relative;
+    margin-top: 3em;
+    margin-bottom: -3em;
+}
+.slider-container .videoBG {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: .1;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(https://giracoin.com/wp-content/themes/giracoin/img/poster.jpg);
+}
 .recent-users {
     margin-top: 2em;
 }
@@ -127,26 +147,33 @@
 
 /***** Radio Toggle end *****/
 
-.carousel.slide {
-    background: #263148;
+#homeCarousel.carousel.slide {
     color: #fff;
-    padding: 5em;
+    padding: 6em;
     text-align: center;
 }
-.carousel.slide .carousel-item {
+#homeCarousel.carousel.slide .carousel-item {
 	max-width: 90%;
 	margin: auto;
 }
-.carousel.slide .carousel-percent .percent-val {
+#homeCarousel.carousel.slide .carousel-percent .percent-val {
     font-size: 1.2em;
 }
-
-#myCarousel .list-inline {
+#homeCarousel .carousel-inner .carousel-item .carousel-img img {
+    margin-bottom: 1em;
+    max-width: 120px;
+}
+#homeCarousel .carousel-inner .carousel-item .carousel-title {
+    color: #fff;
+    display: inline-block;
+    clear: both;
+}
+#productCarousel .list-inline {
     white-space: nowrap;
     overflow-x: auto;
 }
 
-#myCarousel .carousel-indicators {
+#productCarousel .carousel-indicators {
     position: static;
     left: initial;
     width: initial;
@@ -155,13 +182,14 @@
     overflow: initial;
 }
 
-#myCarousel .carousel-indicators>li {
+#productCarousel .carousel-indicators>li {
+    max-width: 100px;
     width: initial;
     height: initial;
     text-indent: initial;
 }
 
-#myCarousel .carousel-indicators>li.active img {
+#productCarousel .carousel-indicators>li.active img {
     opacity: 0.7;
 }
 

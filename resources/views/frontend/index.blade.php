@@ -11,9 +11,9 @@
     <div id="chartdiv"></div>  
   </div>
   @include('frontend.includes.latestoffer')
-  <div class="container">      
+  {{-- <div class="container">      
       @include('frontend.includes.userlist')
-  </div>
+  </div> --}}
     
 @endsection
 @push('after-scripts')

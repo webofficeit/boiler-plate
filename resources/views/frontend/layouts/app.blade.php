@@ -35,7 +35,7 @@
             <div class="container">
                 @include('includes.partials.messages')                
             </div><!-- container -->
-
+        
             @yield('content')
 
             @include('frontend.includes.footer')

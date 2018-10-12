@@ -3,7 +3,7 @@
 @section('title', app_name() . ' | ' . __('navs.general.home'))
 
 @section('content')
-    
+    <div class="container">
      
             <div class="page-title">Categories</div>
             <div class="category-list-view list-view">
@@ -20,6 +20,7 @@
                     @endforeach
                 </div>
             </div>
+</div>
     
 @endsection
 @push('after-scripts')

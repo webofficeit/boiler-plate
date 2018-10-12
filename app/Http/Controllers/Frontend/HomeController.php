@@ -79,7 +79,7 @@ class HomeController extends Controller
             
         }
         
-        
+      
         return view('frontend.index', compact('partner','users','product'));
     }
     
