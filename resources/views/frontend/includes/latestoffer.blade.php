@@ -34,9 +34,9 @@
   </div>
 <div id="homeCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#homeCarousel" data-slide-to="1"></li>
-    <li data-target="#homeCarousel" data-slide-to="2"></li>
+  @foreach($product as $k=>$prod)
+    <li data-target="#homeCarousel" data-slide-to="{{$k}}" class=" {{$k==0?'active':''}}"></li>
+    @endforeach
   </ol>
   <div class="carousel-inner container">
     @foreach($product as $key=>$product)

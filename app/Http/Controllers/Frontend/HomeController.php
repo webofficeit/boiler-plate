@@ -26,13 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $partner = User::whereNotNull('latitude')->whereNotNull('longitude')->get();
-        
+        $partner = User::whereNotNull('latitude')->get();
         $partnerMap = [];
         foreach ($partner as $partnerkey => $partnervalue) {
             
             if($partnervalue->avatar_location!='') {
-                $this->profileavatar = 'storage/public/'.$partnervalue->avatar_location;
+                $this->profileavatar = 'storage/'.$partnervalue->avatar_location;
             }
             $tempMap = [
                 'id'=>$partnervalue->first_name." ".$partnervalue->last_name,
