@@ -108,8 +108,34 @@
                                 </div><!--col-->
                                 
                             </div><!--row-->
-                            
+                            @if($logged_in_user->account_type!=1) 
+                            <div class="row">
+                            <div class="col-12 col-md-6" id="web_site">
+                                <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.web_site'))->for('web_site') }}
+
+                                    {{ html()->text('website')
+                                        ->class('form-control')
+                                        ->placeholder(__('validation.attributes.frontend.web_site'))
+                                        ->attribute('maxlength', 191) }}
+                                </div><!--form-group-->
+                            </div><!--col-->
+                        </div><!--row-->
                         
+                        <div class="row" id = "bussiness_description">
+                                <div class="col-12 col-md-12">
+                                <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.bussiness_description'))->for('bussiness_description') }}
+
+                                    {{ html()->textarea('bussiness_description')
+                                        ->class('form-control')
+                                        ->placeholder(__('validation.attributes.frontend.bussiness_description'))
+                                         }}
+                                         </div>
+                                </div><!--col-->
+                            </div>          
+                            
+                        @endif
                        
 
     @if ($logged_in_user->canChangeEmail())

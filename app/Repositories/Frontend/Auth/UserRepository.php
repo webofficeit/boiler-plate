@@ -193,6 +193,8 @@ class UserRepository extends BaseRepository
         $user->latitude = $input['latitude'];
         $user->longitude = $input['longitude'];
         $user->phoneno = $input['phoneno'];
+        $user->website = $input['website'];
+        $user->bussiness_description = $input['bussiness_description'];
 
         // Upload profile image if necessary
         if ($image) {

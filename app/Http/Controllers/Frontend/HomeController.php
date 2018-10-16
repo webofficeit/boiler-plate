@@ -43,7 +43,7 @@ class HomeController extends Controller
                 'zoomLevel'=> config('deal.ammap.zoomLevel'),        
                 'scale'=> config('deal.ammap.scale'),
                 'title'=> '<a href="/user/'.Crypt::encryptString($partnervalue->id).'">'.$partnervalue->first_name." ".$partnervalue->last_name.'</a>',
-                'description' => '<a href="/user/'.Crypt::encryptString($partnervalue->id).'"><img src='.$this->profileavatar.' /><p>'.$partnervalue->bussiness_description.'</p></a>'    
+                'description' => '<a href="/user/'.Crypt::encryptString($partnervalue->id).'"><img src='.$this->profileavatar.' /><p>'    
             ];
             array_push($partnerMap, $tempMap);
            
@@ -103,7 +103,7 @@ class HomeController extends Controller
                 'zoomLevel'=> 5,        
                 'scale'=> 0.5,
                 'title'=> $userDetails->first_name." ".$userDetails->last_name,
-                'description' => '<img src='.$this->profileavatar.' /><p>'.$userDetails->bussiness_description.'</p>'    
+                'description' => '<img src='.$this->profileavatar.' />'    
             ];
             array_push($partnerMap, $tempMap);
         }
