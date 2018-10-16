@@ -131,7 +131,9 @@ class ProductRepository extends BaseRepository {
         $productoffer->categoryid = $request->category;
         $productoffer->deliverymethodid = $request->delivery;
         $productoffer->pricelistdocument = isset($request->pricelist)?$filedetails:'';
-        $productoffer->confirmed = isset($request->toggle_option_confirm)?$request->toggle_option_confirm:0;
+        if ($user::find($current_user)->isAdmin()) {
+        $productoffer->confirmed = $request->toggle_option_confirm;
+        }
         $productoffer->save();
         
         if (isset($request->imagelist)) {
