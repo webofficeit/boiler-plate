@@ -19,7 +19,7 @@ class HomeController extends Controller
     
     public function __construct()
     {
-        $this->profileavatar = 'img/avatar.png';
+        $this->profileavatar = '';
     }
     /**
      * @return \Illuminate\View\View
@@ -29,7 +29,7 @@ class HomeController extends Controller
         $partner = User::whereNotNull('latitude')->get();
         $partnerMap = [];
         foreach ($partner as $partnerkey => $partnervalue) {
-            
+            $this->profileavatar = 'img/avatar.png';
             if($partnervalue->avatar_location!='') {
                 $this->profileavatar = 'storage/'.$partnervalue->avatar_location;
             }
