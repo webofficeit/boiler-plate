@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $partner = User::whereNotNull('latitude')->get();
+        $partner = User::whereNotNull('latitude')->where('confirmed',1)->get();
         $partnerMap = [];
         foreach ($partner as $partnerkey => $partnervalue) {
             $this->profileavatar = 'img/avatar.png';
