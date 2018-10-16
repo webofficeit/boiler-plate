@@ -15,6 +15,7 @@ use App\Repositories\BaseRepository;
 use App\Models\Backend\Offerimage;
 use App\Models\Backend\Offertype;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Auth\User; 
 use Carbon\Carbon;
 
 /**
@@ -131,7 +132,7 @@ class ProductRepository extends BaseRepository {
         $productoffer->categoryid = $request->category;
         $productoffer->deliverymethodid = $request->delivery;
         $productoffer->pricelistdocument = isset($request->pricelist)?$filedetails:'';
-        if ($user::find($current_user)->isAdmin()) {
+        if (User::find($current_user)->isAdmin()) {
         $productoffer->confirmed = $request->toggle_option_confirm;
         }
         $productoffer->save();
