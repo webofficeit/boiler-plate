@@ -21,6 +21,8 @@
             </div><!--form-group-->
         </div><!--col-->
     </div><!--row-->
+    
+    
 
     <div class="row">
         <div class="col">
@@ -50,6 +52,65 @@
             </div><!--form-group-->
         </div><!--col-->
     </div><!--row-->
+    
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.address'))->for('address') }}
+
+                                    {{ html()->textarea('address')
+                                        ->class('form-control')
+                                        ->placeholder(__('validation.attributes.frontend.address'))
+                                         }}
+                                         </div>
+        </div><!--col-->
+    </div><!--row-->
+    
+    <div class="row">
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.latitude'))->for('latitude') }}
+
+                                    {{ html()->text('latitude')
+                                        ->class('form-control')
+                                        ->placeholder(__('validation.attributes.frontend.latitude'))
+                                        ->attribute('maxlength', 82) }}
+                                </div><!--col-->
+                                
+                            </div><!--row-->
+                            
+                           
+
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.longitude'))->for('longitude') }}
+
+                                    {{ html()->text('longitude')
+                                        ->class('form-control')
+                                        ->placeholder(__('validation.attributes.frontend.longitude'))
+                                        ->attribute('maxlength', 82) }}
+                                </div><!--form-group-->
+                            </div><!--col-->
+                        </div><!--row-->
+                        
+                        <div class="row">
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.phone'))->for('phone') }}
+
+                                    {{ html()->text('phoneno')
+                                        ->class('form-control')
+                                        ->placeholder(__('validation.attributes.frontend.phone'))
+                                        ->attribute('maxlength', 14) }}
+                                </div>        
+                                </div><!--col-->
+                                
+                            </div><!--row-->
+                            
+                        
+                       
 
     @if ($logged_in_user->canChangeEmail())
         <div class="row">

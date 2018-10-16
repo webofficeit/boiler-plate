@@ -22,7 +22,22 @@
             <hr>
 
             <div class="row mt-4 mb-4">
-                <div class="col">
+                
+                  
+        <div class="col">
+
+            <div class="form-group row">  
+                {{ html()->label(__('validation.attributes.frontend.accounttype'))->for('accounttype') }}
+
+                <div class="radio-toggle col-md-10">
+                    <input type="radio" name="registration_type"    {{ ($user->account_type ==1) ? 'checked' : ''}} value="1" id="reg_private" />
+                    <label for="reg_private">Private</label>
+                    
+                    <input type="radio" name="registration_type" value="2" {{ ($user->account_type==2) ? 'checked' : ''}} id="reg_business" />
+                    <label for="reg_business">Business</label>
+                </div>
+            </div><!--form-group-->
+
                     <div class="form-group row">
                     {{ html()->label(__('validation.attributes.backend.access.users.first_name'))->class('col-md-2 form-control-label')->for('first_name') }}
 
@@ -46,6 +61,8 @@
                                 ->required() }}
                         </div><!--col-->
                     </div><!--form-group-->
+                    
+                    
 
                     <div class="form-group row">
                         {{ html()->label(__('validation.attributes.backend.access.users.email'))->class('col-md-2 form-control-label')->for('email') }}

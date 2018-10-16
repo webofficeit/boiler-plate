@@ -9,6 +9,10 @@
             <td>{{ $logged_in_user->name }}</td>
         </tr>
         <tr>
+            <th>@lang('validation.attributes.frontend.accounttype')</th>
+            <td>{{ $logged_in_user->accounttype->name }}</td>
+        </tr>
+        <tr>
             <th>@lang('labels.frontend.user.profile.email')</th>
             <td>{{ $logged_in_user->email }}</td>
         </tr>

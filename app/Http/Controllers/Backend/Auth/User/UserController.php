@@ -124,6 +124,7 @@ class UserController extends Controller
             'first_name',
             'last_name',
             'email',
+            'registration_type',    
             'roles',
             'permissions'
         ));

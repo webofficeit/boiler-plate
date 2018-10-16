@@ -164,6 +164,7 @@ class UserRepository extends BaseRepository
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
+                'account_type' => $data['registration_type'],
             ])) {
                 
                 // Add selected roles/permissions

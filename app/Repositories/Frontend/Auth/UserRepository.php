@@ -189,6 +189,10 @@ class UserRepository extends BaseRepository
         $user->first_name = $input['first_name'];
         $user->last_name = $input['last_name'];
         $user->avatar_type = $input['avatar_type'];
+        $user->address = $input['address'];
+        $user->latitude = $input['latitude'];
+        $user->longitude = $input['longitude'];
+        $user->phoneno = $input['phoneno'];
 
         // Upload profile image if necessary
         if ($image) {

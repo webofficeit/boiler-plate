@@ -31,8 +31,8 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right">
             
-            <a class="dropdown-item" href="#">
-              <i class="fa fa-wrench"></i> Settings
+            <a class="dropdown-item" href="{{ route('frontend.user.account') }}">
+              <i class="fa fa-wrench"></i> My Account
             </a>
             
             <div class="divider"></div>
