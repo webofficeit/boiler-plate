@@ -91,7 +91,7 @@ class HomeController extends Controller
         foreach($catresult as $catkey => $catvalue) {
             $userDetails = User::find($catvalue->user_id);
             if($userDetails->avatar_location!='') {
-                $this->profileavatar = 'storage/public/'.$userDetails->avatar_location;
+                $this->profileavatar = 'storage/'.$userDetails->avatar_location;
             }
             $tempMap = [
                 'id'=>$userDetails->first_name." ".$userDetails->last_name,
