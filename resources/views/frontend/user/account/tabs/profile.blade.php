@@ -10,7 +10,7 @@
         </tr>
         <tr>
             <th>@lang('validation.attributes.frontend.accounttype')</th>
-            <td>{{ $logged_in_user->accounttype->name }}</td>
+            <td>{{ (isset($logged_in_user->accounttype))?$logged_in_user->accounttype->name:'' }}</td>
         </tr>
         <tr>
             <th>@lang('labels.frontend.user.profile.email')</th>
