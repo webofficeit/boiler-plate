@@ -131,7 +131,9 @@ class ProductRepository extends BaseRepository {
         $productoffer->girapercentage = $request->rangeslider;
         $productoffer->categoryid = $request->category;
         $productoffer->deliverymethodid = $request->delivery;
-        $productoffer->pricelistdocument = isset($request->pricelist)?$filedetails:'';
+        if(isset($request->pricelist)) {
+        $productoffer->pricelistdocument = $filedetails;
+        }
         if (User::find(Auth::user()->id)->isAdmin()) {
         $productoffer->confirmed = $request->toggle_option_confirm;
         }
