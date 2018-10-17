@@ -50,7 +50,7 @@ class ProductRepository extends BaseRepository {
             if (isset($data['pricelist'])) {
             
                 
-                $filename = $data['pricelist']->getClientOriginalName();
+                $filename = time().'.'.$data['pricelist']->getClientOriginalName();
             $path = $data['pricelist']->storeAs('/public/category/product/'.$current_user.'/doc', $filename);
             $filedetails = $filename; 
             
@@ -74,7 +74,7 @@ class ProductRepository extends BaseRepository {
             
             foreach($data['imagelist'] as $imagefile) {
                 
-                $filename = $imagefile->getClientOriginalName();
+                $filename = time().'.'.$imagefile->getClientOriginalName();
             $path = $imagefile->storeAs('/public/category/product/'.$current_user.'/images', $filename);
             $imagedetails[] = $filename; 
             }
@@ -118,7 +118,7 @@ class ProductRepository extends BaseRepository {
             if (isset($request->pricelist)) {
             
                 
-                $filename = $request->pricelist->getClientOriginalName();
+                $filename = time().'.'.$request->pricelist->getClientOriginalName();
             $path = $request->pricelist->storeAs('/public/category/product/'.$current_user.'/doc', $filename);
             $filedetails = $filename; 
             
@@ -141,7 +141,7 @@ class ProductRepository extends BaseRepository {
             
             foreach($request->imagelist as $imagefile) {
                 
-                $filename = $imagefile->getClientOriginalName();
+                $filename = time().'.'.$imagefile->getClientOriginalName();
             $path = $imagefile->storeAs('/public/category/product/'.$current_user.'/images', $filename);
             $imagedetails[] = $filename; 
             }

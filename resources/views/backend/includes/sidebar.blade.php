@@ -19,7 +19,8 @@
                         <i class="fa fa-cogs"></i> @lang('menus.backend.access.catalog.title')     
                     </a>
                 <ul class="nav-dropdown-items">
-                        <li class="nav-item">
+                     @if ($logged_in_user->isAdmin())
+                     <li class="nav-item">
                             <a class="nav-link {{ active_class(Active::checkUriPattern('admin/category*')) }}" href="{{ route('admin.category') }}">
                                 @lang('labels.backend.access.catalog.category')
 
@@ -28,16 +29,6 @@
                                 @endif
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/product')) }}" href="{{ route('admin.product') }}">
-                                @lang('labels.backend.access.catalog.product')
-
-                                @if ($pending_approval > 0)
-                                    <span class="badge badge-danger">{{ $pending_approval }}</span>
-                                @endif
-                            </a>
-                        </li>
-                        @if ($logged_in_user->isAdmin())
                         <li class="nav-item">
                             <a class="nav-link {{ active_class(Active::checkUriPattern('admin/product/confirm')) }}" href="{{ route('admin.product.confirm') }}">
                                 @lang('labels.backend.access.catalog.confirm')
@@ -48,6 +39,16 @@
                             </a>
                         </li>
                         @endif
+                        
+                        <li class="nav-item">
+                            <a class="nav-link {{ active_class(Active::checkUriPattern('admin/product')) }}" href="{{ route('admin.product') }}">
+                                @lang('labels.backend.access.catalog.product')
+
+                                @if ($pending_approval > 0)
+                                    <span class="badge badge-danger">{{ $pending_approval }}</span>
+                                @endif
+                            </a>
+                        </li>
                     </ul>
             </li>
 

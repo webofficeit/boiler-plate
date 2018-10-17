@@ -80,7 +80,7 @@
                                 {{ html()->label(__('validation.attributes.backend.access.product.image'))->class('col-md-2 form-control-label')->for('image') }}
                                 <div class="col-md-6">
                                     <div class="input-group control-group">
-                                        <input type="file" name="imagelist[]" class="custom-file-input">
+                                        <input type="file" name="imagelist[]" class="custom-file-input" accept="image/*">
                                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
 
                   <div class="col-md-6">
                                     <div class="input-group control-group imagelist">
-                                        <input type="file" name="imagelist[]" class="custom-file-input">
+                                        <input type="file" name="imagelist[]" accept="image/*" class="custom-file-input">
                                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                     </div>
                                 </div>
@@ -321,5 +321,8 @@
         });
     
     </script>
+     <script src="{{ URL::asset('js/clientvalidation.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+{!! JsValidator::formRequest('App\Http\Requests\Backend\UpdateProductRequest', 'form'); !!}
     
 @endpush    

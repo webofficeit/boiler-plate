@@ -105,23 +105,7 @@ class UserRepository extends BaseRepository
             }
             $dockyc = json_encode($bussinessdetails);
             }
-            if($data['registration_type']==1) {
-            $user = parent::create([
-                'first_name'        => $data['first_name'],
-                'last_name'         => $data['last_name'],
-                'email'             => $data['email'],
-                'address'           => $data['address'],
-                'phoneno'           => $data['phone'],
-                'latitude'          => $data['latitude'],
-                'longitude'         => $data['longitude'],
-                'account_type'      => $data['registration_type'],
-                'confirmation_code' => md5(uniqid(mt_rand(), true)),
-                'active'            => 1,
-                'password'          => $data['password'],
-                                    // If users require approval or needs to confirm email
-                'confirmed'         => config('access.users.requires_approval') || config('access.users.confirm_email') ? 0 : 1,
-            ]);
-            } else {
+            
                 
             $user = parent::create([
                 'first_name'        => $data['first_name'],
@@ -132,9 +116,11 @@ class UserRepository extends BaseRepository
                 'latitude'          => $data['latitude'],
                 'longitude'         => $data['longitude'],
                 'account_type'      => $data['registration_type'],
-                'website'           => $data['web_site'],
+                'city'              => $data['city'],
+                'country_id'        => $data['country'],
+                'website'           => (isset($data['web_site']))?$data['web_site']:null,
                 'bussiness_kyc'     =>(isset($data['bussinesskyc']))?$dockyc:null,
-                'bussiness_description'  => $data['bussiness_description'],
+                'bussiness_description'  => (isset($data['bussiness_description']))?$data['bussiness_description']:null,
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'active'            => 1,
                 'password'          => $data['password'],
@@ -143,7 +129,7 @@ class UserRepository extends BaseRepository
             ]);
             
              
-            }
+           
 
             if ($user) {
                 $permissions = ['view backend'];
@@ -193,6 +179,8 @@ class UserRepository extends BaseRepository
         $user->latitude = $input['latitude'];
         $user->longitude = $input['longitude'];
         $user->phoneno = $input['phoneno'];
+        $user->city = $input['city'];
+        $user->country_id = $input['country'];
         $user->website = isset($input['website'])?$input['website']:null;
         $user->bussiness_description = isset($input['bussiness_description'])?$input['bussiness_description']:null;
 
@@ -397,7 +385,7 @@ foreach($data['avatar_location'] as $media)
         {
             if(!empty($media))
             {
-            $filename = $media->getClientOriginalName();
+            $filename = time().'.'.$media->getClientOriginalName();
             $path = $media->storeAs('/public/register-doc', $filename);
             $filedetails[] = $filename; 
             

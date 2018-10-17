@@ -157,6 +157,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Proengsoft\JsValidation\JsValidationServiceProvider::class,
 
         /*
          * Package Service Providers that aren't auto-discover...
@@ -222,6 +223,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'JsValidator' => Proengsoft\JsValidation\Facades\JsValidatorFacade::class,
 
         /*
          * Package Aliases

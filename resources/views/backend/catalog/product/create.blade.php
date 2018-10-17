@@ -51,7 +51,7 @@
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.category'))->class('col-md-2 form-control-label')->for('productcategory') }}
                             <div class="col-md-6"> 
-                                <select name="category" class="form-control">
+                                <select name="category" class="form-control" required>
                                         <option value="">select</option>
  @foreach ($Acategorys as $Acategorys)
                                         <option value={{ $Acategorys['id'] }}>{{ $Acategorys['name'] }}</option>
@@ -76,7 +76,7 @@
 
                   <div class="col-md-6">
                                     <div class="input-group control-group">
-                                        <input type="file" name="imagelist[]" class="custom-file-input">
+                                        <input type="file" name="imagelist[]" class="custom-file-input" accept="image/*" >
                                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
 
                   <div class="col-md-6">
                                     <div class="input-group control-group">
-                                        <input type="file" name="imagelist[]" class="custom-file-input">
+                                        <input type="file" name="imagelist[]" class="custom-file-input" accept="image/*">
                                         <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                     </div>
                                 </div>
@@ -273,5 +273,8 @@ rangeSlider();
             $('#datepickerto').data("DateTimePicker").minDate(e.date);
         });
     </script>
+     <script src="{{ URL::asset('js/clientvalidation.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+{!! JsValidator::formRequest('App\Http\Requests\Backend\UpdateProductRequest', 'form'); !!} 
     
 @endpush    

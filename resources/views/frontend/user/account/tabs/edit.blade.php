@@ -74,6 +74,7 @@
 
                                     {{ html()->text('latitude')
                                         ->class('form-control')
+                                        ->required()
                                         ->placeholder(__('validation.attributes.frontend.latitude'))
                                         ->attribute('maxlength', 82) }}
                                 </div><!--col-->
@@ -88,11 +89,39 @@
 
                                     {{ html()->text('longitude')
                                         ->class('form-control')
+                                        ->required()
                                         ->placeholder(__('validation.attributes.frontend.longitude'))
                                         ->attribute('maxlength', 82) }}
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
+                        
+                            <div class="row">
+                            <div class="col-12 col-md-6" id="city">
+                                <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.city'))->for('city') }}
+
+                                    {{ html()->text('city')
+                                        ->class('form-control')
+                                        ->required()
+                                        ->placeholder(__('validation.attributes.frontend.city'))
+                                        ->attribute('maxlength', 191) }}
+                                </div><!--form-group-->
+                            </div><!--col-->
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                            {{ html()->label(__('validation.attributes.frontend.country'))->for('country') }}
+                           
+                                <select name="country" class="form-control" required>
+                                        @foreach ($countrylist as $countrylists)
+                                        <option {{ ($logged_in_user->country_id == $countrylists->id)?'selected':'' }}  value={{ $countrylists->id }}>{{ $countrylists->country_name }}</option>
+                                    @endforeach
+                                         
+                                </select>
+                                         </div>
+                            </div> 
+                            </div> 
                         
                         <div class="row">
                             

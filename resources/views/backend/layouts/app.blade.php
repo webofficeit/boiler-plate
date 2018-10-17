@@ -11,7 +11,6 @@
     <title>@yield('title', app_name())</title>
     @yield('meta')
 
-    {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
     @stack('before-styles')
 
     <!-- Check if the language is set to RTL, so apply the RTL layouts -->
@@ -19,6 +18,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datetimepicker-build.css') }}" />
     {{ style(mix('css/backend.css')) }}
     <link rel="stylesheet" href="{{ URL::asset('css/deal.css') }}" />
+    <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
+    <script src="{{ URL::asset('js/additional-methods.min.js') }}"></script>
 
     @stack('after-styles')
 </head>

@@ -61,11 +61,7 @@ class ProductController extends Controller {
     public function store(User $user)
     {
         
-        if ($user::find(Auth::user()->id)->isAdmin()) {
-           $categorylist = Category::all(); 
-        } else {
-        $categorylist = Category::where('user_id', Auth::user()->id)->get();
-        }
+        $categorylist = Category::all();
         $Acategorys=[];
         foreach($categorylist as $keycategory => $valuecategory) {
             $Acategorys[$keycategory]=[
@@ -134,7 +130,7 @@ class ProductController extends Controller {
             ];
             
         }
-       $previous1 = 1;
+       
        
        return view('backend.catalog.product.edit', compact('product','Adeliverys','Acategorys','isconfirm'));
         

@@ -238,7 +238,9 @@ return [
             'business_registration_papers' => 'Business Registration Papers',
             'productsearch' => 'Offer search',
             'latitude' => 'latitude',
-            'longitude' => 'longitude'
+            'longitude' => 'longitude',
+            'country' => 'Country',
+            'city'  => 'City'
         ],
     ],
 ];

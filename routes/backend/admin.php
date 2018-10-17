@@ -19,7 +19,7 @@ Route::post('category/editupdate', [CategoryController::class, 'editupdate'])->n
 Route::post('product/editupdate', [ProductController::class, 'editupdate'])->name('product.editupdate');
 Route::post('category/updateimage', [CategoryController::class, 'updateimage'])->name('category.updateimage');
 Route::post('product/updateimage', [ProductController::class, 'updateimage'])->name('product.updateimage');
-Route::get('product/confirm', [ProductController::class, 'confirmindex'])->name('product.confirm');
+Route::get('product/confirm', [ProductController::class, 'confirmindex'])->name('product.confirm')->middleware('section.owner');
 
 Route::group(['prefix' => 'category/{category}'], function () {
             Route::get('edit', [CategoryController::class, 'edit'])->name('category.edit');
@@ -29,4 +29,5 @@ Route::group(['prefix' => 'category/{category}'], function () {
 Route::group(['prefix' => 'product/{product}'], function () {
             Route::get('edit', [ProductController::class, 'edit'])->name('product.edit');
             Route::delete('product/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
-        });        
+        }); 
+        

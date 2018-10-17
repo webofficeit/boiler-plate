@@ -38,7 +38,7 @@ class CategoryRepository extends BaseRepository {
             $current_user = Auth::user()->id;
             $filedetails = '';
         if (isset($data['avatar'])) {
-                $filename = $data['avatar']->getClientOriginalName();
+                $filename = time().'.'.$data['avatar']->getClientOriginalName();
             $path = $data['avatar']->storeAs('/public/category/'.$current_user, $filename);
             $filedetails = $filename; 
             
@@ -63,19 +63,20 @@ class CategoryRepository extends BaseRepository {
         $category = Category::find($request->catgid); 
         $current_user = $category->user_id;
             
-            if (isset($request->avatar)) {
+            if(((isset($request->avatar))&&($request->avatar!=''))) {
               
-                $filename = $request->avatar->getClientOriginalName();
+                $filename = time().'.'.$request->avatar->getClientOriginalName();
             $path = $request->avatar->storeAs('/public/category/'.$current_user, $filename);
             $filedetails = $filename; 
             
              }
-        
-        
+
         $category->name = $request->name;
         $category->description = $request->description;
         $category->seo = $request->seo;
-        $category->avathar = (isset($request->avatar))?$filedetails:'';
+        if(((isset($request->avatar))&&($request->avatar!=''))) {
+        $category->avathar = $filedetails;
+        }
         $category->save();
         
         

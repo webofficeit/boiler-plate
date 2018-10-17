@@ -8,6 +8,7 @@ use App\Models\Auth\PasswordHistory;
 use App\Models\Auth\BussinessRegistrationDoc;
 use App\Models\Backend\ProductOffer;
 use App\Models\Backend\AccountTypes;
+use App\Models\Auth\Country;
 
 /**
  * Class UserRelationship.
@@ -49,6 +50,11 @@ trait UserRelationship
     public function accounttype()
     {
         return $this->belongsTo(AccountTypes::class,'account_type','id');
+    }
+    
+    public function country()
+    {
+        return $this->belongsTo(Country::class,'country_id','id');
     }
     
     

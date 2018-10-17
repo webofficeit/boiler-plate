@@ -8,6 +8,7 @@ use App\Helpers\Frontend\Auth\Socialite;
 use App\Events\Frontend\Auth\UserRegistered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Repositories\Frontend\Auth\UserRepository;
+use App\Models\Auth\Country;
 
 
 /**
@@ -50,8 +51,10 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         abort_unless(config('access.registration'), 404);
+        $countrylist = Country::all();
+        
 
-        return view('frontend.auth.register')
+        return view('frontend.auth.register',compact('countrylist'))
             ->withSocialiteLinks((new Socialite)->getSocialLinks());
     }
 
@@ -64,13 +67,14 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
         if($request->input('registration_type')=='1') {
-            $user = $this->userRepository->create($request->only('registration_type','first_name', 'last_name', 'email', 'address', 'phone', 'password','latitude','longitude'));
+            $user = $this->userRepository->create($request->only('registration_type','first_name', 'last_name', 'email', 'address', 'phone', 'password','latitude','longitude','city','country'));
         } else {
             
-            $user = $this->userRepository->create($request->only('registration_type','first_name', 'last_name', 'email', 'address', 'phone', 'web_site','latitude','longitude','bussiness_description','avatar_location','bussinesskyc', 'password'));
+            $user = $this->userRepository->create($request->only('registration_type','first_name', 'last_name', 'email', 'address', 'phone', 'web_site','latitude','longitude','city','country','bussiness_description','avatar_location','bussinesskyc', 'password'));
           
         }
-        //exit();
+        
+        
         
 
         // If the user must confirm their email or their account requires approval,

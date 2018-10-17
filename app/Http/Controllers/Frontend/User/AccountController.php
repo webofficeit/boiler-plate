@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Auth\Country;
 
 /**
  * Class AccountController.
@@ -14,6 +15,7 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('frontend.user.account');
+        $countrylist = Country::all();
+        return view('frontend.user.account',compact('countrylist'));
     }
 }

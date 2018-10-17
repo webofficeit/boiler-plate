@@ -12,6 +12,8 @@ use App\Models\Auth\User;
 use App\Models\Backend\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Backend\ProductOffer;
+use App\Repositories\Frontend\ProductRepository;
 
 
 /**
@@ -24,13 +26,15 @@ class CategoryController extends Controller {
     /**
      * @return \Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index(Request $request, ProductRepository $productRepository)
     {
-        $paramId = \Crypt::decryptString($request->id);
         
-        $category = Category::where('user_id',$paramId)->get();
+        $category = $productRepository->getCategory($request->id);
+        
         
         return view('frontend.catalog.category', compact('category'));
         
     }
+    
+    
 }

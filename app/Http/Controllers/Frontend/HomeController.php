@@ -87,23 +87,25 @@ class HomeController extends Controller
     public function searchmap(Request $request) {
         $serarchdate = $request['searchdata'];
         $partnerMap = [];
-        $catresult = Category::where('name', 'like', '%' . $serarchdate. '%')->get();
-        foreach($catresult as $catkey => $catvalue) {
+        
+         $result = ProductOffer::where('name', 'like', '%' . $serarchdate. '%')->get();  
+        
+        foreach($result as $catkey => $catvalue) {
             $userDetails = User::find($catvalue->user_id);
             if($userDetails->avatar_location!='') {
                 $this->profileavatar = 'storage/'.$userDetails->avatar_location;
             }
             $tempMap = [
                 'id'=>$userDetails->first_name." ".$userDetails->last_name,
-                'color'=> "#000000",
-                'svgPath'=> 'M40,0C26.191,0,15,11.194,15,25c0,23.87,25,55,25,55s25-31.13,25-55C65,11.194,53.807,0,40,0z     M40,38.8c-7.457,0-13.5-6.044-13.5-13.5S32.543,11.8,40,11.8c7.455,0,13.5,6.044,13.5,13.5S47.455,38.8,40,38.8z',
-                 'showAsSelected'=> true,
+                'color'=> config('deal.ammap.color'),
+                'svgPath'=> config('deal.ammap.svgPath'),
+                 'showAsSelected'=> config('deal.ammap.showAsSelected'),
                 'latitude'=> $userDetails->latitude,
                 'longitude'=> $userDetails->longitude,
-                'zoomLevel'=> 5,        
-                'scale'=> 0.5,
-                'title'=> $userDetails->first_name." ".$userDetails->last_name,
-                'description' => '<img src='.$this->profileavatar.' />'    
+                'zoomLevel'=> config('deal.ammap.zoomLevel'),        
+                'scale'=> config('deal.ammap.scale'),
+                'title'=> '<a href="/user/'.Crypt::encryptString($userDetails->id).'">'.$userDetails->first_name." ".$userDetails->last_name.'</a>',
+                'description' => '<a href="/user/'.Crypt::encryptString($userDetails->id).'"><img src='.$this->profileavatar.' /><p>'     
             ];
             array_push($partnerMap, $tempMap);
         }

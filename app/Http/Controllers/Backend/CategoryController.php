@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use App\Models\Auth\User; 
 use Storage;
 use Response;
+use App\Http\Middleware\SectionOwner;
 
 
 /**
@@ -39,6 +40,7 @@ class CategoryController extends Controller {
      */
     public function __construct(CategoryRepository $categoryRepository)
     {
+        $this->middleware(SectionOwner::class);
         $this->categoryRepository = $categoryRepository;
     }
     

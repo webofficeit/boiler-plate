@@ -12,7 +12,6 @@
         @yield('meta')
         <link rel="stylesheet" href="{{ URL::asset('css/ammap.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/frontenddeal.css') }}" />
-        {{-- See https://laravel.com/docs/5.5/blade#stacks for usage --}}
         @stack('before-styles')
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
@@ -21,6 +20,8 @@
         <script src="{{ URL::asset('js/ammap.js') }}"></script>
         <script src="{{ URL::asset('js/worldLow.js') }}"></script>
         <script src="{{ URL::asset('js/light.js') }}"></script>
+        <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
+        <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 
         @stack('after-styles')
     </head>

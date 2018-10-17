@@ -42,7 +42,7 @@
 
                                     {{ html()->text('first_name')
                                         ->class('form-control')
-                                        ->required()
+                                        
                                         ->placeholder(__('validation.attributes.frontend.first_name'))
                                         ->attribute('maxlength', 191) }}
                                 </div><!--col-->
@@ -99,6 +99,7 @@
 
                                     {{ html()->text('latitude')
                                         ->class('form-control')
+                                        ->required()
                                         ->placeholder(__('validation.attributes.frontend.latitude'))
                                         ->attribute('maxlength', 82) }}
                                 </div><!--col-->
@@ -113,6 +114,7 @@
 
                                     {{ html()->text('longitude')
                                         ->class('form-control')
+                                        ->required()
                                         ->placeholder(__('validation.attributes.frontend.longitude'))
                                         ->attribute('maxlength', 82) }}
                                 </div><!--form-group-->
@@ -120,7 +122,34 @@
                         </div><!--row-->
                         
                         <div class="row">
+                            <div class="col-12 col-md-6" id="city">
+                                <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.city'))->for('city') }}
+
+                                    {{ html()->text('city')
+                                        ->class('form-control')
+                                        ->required()
+                                        ->placeholder(__('validation.attributes.frontend.city'))
+                                        ->attribute('maxlength', 191) }}
+                                </div><!--form-group-->
+                            </div><!--col-->
                             
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                            {{ html()->label(__('validation.attributes.frontend.country'))->for('country') }}
+                           
+                                <select name="country" class="form-control" required>
+                                        <option value="">select</option>
+                                         @foreach ($countrylist as $countrylists)
+                                         <option  value={{ $countrylists->id }}>{{ $countrylists->country_name }}</option>
+                                    @endforeach
+                                </select>
+                                         </div>
+                            </div> 
+                            </div> 
+                        
+                        <div class="row">
+                   
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
                                     {{ html()->label(__('validation.attributes.frontend.phone'))->for('phone') }}
@@ -298,7 +327,10 @@
             $(document).on('change', '.custom-file-input', function(e) {
                 $(this).next('.custom-file-label').html(e.target.files[0].name);
             });
+      
         });
     </script>
-    
+    <script src="{{ URL::asset('js/clientvalidation.js') }}"></script>
+   <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+{!! JsValidator::formRequest('App\Http\Requests\RegisterRequest', 'form'); !!} 
 @endpush
