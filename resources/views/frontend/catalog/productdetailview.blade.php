@@ -34,7 +34,7 @@
                         @forelse(json_decode($productlist->Offerimage[0]->name) as $slideplacekey =>$productlistimage)
                     
                         <li class="list-inline-item {{$slideplacekey==0?'active':''}}">
-                            <a id="carousel-selector-0" class="selected" data-slide-to={{$slideplacekey}} data-target="#myCarousel">
+                            <a id="carousel-selector-0" class="selected" data-slide-to={{$slideplacekey}} data-target="#productCarousel">
                                 <img src="{{ url('storage/category/product/'.$productlist->user_id.'/images/'.$productlistimage) }}" class="img-fluid">
                             </a>
                         </li>
@@ -62,7 +62,8 @@
                     
                     @endif
                     @if($productlist->pricelistdocument)
-                    <div class="view-price-list"><a href="{{ URL::to( 'storage/category/product/'.$productlist->user_id.'/doc/'.$productlist->pricelistdocument)  }}"><i class="far fa-file-pdf"></i> View Price List</a></div>
+                    <div class="view-price-list">
+                        <a href="download/{{$productlist->pricelistdocument}}/{{$productlist->user_id}}"><i class="far fa-file-pdf"></i> View Price List</a></div>
                     @endif
                 </div>
             </div>

@@ -300,4 +300,15 @@ trait UserAttribute
 		  </div>
 		</div>';
     }
+    
+    public function getBussinessDocAttribute() {
+        
+         if($this->bussiness_kyc!='') {
+        $bussiness = json_decode($this->bussiness_kyc);
+        
+        return $bussiness;
+        }
+       return [];
+        
+    }
 }

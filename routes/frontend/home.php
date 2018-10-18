@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\ProductController;
+use App\Http\Controllers\Frontend\DownloadController;
 
 /*
  * Frontend Controllers
@@ -19,6 +20,7 @@ Route::post('ammap/search', [HomeController::class, 'searchmap'])->name('ammap.s
 Route::get('user/{id}', [CategoryController::class, 'index'])->name('user/{id}');
 Route::get('{slug}/offer', [ProductController::class, 'index'])->name('{slug}/offer');
 Route::get('{slug}/offer/{id}', [ProductController::class, 'detailview'])->name('{slug}/offer/{id}');
+Route::get('{slug}/offer/download/{filename}/{userid}', [DownloadController::class, 'downloadfile'])->name('download');
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

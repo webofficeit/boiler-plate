@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\Auth\User\UserStatusController;
 use App\Http\Controllers\Backend\Auth\User\UserSessionController;
 use App\Http\Controllers\Backend\Auth\User\UserPasswordController;
 use App\Http\Controllers\Backend\Auth\User\UserConfirmationController;
+use App\Http\Controllers\Backend\DownloadController;
 
 /*
  * All route names are prefixed with 'admin.auth'.
@@ -72,7 +73,11 @@ Route::group([
             // Deleted
             Route::get('delete', [UserStatusController::class, 'delete'])->name('user.delete-permanently');
             Route::get('restore', [UserStatusController::class, 'restore'])->name('user.restore');
+        
+            
         });
+        
+        Route::get('user/downloadlist/{datapath}', [DownloadController::class, 'downloadfile'])->name('downloadlist');
     });
 
     /*

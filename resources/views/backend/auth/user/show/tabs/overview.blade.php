@@ -25,6 +25,18 @@
                 <th>@lang('labels.backend.access.users.tabs.content.overview.confirmed')</th>
                 <td>{!! $user->confirmed_label !!}</td>
             </tr>
+            <tr>
+                <th>@lang('validation.attributes.frontend.business_registration_papers')</th>
+                <td>
+                @foreach($user->bussiness_doc as $bussinessdoc)
+     
+                    <div class="col-md-2">                    
+                        <a href="downloadlist/{{$bussinessdoc}}" target="_blank"> {{ explode('.', $bussinessdoc)[1].".".explode('.', $bussinessdoc)[2] }} </a>
+                    </div>
+       
+                @endforeach
+                </td>
+            </tr>
 
             <tr>
                 <th>@lang('labels.backend.access.users.tabs.content.overview.timezone')</th>
