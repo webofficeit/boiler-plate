@@ -74,6 +74,7 @@ return [
                 'create' => 'Create Product',
                 'edit' => 'Edit Product',
                 'management' => 'Offer Product',
+                'confirm' => 'Product Confirm',
                 'table' => [
                     'name' => 'Name',
                     'description' => 'Description',

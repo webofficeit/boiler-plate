@@ -19,13 +19,16 @@ return [
             
             'catalog' => [
                 'title'        => 'Catalog',
-                'category'     => 'Category'
+                'category'     => 'Category',
+                
             ],
             'category'=> [
-               'edit' => 'Category Edit' 
+               'edit' => 'Category Edit',
+                'add'         => 'Category Create'
             ],
             'product' => [
-                'edit' => 'Offer Edit'
+                'edit' => 'Offer Edit',
+                'add'         => 'Category Create'
             ],
 
             'roles' => [

@@ -6,12 +6,12 @@ Breadcrumbs::for('admin.category.update', function ($trail) {
 });
 Breadcrumbs::for('admin.category.add', function ($trail) {
     $trail->parent('admin.category');
-    $trail->push(__('admin.category.add'), url('admin.category.add'));
+    $trail->push(__('menus.backend.access.category.add'), url('admin.category.add'));
 });
 
 Breadcrumbs::for('admin.product.add', function ($trail) {
     $trail->parent('admin.product');
-    $trail->push(__('admin.product.add'), url('admin.product.add'));
+    $trail->push(__('menus.backend.access.product.add'), url('admin.product.add'));
 });
 
 
