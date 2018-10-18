@@ -23,11 +23,16 @@
     display: none !important;
 }
 
+.ammapDescriptionText.amcharts-description-text-div {
+    max-height: none;
+}
+
 .slider-container {
     background: #263148;
     position: relative;
     margin-top: 3em;
     margin-bottom: -3em;
+    padding: 1em 0 3em;
 }
 .slider-container .videoBG {
     position: absolute !important;
@@ -42,6 +47,9 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-image: url(https://giracoin.com/wp-content/themes/giracoin/img/poster.jpg);
+}
+.slider-container .page-title {
+    color: #fff;
 }
 .recent-users {
     margin-top: 2em;

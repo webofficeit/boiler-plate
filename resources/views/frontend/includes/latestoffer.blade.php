@@ -25,14 +25,14 @@
 
 <div class="slider-container">
 <div class="videoBG">
-    <video class="my-background-video jquery-background-video is-visible is-playing" loop="" autoplay="" muted="" poster="https://giracoin.com/wp-content/themes/giracoin/img/poster.jpg" style="min-width: auto; min-height: auto; width: 1583px; height: auto; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); transition-duration: 0ms;">
+    <video class="my-background-video jquery-background-video is-visible is-playing" loop="" autoplay="" muted="" poster="https://giracoin.com/wp-content/themes/giracoin/img/poster.jpg" style="min-width: auto; min-height: auto; width: 100%; height: auto; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); transition-duration: 0ms;">
       <source src="https://giracoin.com/wp-content/themes/giracoin/video/video.mp4" type="video/mp4">
       <source src="https://giracoin.com/wp-content/themes/giracoin/video/video.webm" type="video/webm">
       <source src="https://giracoin.com/wp-content/themes/giracoin/video/video.ogv" type="video/ogg">
     </video>
     
   </div>
-<div id="homeCarousel" class="carousel slide" data-ride="carousel">
+{{-- <div id="homeCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
   @foreach($product as $k=>$prod)
     <li data-target="#homeCarousel" data-slide-to="{{$k}}" class=" {{$k==0?'active':''}}"></li>
@@ -57,12 +57,6 @@
       </div>
     </div>
     @endforeach
-    {{-- <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div> --}}
   </div>
   <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -72,6 +66,31 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div> --}}
+
+<div class="container">
+  <div class="page-title">Offers</div>
+  <div class="recent-list-view list-view">
+    <div class="row">
+    @if(count($product) > 0 )
+        @foreach($product as $product)
+          <div class="col-lg-3 col-md-6">
+            <div class="recent-list-item list-item">
+              <a href='{{ url($product["categoryseo"].'/offer/'.Crypt::encryptString($product['id'])) }}'>
+                @if(isset($product['imagees']))
+                  <div class="list-item-img" style="background-image: url({{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }}"></div>
+                @endif
+                <div class="list-item-title">{{ $product['name'] }}</div>
+              </a>
+            </div>
+          </div>
+          @endforeach
+      @else
+        No records!
+      @endif
+    </div>
+
+  </div>
 </div>
 
 </div>
