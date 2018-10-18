@@ -40,7 +40,7 @@ class ProductController extends Controller {
         foreach($productlist as $productkey => $productvalue) {
           
              
-            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&&($date >= $productvalue->Offertype[0]->datefrom)) {
+            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&& !($date->between(Carbon::parse($productvalue->Offertype[0]->datefrom), Carbon::parse($productvalue->Offertype[0]->dateto)->addDay()))) {
                 continue; 
             }
             

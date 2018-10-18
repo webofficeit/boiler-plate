@@ -58,9 +58,9 @@ class HomeController extends Controller
         $product = [];
         $date = new Carbon;
         foreach($product0ffer as $productkey => $productvalue) {
-          
              
-            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&&($date >= $productvalue->Offertype[0]->datefrom)) {
+            //if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&&($date == $productvalue->Offertype[0]->datefrom)) {
+            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1) && !($date->between(Carbon::parse($productvalue->Offertype[0]->datefrom), Carbon::parse($productvalue->Offertype[0]->dateto)->addDay()))) {
                 continue; 
             }
             
