@@ -28,15 +28,23 @@ class ProductRepository extends BaseRepository {
         $paramId = \Crypt::decryptString($param);
         
         $productlist = ProductOffer::where([['user_id',$paramId],['confirmed',1]])->get();
-        
         $category = [];
+        $catname = [];
+        
         foreach($productlist as $productkey => $productvalue) {
+            
+            if ((in_array($productvalue->category->name, $catname))) {
+                
+                continue;
+            }
            $category[$productkey]['name'] = $productvalue->category->name;
            $category[$productkey]['seo'] = $productvalue->category->seo;
            $category[$productkey]['picture'] = $productvalue->category->avathar;
            $category[$productkey]['userid'] = $productvalue->category->user_id;
+            
+            $catname[$productkey] = $productvalue->category->name;
         }
-        
-        return $category;
+         
+        return array_values($category);
     }
 }
