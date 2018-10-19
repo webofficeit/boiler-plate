@@ -29,6 +29,8 @@ class HomeController extends Controller
         $partner = User::whereNotNull('latitude')->where('confirmed',1)->get();
         $partnerMap = [];
         foreach ($partner as $partnerkey => $partnervalue) {
+            if(count(ProductOffer::where('user_id', $partnervalue->id )->get()) > 0 ) {
+         
             $this->profileavatar = 'img/avatar.png';
             if($partnervalue->avatar_location!='') {
                 $this->profileavatar = 'storage/'.$partnervalue->avatar_location;
@@ -46,7 +48,7 @@ class HomeController extends Controller
                 'description' => '<a href="/user/'.Crypt::encryptString($partnervalue->id).'"><img src='.$this->profileavatar.' /><p>'    
             ];
             array_push($partnerMap, $tempMap);
-           
+            }
         }
        
        
