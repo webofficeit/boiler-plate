@@ -26,10 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $partner = User::whereNotNull('latitude')->where('confirmed',1)->get();
+        $partner = User::whereNotNull('latitude')->whereNull('deleted_at')->where([['confirmed',1],['active',1]])->get();
+   
         $partnerMap = [];
         foreach ($partner as $partnerkey => $partnervalue) {
-            if(count(ProductOffer::where('user_id', $partnervalue->id )->get()) > 0 ) {
+            if(count(ProductOffer::where([['user_id', $partnervalue->id],['deleted',0]] )->get()) > 0 ) {
          
             $this->profileavatar = 'img/avatar.png';
             if($partnervalue->avatar_location!='') {

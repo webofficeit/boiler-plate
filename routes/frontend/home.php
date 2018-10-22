@@ -18,7 +18,7 @@ Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 Route::post('ammap/search', [HomeController::class, 'searchmap'])->name('ammap.search');
 Route::get('user/{id}', [CategoryController::class, 'index'])->name('user/{id}');
-Route::get('{slug}/offer', [ProductController::class, 'index'])->name('{slug}/offer');
+Route::get('{slug}/offerlist/{userid}', [ProductController::class, 'index'])->name('{slug}/offerlist/{userid}');
 Route::get('{slug}/offer/{id}', [ProductController::class, 'detailview'])->name('{slug}/offer/{id}');
 Route::get('{slug}/offer/download/{filename}/{userid}', [DownloadController::class, 'downloadfile'])->name('download');
 /*

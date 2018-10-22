@@ -29,10 +29,10 @@ class ProductController extends Controller {
     {
         $slug = $request->slug;
         $category = Category::where('seo',$slug)->get();
-        
+        $paramId = \Crypt::decryptString($request->userid);
         $productlist = ProductOffer::where([
             ['categoryid',$category[0]->id],
-            ['confirmed',1]
+            ['confirmed',1],['user_id',$paramId]
                 ])->get();
         
         $date = new Carbon;

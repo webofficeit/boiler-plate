@@ -174,4 +174,15 @@ class ProductController extends Controller {
 }
       return redirect()->route('admin.product')->withFlashSuccess(__('strings.frontend.catalog.product_updated'));
     }
+    
+    public function listconfirm(Request $request)
+    {
+        
+        $productOffer = ProductOffer::find($request->datagrid);
+        $productOffer->confirmed = $request->dataval;
+        $productOffer->save();
+        
+        return response()->json('updated');
+        
+    }
 }

@@ -40,15 +40,20 @@
                             <tr>
                                 <td>{{ ucwords($productlist->name) }}</td>
                                 <td>
-                                   {{ ucwords($productlist->descriptionoffer) }}
+                                   {!! ucwords($productlist->descriptionoffer) !!}
                                 </td>
                                 <td>
                             
                                      {{ucwords($productlist->category['name'])}}
                                 </td>
                                 <td>
-                            
-                                     {{($productlist->confirmed==0)?'No':'Yes'}}
+                            <div class="radio-toggle{{$keyproduct}}">
+                                    <input type="radio" name="toggle_option_confirm{{$keyproduct}}" value="1" id="{{$keyproduct}}" data-key ="{{$productlist->id}}"   {{($productlist->confirmed == 1) ? 'checked':''}} />
+                                    <label for="yes">Yes</label>
+                                    <input type="radio" name="toggle_option_confirm{{$keyproduct}}" value="0"  id="{{$keyproduct}}" data-key ="{{$productlist->id}}" {{($productlist->confirmed == 0) ? 'checked':''}} />
+                                    <label for="no">No</label>
+                                </div>
+                                     
                                 </td>
                                 @if ($logged_in_user->isAdmin())
                                 <td><a href='{!! url('admin/auth/user/'.$productlist->users['id']); !!}'>{!! $productlist->users['email'] !!}</a></td>
@@ -77,3 +82,24 @@
     </div><!--card-body-->
 </div><!--card-->
 @endsection
+
+@push('after-scripts')
+<script>
+   $('[type="radio"]').on('change', function() {
+       $.ajax({
+                    url:      '/admin/product/listconfirm',
+                    type:     'post',
+                    dataType: 'json',
+                    data:     {"_token": "{{ csrf_token() }}",'datagrid':$(this).attr('data-key'),'dataval':$(this).val()},
+                    success: function(data) {
+                        
+                         
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        console('AJAX ERROR ! Check the console !');                    
+                    }
+                });
+   
+});
+</script>
+@endpush    

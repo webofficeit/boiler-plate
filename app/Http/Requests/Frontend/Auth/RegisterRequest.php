@@ -33,7 +33,7 @@ class RegisterRequest extends FormRequest
             'last_name'            => 'required|string|max:191',
             'latitude'             => 'required|string|max:191',
             'longitude'            => 'required|string|max:191',
-            'email'                => ['required', 'string', 'email', 'max:191', Rule::unique('users')],
+            'email'                => 'required|string|email|max:191|unique:users',
             'password'             => 'required|string|min:6|confirmed',
             'bussinesskyc.*'         => 'mimes:doc,pdf,docx',
             'g-recaptcha-response' => ['required_if:captcha_status,true', new CaptchaRule()],
@@ -47,6 +47,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'g-recaptcha-response.required_if' => __('validation.required', ['attribute' => 'captcha']),
+            'unique' => __('validation.uservalidate.unique', ['attribute' => 'email']),
         ];
     }
 }

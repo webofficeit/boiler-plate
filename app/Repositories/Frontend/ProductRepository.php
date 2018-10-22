@@ -41,7 +41,7 @@ class ProductRepository extends BaseRepository {
            $category[$productkey]['seo'] = $productvalue->category->seo;
            $category[$productkey]['picture'] = $productvalue->category->avathar;
            $category[$productkey]['userid'] = $productvalue->category->user_id;
-            
+           $category[$productkey]['userparam'] = $param;
             $catname[$productkey] = $productvalue->category->name;
         }
          

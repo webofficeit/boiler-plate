@@ -9,6 +9,7 @@ use App\Models\Auth\BussinessRegistrationDoc;
 use App\Models\Backend\ProductOffer;
 use App\Models\Backend\AccountTypes;
 use App\Models\Auth\Country;
+use App\Models\Backend\Category;
 
 /**
  * Class UserRelationship.
@@ -55,6 +56,12 @@ trait UserRelationship
     public function country()
     {
         return $this->belongsTo(Country::class,'country_id','id');
+    }
+    
+    
+    public function ProductOffer()
+    {
+        return $this->hasMany(ProductOffer::class);
     }
     
     

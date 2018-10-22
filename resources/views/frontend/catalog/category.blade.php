@@ -12,7 +12,7 @@
                     @foreach($category as $category)
                         <div class="col-lg-3">
                             <div class="caegory-list-item list-item">
-                                <a href='{{ url($category["seo"].'/offer') }}'>
+                                <a href='{{ url($category["seo"].'/offerlist/'.$category["userparam"]) }}'>
                                     <div class="list-item-img" style="background-image: url({{ asset('storage/category/'.$category['userid'].'/'.$category['picture']) }});"></div>
                                     <div class="list-item-title">{{ $category['name'] }}</div>
                                 </a>

@@ -21,6 +21,9 @@ Route::post('product/editupdate', [ProductController::class, 'editupdate'])->nam
 Route::post('category/updateimage', [CategoryController::class, 'updateimage'])->name('category.updateimage');
 Route::post('product/updateimage', [ProductController::class, 'updateimage'])->name('product.updateimage');
 Route::get('product/confirm', [ProductController::class, 'confirmindex'])->name('product.confirm')->middleware('section.owner');
+Route::post('product/listconfirm', [ProductController::class, 'listconfirm'])->name('product.listconfirm');
+
+
 
 Route::group(['prefix' => 'category/{category}'], function () {
             Route::get('edit', [CategoryController::class, 'edit'])->name('category.edit');

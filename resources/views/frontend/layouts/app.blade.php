@@ -22,6 +22,7 @@
         <script src="{{ URL::asset('js/light.js') }}"></script>
         <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+        
 
         @stack('after-styles')
     </head>
@@ -45,7 +46,13 @@
         {!! script(mix('js/manifest.js')) !!}
         {!! script(mix('js/vendor.js')) !!}
         {!! script(mix('js/frontend.js')) !!}
+        <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
         @stack('after-scripts')
+        <script>
+        $('textarea').ckeditor();
+        
+    </script>
         @include('includes.partials.ga')
     </body>
 </html>

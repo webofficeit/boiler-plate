@@ -275,7 +275,7 @@
                             $(imghide).parent().hide();
                     },
                     error: function(xhr, textStatus, errorThrown) {
-                        alert('AJAX ERROR ! Check the console !');                    
+                        console('AJAX ERROR ! Check the console !');                    
                     }
                 });
             });

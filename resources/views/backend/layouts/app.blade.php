@@ -22,6 +22,7 @@
     <script src="{{ URL::asset('js/additional-methods.min.js') }}"></script>
 
     @stack('after-styles')
+     
 </head>
 
 <body class="{{ config('backend.body_classes') }}">
@@ -58,6 +59,12 @@
     {!! script(mix('js/backend.js')) !!}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="{{ URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
     @stack('after-scripts')
+    <script>
+        $('textarea').ckeditor();
+        
+    </script>
 </body>
 </html>

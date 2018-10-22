@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ ucwords($catogorylist->name) }}</td>
                                 <td>
-                                   {{ ucwords($catogorylist->description) }}
+                                   {!! ucwords($catogorylist->description) !!}
                                 </td>
                                 
                                 <td>{!! $catogorylist->action_buttons !!}</td>

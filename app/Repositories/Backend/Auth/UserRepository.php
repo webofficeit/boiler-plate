@@ -312,6 +312,7 @@ class UserRepository extends BaseRepository
             $user->passwordHistories()->delete();
             $user->providers()->delete();
             $user->sessions()->delete();
+            $user->ProductOffer()->delete();
 
             if ($user->forceDelete()) {
                 event(new UserPermanentlyDeleted($user));
