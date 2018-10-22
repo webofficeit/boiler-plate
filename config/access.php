@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -24,6 +23,7 @@ return [
         'password_histories' => 'password_histories',
         'users' => 'users',
     ],
+
 
     /*
      * Configurations for the user

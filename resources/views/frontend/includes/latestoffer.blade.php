@@ -26,9 +26,9 @@
 <div class="slider-container">
 <div class="videoBG">
     <video class="my-background-video jquery-background-video is-visible is-playing" loop="" autoplay="" muted="" poster="https://giracoin.com/wp-content/themes/giracoin/img/poster.jpg" style="min-width: auto; min-height: auto; width: 100%; height: auto; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); transition-duration: 0ms;">
-      <source src="https://giracoin.com/wp-content/themes/giracoin/video/video.mp4" type="video/mp4">
-      <source src="https://giracoin.com/wp-content/themes/giracoin/video/video.webm" type="video/webm">
-      <source src="https://giracoin.com/wp-content/themes/giracoin/video/video.ogv" type="video/ogg">
+      <source src="/video/video.mp4" type="video/mp4">
+      <source src="/video/video.webm" type="video/webm">
+      <source src="/video/video.ogv" type="video/ogg">
     </video>
     
   </div>

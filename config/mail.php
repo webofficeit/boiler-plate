@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'giradeal@deals.com'),
-        'name' => env('MAIL_FROM_NAME', 'Gira Deal'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@giradeals.com'),
+        'name' => env('MAIL_FROM_NAME', 'Gira Financial Group AG'),
     ],
 
     /*
