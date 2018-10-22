@@ -27,13 +27,13 @@ class ProductRepository extends BaseRepository {
         
         $paramId = \Crypt::decryptString($param);
         
-        $productlist = ProductOffer::where([['user_id',$paramId],['confirmed',1]])->get();
+        $productlist = ProductOffer::where([['user_id',$paramId],['confirmed',1],['deleted', 0]])->get();
         $category = [];
         $catname = [];
         
         foreach($productlist as $productkey => $productvalue) {
             
-            if ((in_array($productvalue->category->name, $catname))) {
+            if ((in_array($productvalue->category->name, $catname))||($productvalue->category->deleted==1)) {
                 
                 continue;
             }

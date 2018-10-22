@@ -82,4 +82,12 @@ class CategoryRepository extends BaseRepository {
         
         
     }
+    
+    public function setDelete($categoryId) {
+        
+        $category = Category::find($categoryId);
+        $category->deleted = 1;
+        $category->save();
+        return '';
+    }
 }
