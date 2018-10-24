@@ -91,6 +91,34 @@
                             </div><!--col-->
                         </div><!--row-->
                         
+                        
+                           <div class="row">
+                            <div class="col-12 col-md-6" id="city">
+                                <div class="form-group">
+                                    {{ html()->label(__('validation.attributes.frontend.city'))->for('city') }}
+
+                                    {{ html()->text('city')
+                                        ->class('form-control')
+                                        ->required()
+                                        ->placeholder(__('validation.attributes.frontend.city'))
+                                        ->attribute('maxlength', 191) }}
+                                </div><!--form-group-->
+                            </div><!--col-->
+                            
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                            {{ html()->label(__('validation.attributes.frontend.country'))->for('country') }}
+                           
+                                <select name="country" id="country" class="form-control" required>
+                                        <option value="">select</option>
+                                         @foreach ($countrylist as $countrylists)
+                                         <option  value={{ $countrylists->id }}>{{ $countrylists->country_name }}</option>
+                                    @endforeach
+                                </select>
+                                         </div>
+                            </div> 
+                            </div>
+                        
                         <div class="row">
                             
                             <div class="col-12 col-md-6">
@@ -121,32 +149,7 @@
                             </div><!--col-->
                         </div><!--row-->
                         
-                        <div class="row">
-                            <div class="col-12 col-md-6" id="city">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.city'))->for('city') }}
-
-                                    {{ html()->text('city')
-                                        ->class('form-control')
-                                        ->required()
-                                        ->placeholder(__('validation.attributes.frontend.city'))
-                                        ->attribute('maxlength', 191) }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                            
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                            {{ html()->label(__('validation.attributes.frontend.country'))->for('country') }}
-                           
-                                <select name="country" class="form-control" required>
-                                        <option value="">select</option>
-                                         @foreach ($countrylist as $countrylists)
-                                         <option  value={{ $countrylists->id }}>{{ $countrylists->country_name }}</option>
-                                    @endforeach
-                                </select>
-                                         </div>
-                            </div> 
-                            </div> 
+                      
                         
                         <div class="row">
                    
@@ -285,6 +288,7 @@
         {!! Captcha::script() !!}
     @endif
     
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc4GMN3y-7hNhQne3WaPxugm-myD8SIKQ&libraries=places"></script>
      <script>
         $(function() {
             var avatar_location = $("#avatar_location");
@@ -309,6 +313,13 @@
                     web_site.show();
                 }
             });
+            
+            
+            $('select[name=country]').change(function() {
+                var country = $(this.options[this.selectedIndex]).text();
+                var city = $('input[name=city]').val(); console.log(city);
+                codeAddress(country,city);
+            });
 
             var max_fields = 5;
             var intialval = $('.increment:visible').length; 
@@ -327,6 +338,25 @@
             $(document).on('change', '.custom-file-input', function(e) {
                 $(this).next('.custom-file-label').html(e.target.files[0].name);
             });
+            
+           
+function codeAddress(country,city) {
+    var address = city + ', ' + country;
+    console.log(address);
+    geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+
+      console.log("Latitude: "+results[0].geometry.location.lat());
+      console.log("Longitude: "+results[0].geometry.location.lng());
+      } 
+
+      else {
+        console.log("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+
       
         });
     </script>
