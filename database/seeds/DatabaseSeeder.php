@@ -25,5 +25,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AuthTableSeeder::class);
 
         Model::reguard();
+        $this->call(CountriesTableSeeder::class);
+        $this->call(AccountTypesTableSeeder::class);
+        $this->call(BussinessRegistartionDocsTableSeeder::class);
+        $this->call(DeliveryMethodsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

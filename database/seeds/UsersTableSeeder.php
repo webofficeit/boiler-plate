@@ -1,27 +1,25 @@
 <?php
 
-use App\Models\Auth\User;
 use Illuminate\Database\Seeder;
 
-/**
- * Class UserTableSeeder.
- */
-class UserTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
-    use DisableForeignKeys;
 
     /**
-     * Run the database seed.
+     * Auto generated seed file
      *
      * @return void
      */
     public function run()
     {
-        $this->disableForeignKeys();
+        
 
-        // Add the master administrator, user id of 1
-        User::create([
-            'id' => 1,
+        \DB::table('users')->delete();
+        
+        \DB::table('users')->insert(array (
+            0 => 
+            array (
+                'id' => 1,
                 'uuid' => '55a89f92-dcd4-408d-9a16-f7ae05f83bf3',
                 'first_name' => 'Admin',
                 'last_name' => 'Istrator',
@@ -50,10 +48,10 @@ class UserTableSeeder extends Seeder
                 'created_at' => '2018-10-18 13:05:18',
                 'updated_at' => '2018-10-18 13:05:18',
                 'deleted_at' => NULL,
-        ]);
-
-        User::create([
-           'id' => 2,
+            ),
+            1 => 
+            array (
+                'id' => 2,
                 'uuid' => '85319f1b-699b-43c1-a235-a924e7048d63',
                 'first_name' => 'Backend',
                 'last_name' => 'User',
@@ -82,10 +80,10 @@ class UserTableSeeder extends Seeder
                 'created_at' => '2018-10-18 13:05:18',
                 'updated_at' => '2018-10-18 13:05:18',
                 'deleted_at' => NULL,
-        ]);
-
-        User::create([
-             'id' => 3,
+            ),
+            2 => 
+            array (
+                'id' => 3,
                 'uuid' => '5b52333e-b3dc-486c-b64a-d17ee6f38a7b',
                 'first_name' => 'Default',
                 'last_name' => 'User',
@@ -114,8 +112,9 @@ class UserTableSeeder extends Seeder
                 'created_at' => '2018-10-18 13:05:19',
                 'updated_at' => '2018-10-18 13:05:19',
                 'deleted_at' => NULL,
-        ]);
-
-        $this->enableForeignKeys();
+            ),
+        ));
+        
+        
     }
 }
