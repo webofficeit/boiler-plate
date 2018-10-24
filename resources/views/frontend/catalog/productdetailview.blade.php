@@ -52,11 +52,11 @@
                     <div class="product-price">{{$productlist->girapercentage}}% <span>accepted as giracoin</span></div>
                     <div class="offer-desc">
                         <ul>
-                            <li>{{$productlist->descriptionoffer}}</li>
+                            <li>{!!$productlist->descriptionoffer!!}</li>
                             
                         </ul>
                     </div>
-                    <div class="business-desc">{{$productlist->descriptionbussiness}}</div>
+                    <div class="business-desc">{!!$productlist->descriptionbussiness!!}</div>
                     @if((isset($productlist->Offertype[0]->type))&& ($productlist->Offertype[0]->type ==1))
                     <div class="offer-validity">Offer valid till <span>{{ \Carbon\Carbon::parse($productlist->Offertype[0]->dateto)->format('d M Y')}}</span></div>
                     
