@@ -70,11 +70,10 @@
                             
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.latitude'))->for('latitude') }}
+                                   
 
-                                    {{ html()->text('latitude')
+                                    {{ html()->hidden('latitude')
                                         ->class('form-control')
-                                        ->required()
                                         ->placeholder(__('validation.attributes.frontend.latitude'))
                                         ->attribute('maxlength', 82) }}
                                 </div><!--col-->
@@ -85,11 +84,10 @@
 
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.longitude'))->for('longitude') }}
+                       
 
-                                    {{ html()->text('longitude')
+                                    {{ html()->hidden('longitude')
                                         ->class('form-control')
-                                        ->required()
                                         ->placeholder(__('validation.attributes.frontend.longitude'))
                                         ->attribute('maxlength', 82) }}
                                 </div><!--form-group-->
@@ -197,6 +195,7 @@
 {{ html()->closeModelForm() }}
 
 @push('after-scripts')
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6615J0EQ-9-ngYJqlOgOlwK-obP_9joY&libraries=places"></script>
     <script>
         $(function() {
             var avatar_location = $("#avatar_location");
@@ -214,6 +213,39 @@
                     avatar_location.hide();
                 }
             });
+            
+            $('input[name=city]').blur(function() {
+                $('select[name=country]').val(null);
+            });
+            
+            $('select[name=country]').change(function() {
+                var country = $(this.options[this.selectedIndex]).text();
+                var city = $('input[name=city]').val(); console.log(city);
+                codeAddress(country,city);
+            });
+            
+            
+            function codeAddress(country,city) {
+    var address = (city!='')?city + ', ' + country:country;
+    
+   if(address.toLowerCase()!='select') {
+    geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+       $('#latitude').val(results[0].geometry.location.lat());
+       $('#longitude').val(results[0].geometry.location.lng());
+      } 
+
+      else {
+        console.log("Geocode was not successful for the following reason: " + status);
+      }
+    }); 
+  }
+  }
+            
         });
     </script>
+    <script src="{{ URL::asset('js/clientvalidation.js') }}"></script>
+   <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+{!! JsValidator::formRequest('App\Http\Requests\RegisterRequest', 'form'); !!} 
 @endpush

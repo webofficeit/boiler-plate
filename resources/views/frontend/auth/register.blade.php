@@ -123,9 +123,9 @@
                             
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.latitude'))->for('latitude') }}
+                                   
 
-                                    {{ html()->text('latitude')
+                                    {{ html()->hidden('latitude')
                                         ->class('form-control')
                                         ->required()
                                         ->placeholder(__('validation.attributes.frontend.latitude'))
@@ -138,9 +138,9 @@
 
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.longitude'))->for('longitude') }}
+                                   
 
-                                    {{ html()->text('longitude')
+                                    {{ html()->hidden('longitude')
                                         ->class('form-control')
                                         ->required()
                                         ->placeholder(__('validation.attributes.frontend.longitude'))
@@ -288,9 +288,10 @@
         {!! Captcha::script() !!}
     @endif
     
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc4GMN3y-7hNhQne3WaPxugm-myD8SIKQ&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6615J0EQ-9-ngYJqlOgOlwK-obP_9joY&libraries=places"></script>
      <script>
         $(function() {
+            
             var avatar_location = $("#avatar_location");
             var bussiness_description = $("#bussiness_description");
             var web_site = $('#web_site');
@@ -314,6 +315,9 @@
                 }
             });
             
+            $('input[name=city]').blur(function() {
+                $('select[name=country]').val(null);
+            });
             
             $('select[name=country]').change(function() {
                 var country = $(this.options[this.selectedIndex]).text();
@@ -341,22 +345,22 @@
             
            
 function codeAddress(country,city) {
-    var address = city + ', ' + country;
-    console.log(address);
+    var address = (city!='')?city + ', ' + country:country;
+    
+   if(address.toLowerCase()!='select') {
     geocoder = new google.maps.Geocoder();
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-
-      console.log("Latitude: "+results[0].geometry.location.lat());
-      console.log("Longitude: "+results[0].geometry.location.lng());
+       $('#latitude').val(results[0].geometry.location.lat());
+       $('#longitude').val(results[0].geometry.location.lng());
       } 
 
       else {
         console.log("Geocode was not successful for the following reason: " + status);
       }
-    });
+    }); 
   }
-
+  }
       
         });
     </script>
