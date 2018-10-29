@@ -8,7 +8,7 @@
                 </div>
                 <div class="meta-box">
                   <h2>{{$category['categoryname']}}</h2>
-                  <p>{{$category['categorydescription']}}</p>
+                  <p>{!!$category['categorydescription']!!}</p>
                   <h2>Offers in this category:</h2>
                   @foreach($category['productid'] as $keyproduct=>$categoryproduct)
                   <p>
