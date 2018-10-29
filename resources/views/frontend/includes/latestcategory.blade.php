@@ -3,10 +3,10 @@
             <ul class="cat-box">
             @foreach($category as $key=>$category)
               <li> <a href="{{ url('category/'.$category['categoryseo']) }}">
-                <div class="cat-inner" data-image-src="{{ asset('storage/category/'.$category['userid'].'/'.$category['categoryseo']) }}">
-                  <img src="{{ asset('storage/category/'.$category['userid'].'/'.$category['categoryseo']) }}" alt="">
+                <div class="cat-inner" data-image-src="{{ asset('storage/category/'.$category['userid'].'/'.$category['categoryimage']) }}">
+                  <img src="{{ asset('storage/category/'.$category['userid'].'/'.$category['categoryimage']) }}" alt="">
                 </div>
-                <div class="meta-box1">
+                <div class="meta-box">
                   <h2>{{$category['categoryname']}}</h2>
                   <p>{{$category['categorydescription']}}</p>
                   <h2>Offers in this category:</h2>

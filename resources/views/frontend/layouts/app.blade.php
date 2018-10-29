@@ -29,8 +29,9 @@
         <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
        
         <script src="{{ URL::asset('js/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ URL::asset('js/slick.min.js') }}"></script>
         <script src="{{ URL::asset('js/main.js') }}"></script>
+        <script src="{{ URL::asset('js/slick.min.js') }}"></script>
+        
         
 
         @stack('after-styles')
