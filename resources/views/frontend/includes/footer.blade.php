@@ -1,5 +1,6 @@
-<div id="footer">
-    <div class="container">
-        <div class="">&copy; 2018 Gira Financial Group AG</div>
-    </div>
-</div>
+
+<footer>
+            <div class="container">
+               <p>© 2018 Gira Financial Group AG</p>
+            </div>
+         </footer> 
