@@ -32,7 +32,7 @@ class ProductController extends Controller {
         $paramId = \Crypt::decryptString($request->userid);
         $productlist = ProductOffer::where([
             ['categoryid',$category[0]->id],
-            ['confirmed',1],['user_id',$paramId]
+            ['confirmed',1],['user_id',$paramId],['deleted', 0]
                 ])->get();
         
         $date = new Carbon;
