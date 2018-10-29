@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\ProductOffer;
 use App\Repositories\Frontend\ProductRepository;
+use Carbon\Carbon;
 
 
 /**
@@ -33,6 +34,44 @@ class CategoryController extends Controller {
         
         
         return view('frontend.catalog.category', compact('category'));
+        
+    }
+    
+    public function getAllProduct(Request $request, ProductRepository $productRepository)
+    {
+        
+         $slug = $request->slug;
+        $category = Category::where('seo',$slug)->get();
+   
+        $productlist = ProductOffer::where([
+            ['categoryid',$category[0]->id],
+            ['confirmed',1],['deleted', 0]
+                ])->get();
+        
+        $date = new Carbon;
+        $product = [];
+        foreach($productlist as $productkey => $productvalue) {
+          
+             
+            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&& !($date->between(Carbon::parse($productvalue->Offertype[0]->datefrom), Carbon::parse($productvalue->Offertype[0]->dateto)->addDay()))) {
+                continue; 
+            }
+            
+              $product[$productkey]= [
+                'id' => $productvalue->id,
+                'name' => $productvalue->name,
+                'percentage' => $productvalue->girapercentage,
+                'userid' => $productvalue->user_id
+            ];
+           
+            if((isset($productvalue->Offerimage[0])))
+                $product[$productkey]['imagees'] = json_decode ($productvalue->Offerimage[0]->name)[0];
+            
+            
+            
+        }
+        
+        return view('frontend.catalog.product', compact('product','slug'));
         
     }
     

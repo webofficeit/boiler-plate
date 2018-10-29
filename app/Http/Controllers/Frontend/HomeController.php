@@ -56,7 +56,7 @@ class HomeController extends Controller
         $partner = json_encode($partnerMap);
         $users = User::orderBy('id','desc')->paginate(5);
         $product0ffer = ProductOffer::where([
-            ['confirmed',1]
+            ['confirmed',1],['deleted',0]
                 ])->orderBy('id','DESC')->limit(4)->get();
         $product = [];
         $date = new Carbon;
@@ -83,8 +83,32 @@ class HomeController extends Controller
             
         }
         
+        $categorylist = Category::where([
+            ['deleted',0]
+                ])->orderBy('id','DESC')->limit(4)->get();
+        $category = [];
+        foreach($categorylist as $categorykey => $categoryvalue) {
+             $productList = ProductOffer::where([
+            ['confirmed',1],['deleted',0],['categoryid',$categoryvalue->id]
+                ])->orderBy('id','DESC')->limit(5)->get();
+           foreach($productList as $productlistkey => $productlistvalue) {
+               
+               $category[$categorykey]['productid'][$productlistkey]['id'] = $productlistvalue->id;
+               $category[$categorykey]['productid'][$productlistkey]['name'] = $productlistvalue->name;
+               $category[$categorykey]['productid'][$productlistkey]['userid'] = $productlistvalue->user_id;
+           }  
+              if(count($productList)>0) {
+               $category[$categorykey]['categoryid'] = $categoryvalue->id;
+               $category[$categorykey]['categoryname'] = $categoryvalue->name;
+               $category[$categorykey]['categorydescription'] = $categoryvalue->description;
+               $category[$categorykey]['categoryimage'] = $categoryvalue->avathar;
+               $category[$categorykey]['categoryseo'] = $categoryvalue->seo;
+               $category[$categorykey]['userid'] = $categoryvalue->user_id;
+              }
+        }
+        
       
-        return view('frontend.index', compact('partner','users','product'));
+        return view('frontend.index', compact('partner','users','product','category'));
     }
     
     public function searchmap(Request $request) {
