@@ -83,13 +83,17 @@ class HomeController extends Controller
             
         }
         
-        $categorylist = Category::where([
-            ['deleted',0]
-                ])->orderBy('id','DESC')->limit(4)->get();
+  
+        $categorylist = ProductOffer::selectRaw('productoffers.categoryid')->where([
+            ['confirmed',1],['deleted',0]
+                ])->groupBy('productoffers.categoryid')->orderBy('categoryid','DESC')->limit(5)->get();
+        
         $category = [];
         foreach($categorylist as $categorykey => $categoryvalue) {
+            $categoryDetails = Category::find($categoryvalue->categoryid);
+            
              $productList = ProductOffer::where([
-            ['confirmed',1],['deleted',0],['categoryid',$categoryvalue->id]
+            ['confirmed',1],['deleted',0],['categoryid',$categoryvalue->categoryid]
                 ])->orderBy('id','DESC')->limit(5)->get();
            foreach($productList as $productlistkey => $productlistvalue) {
                
@@ -98,16 +102,15 @@ class HomeController extends Controller
                $category[$categorykey]['productid'][$productlistkey]['userid'] = $productlistvalue->user_id;
            }  
               if(count($productList)>0) {
-               $category[$categorykey]['categoryid'] = $categoryvalue->id;
-               $category[$categorykey]['categoryname'] = $categoryvalue->name;
-               $category[$categorykey]['categorydescription'] = $categoryvalue->description;
-               $category[$categorykey]['categoryimage'] = $categoryvalue->avathar;
-               $category[$categorykey]['categoryseo'] = $categoryvalue->seo;
-               $category[$categorykey]['userid'] = $categoryvalue->user_id;
+               $category[$categorykey]['categoryid'] = $categoryDetails->id;
+               $category[$categorykey]['categoryname'] = $categoryDetails->name;
+               $category[$categorykey]['categorydescription'] = $categoryDetails->description;
+               $category[$categorykey]['categoryimage'] = $categoryDetails->avathar;
+               $category[$categorykey]['categoryseo'] = $categoryDetails->seo;
+               $category[$categorykey]['userid'] = $categoryDetails->user_id;
               }
         }
         
-      
         return view('frontend.index', compact('partner','users','product','category'));
     }
     

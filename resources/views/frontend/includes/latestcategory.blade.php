@@ -4,8 +4,11 @@
         @foreach($category as $key=>$category)
             <li>
                 <a style="text-decoration: none; color:inherit;" href="{{ url('category/'.$category['categoryseo']) }}">
+                   @if(isset($category['categoryimage'])&& ($category['categoryimage']!=''))
                     <div class="cat-inner" style="padding-bottom: 140%; background-repeat: no-repeat;background-size: cover;" data-image-src="{{ asset('storage/category/'.$category['userid'].'/'.$category['categoryimage']) }}">
-                       {{-- <img src="{{ asset('storage/category/'.$category['userid'].'/'.$category['categoryimage']) }}" alt="">--}}
+                      @else
+                  <div class="cat-inner" style="padding-bottom: 140%; background-repeat: no-repeat;background-size: cover;" data-image-src="img/no_Image_available.png">
+                    @endif 
                     </div>
                 </a>
                 <div class="meta-box">

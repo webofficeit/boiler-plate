@@ -19,9 +19,7 @@
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
-        @if (Request::path() != '/')
-        {{ style(mix('css/frontend.css')) }}
-        @endif
+        
         <script src="{{ URL::asset('js/ammap.js') }}"></script>
         <script src="{{ URL::asset('js/worldLow.js') }}"></script>
         <script src="{{ URL::asset('js/light.js') }}"></script>

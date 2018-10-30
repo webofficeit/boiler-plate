@@ -6,10 +6,10 @@
     <div class="col-md-3 col-sm-6">
       <a href="{{ url('user/'.Crypt::encryptString($user->id)) }}">
         <div class="latest-box">
-            @if(isset($user['avatar_type']) &&  $user['avatar_type'] == "gravatar")
-                <img src="/img/no-profile-image.jpg" alt="">
+            @if(isset($user['avatar_location']) &&  $user['avatar_location'] != "")
+                <img src="{{url('storage/'.$user['avatar_location']) }}" alt="">
                 @else
-                <img src="images/cat01.jpg" alt="">
+                <img src="img/no-profile-image.jpg" alt="">
             @endif
 
 
