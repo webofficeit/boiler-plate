@@ -6,7 +6,7 @@
 
     .headmain {
         padding: 10px 0;
-    } 
+    }
 
     .headmain nav ul li {
         padding: 10px 0;
@@ -34,7 +34,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.22);
     }
 
-   
+
 
     footer {
         padding: 15px 0;
@@ -44,50 +44,105 @@
 
     .navbar-light .navbar-brand {
         padding: 0;
-    } 
-    .banner-meta{
+    }
+
+    .banner-meta {
         padding: 25px 0;
     }
-    .banner-meta p{
+
+    .banner-meta p {
         font-size: 16px;
         line-height: 20px;
     }
-    .map-area, .hotoffers, .categories, .latest{
+
+    .map-area,
+    .hotoffers,
+    .categories,
+    .latest {
         padding: 25px 0;
     }
-    .latest-box, .hot-box{
+
+    .latest-box,
+    .hot-box {
         margin: 20px 10px;
     }
-    .latest-box img, .hot-box img {
+
+    .latest-box img,
+    .hot-box img {
         width: 100%;
     }
 
-    .cat-box{
-        padding:0 30px;
+    .cat-box {
+        padding: 0 30px;
     }
+
     .cat-box {
         padding: 0 30px;
         text-align: center;
         font-size: large;
         float: none;
     }
+
     .cat-box li {
         width: 48%;
         float: none;
         display: inline-block;
-    } 
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+    }
+
+    .cat-box li:first-child {
+        margin-left: 0;
+    }
+
+    .cat-box li:last-child {
+        margin-right: 0;
+    }
+
+    .cat-box li:last-child .meta-box h2,
+    .cat-box li:last-child .meta-box p {
+        text-align: left;
+    }
+
+    .cat-box li:last-child .meta-box {
+        padding: 45px 35px 0 0px;
+    }
+
+    .meta-box {
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+    }
+
+    .offer-details {
+        padding: 40px 0px;
+    }
+
+    .offer-meta {
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .offer-thumb {
+        width: 100%;
+
+    }
 }
+
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .cat-box li {
-        width: 100%; 
-    } 
+        width: 100%;
+    }
 }
 
 /* TABLET LANDSCAPE / SMALLER DESKTOP */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    
-  
-}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {}
 
 /* TABLETS PORTRAIT to LANDSCAPE */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -117,7 +172,7 @@
         display: block;
     }
 
-   
+
     .navbar-light .navbar-brand {
         padding: 0;
     }
@@ -125,22 +180,73 @@
     .headmain {
         padding: 10px 0;
     }
- 
+
     .slider-wrapper {
         max-height: 400px;
-    } 
-    .cat-box{
-        padding:0 30px;
     }
+
+    .cat-box {
+        padding: 0 30px;
+    }
+
     .cat-box {
         padding: 0 30px;
         text-align: center;
         font-size: large;
         float: none;
     }
+
     .cat-box li {
         width: 48%;
         float: none;
         display: inline-block;
-    } 
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+    }
+
+    .cat-box li:first-child {
+        margin-left: 0;
+    }
+
+    .cat-box li:last-child {
+        margin-right: 0;
+    }
+
+    .cat-box li:last-child .meta-box h2,
+    .cat-box li:last-child .meta-box p {
+        text-align: left;
+    }
+
+    .cat-box li:last-child .meta-box {
+        padding: 45px 35px 0 0px;
+    }
+
+    .meta-box {
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none;
+        transform: none;
+    }
+
+    .offer-details {
+        padding: 40px 0px;
+    }
+
+    .offer-meta {
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .offer-thumb {
+        width: 100%;
+
+    }
+    .categories {
+        padding: 30px 0;
+    }
 }

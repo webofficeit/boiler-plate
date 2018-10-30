@@ -54,7 +54,7 @@ class HomeController extends Controller
        
        
         $partner = json_encode($partnerMap);
-        $users = User::orderBy('id','desc')->paginate(5);
+        $users = User::orderBy('id','desc')->paginate(4);
         $product0ffer = ProductOffer::where([
             ['confirmed',1],['deleted',0]
                 ])->orderBy('id','DESC')->limit(4)->get();
