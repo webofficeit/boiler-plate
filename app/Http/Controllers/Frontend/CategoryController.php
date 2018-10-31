@@ -76,7 +76,8 @@ class CategoryController extends Controller {
            $product = $productRepository->getProducts($category[0]['seo']);
            $slug = $category[0]['seo'];
        }
-       return view('frontend.catalog.listview', compact('partner','category','product','slug')); 
+       $user = '';
+       return view('frontend.catalog.listview', compact('partner','category','product','slug','user')); 
         
     }
     
