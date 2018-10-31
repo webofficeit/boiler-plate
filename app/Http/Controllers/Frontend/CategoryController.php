@@ -50,7 +50,9 @@ class CategoryController extends Controller {
            $product = $productRepository->getProducts($category[0]['seo'],$request->id);
            $slug = $category[0]['seo'];
        }
-       return view('frontend.catalog.listview', compact('partner','category','product','slug')); 
+       $user = ($request->id!=null)?$request->id:'';
+       
+       return view('frontend.catalog.listview', compact('partner','category','product','slug','user')); 
     }
     
     public function getAllProduct(Request $request, ProductRepository $productRepository)
@@ -58,7 +60,7 @@ class CategoryController extends Controller {
        
         
          $slug = ($request->searchdata!='')?$request->searchdata:$request->slug;
-       $product = $productRepository->getProducts($slug);
+       $product = $productRepository->getProducts($slug,$request->serachdetails);
         return view('frontend.catalog.productlist', compact('product','slug'))->render();
         
     }

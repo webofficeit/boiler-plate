@@ -15,7 +15,7 @@
                     url:      '/category/search',
                     type:     'post',
                     dataType: 'html',
-                    data:     {"_token": "{{ csrf_token() }}",'searchdata':categorySeo},
+                    data:     {"_token": "{{ csrf_token() }}",'searchdata':categorySeo,'serachdetails':'{{$user}}'},
                     success: function(data) {
                          $('.offerlist').html(data);
                     },

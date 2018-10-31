@@ -124,7 +124,7 @@ class ProductRepository extends BaseRepository {
     public function getProducts($slug,$user=null) {
        
          $category = Category::where('seo',$slug)->get();
-        if($user!=null) {
+        if(($user!=null)) {
             $paramId = \Crypt::decryptString($user);
            $productlist = ProductOffer::where([
             ['categoryid',$category[0]->id],
