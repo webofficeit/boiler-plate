@@ -131,7 +131,7 @@
                         <div class="form-group row range-slider-container">
                             {{ html()->label(__('validation.attributes.backend.access.product.percentage'))->class('col-md-2 form-control-label align-self-end')->for('percentage') }}    
                             <div class="range-slider col-md-6">
-                                <input class="range-slider__range" name="rangeslider" type="range" value="{{$product->girapercentage}}" min="20" max="100">
+                                <input class="range-slider__range" name="rangeslider" type="range" value="{{$product->girapercentage}}" min="20" max="99">
                                 <span class="range-slider__value">20</span>
                             </div>                        
                         </div>

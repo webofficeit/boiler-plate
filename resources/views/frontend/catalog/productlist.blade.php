@@ -5,17 +5,19 @@
                   <div class="list-thumb">
                       @if(isset($product['imagees']))
                       <div  style="background-image: url({{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }})"></div>
-                    @endif
-                    <img src="{{ asset('img/no_Image_available.png') }}" alt="">
+                      @else
+                      <img src="{{ asset('img/no_Image_available.png') }}" alt="">
+                      @endif
+                    
                   </div>
                   <div class="list-meta">
-                    <p>{!!$product['description'] !!}</p>
+                    <p>{!!str_limit($product['description'],100) !!}</p>
                     <div class="list-rating">
                       <img src="{{ asset('img/rating-bg.png')}}" alt="">
                       <h2>{{$product['percentage']}}%</h2>
                     </div>
                   </div>
-                <a href="{{ url($slug.'/offer/'.Crypt::encryptString($product['id'])) }}">Explore</a>
+                <a href="{{ url($slug.'/offer/'.Crypt::encryptString($product['id'])) }}">{{$product['name']}}</a>
                 </div>
               </div>
   @endforeach
