@@ -32,7 +32,8 @@ class HomeRepository extends BaseRepository {
         }
         else {
             $paramId = Crypt::decryptString($userId);
-            $partner = User::find($paramId)->get(); 
+            $partner = User::where([['id',$paramId]])->get(); 
+  
         }
         $partnerMap = [];
         foreach ($partner as $partnerkey => $partnervalue) {

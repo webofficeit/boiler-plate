@@ -40,6 +40,7 @@ class CategoryController extends Controller {
     
     public function listDetails(Request $request, HomeRepository $homeRepository, ProductRepository $productRepository) {
         
+        
         $partner = $homeRepository->getAllUserMap($request->id);
         $category = $productRepository->getCategory($request->id);
         $product =[];
