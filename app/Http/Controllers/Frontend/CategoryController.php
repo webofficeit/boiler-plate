@@ -23,62 +23,63 @@ use Carbon\Carbon;
  *
  * @author dell
  */
-class CategoryController extends Controller {
-    
+class CategoryController extends Controller
+{
+
     /**
      * @return \Illuminate\View\View
      */
     public function index(Request $request, ProductRepository $productRepository)
     {
-       
+
         $category = $productRepository->getCategory($request->id);
-        
-        
+
+
         return view('frontend.catalog.category', compact('category'));
-        
+
     }
-    
-    public function listDetails(Request $request, HomeRepository $homeRepository, ProductRepository $productRepository) {
-        
-        
+
+    public function listDetails(Request $request, HomeRepository $homeRepository, ProductRepository $productRepository)
+    {
+
+
         $partner = $homeRepository->getAllUserMap($request->id);
         $category = $productRepository->getCategory($request->id);
-        $product =[];
-        $slug ='';
-       if(count($category)>0) {
-           
-           $product = $productRepository->getProducts($category[0]['seo'],$request->id);
-           $slug = $category[0]['seo'];
-       }
-       $user = ($request->id!=null)?$request->id:'';
-       
-       return view('frontend.catalog.listview', compact('partner','category','product','slug','user')); 
+        $product = [];
+        $slug = '';
+        if (count($category) > 0) {
+
+            $product = $productRepository->getProducts($category[0]['seo'], $request->id);
+            $slug = $category[0]['seo'];
+        }
+        $user = ($request->id != null) ? $request->id : '';
+
+        return view('frontend.catalog.listview', compact('partner', 'category', 'product', 'slug', 'user'));
     }
-    
+
     public function getAllProduct(Request $request, ProductRepository $productRepository)
     {
-       
-        
-         $slug = ($request->searchdata!='')?$request->searchdata:$request->slug;
-       $product = $productRepository->getProducts($slug,$request->serachdetails);
-        return view('frontend.catalog.productlist', compact('product','slug'))->render();
-        
+
+
+        $slug = ($request->searchdata != '') ? $request->searchdata : $request->slug;
+        $product = $productRepository->getProducts($slug, $request->serachdetails);
+        return view('frontend.catalog.productlist', compact('product', 'slug'))->render();
+
     }
-    
+
     public function getParticularCategory(Request $request, HomeRepository $homeRepository, ProductRepository $productRepository)
     {
-        
-        
-         $partner = $homeRepository->getAllUserMap();
-         $category = $productRepository->getCategory(null,$request->slug);
-         if(count($category)>0) {
-           
-           $product = $productRepository->getProducts($category[0]['seo']);
-           $slug = $category[0]['seo'];
-       }
-       return view('frontend.catalog.listview', compact('partner','category','product','slug')); 
-        
+        $partner = $homeRepository->getAllUserMap();
+        $category = $productRepository->getCategory(null, $request->slug);
+        $user = ($request->id != null) ? $request->id : '';
+        if (count($category) > 0) {
+
+            $product = $productRepository->getProducts($category[0]['seo']);
+            $slug = $category[0]['seo'];
+        }
+        return view('frontend.catalog.listview', compact('partner', 'category', 'product', 'slug', 'user'));
+
     }
-    
-    
+
+
 }
