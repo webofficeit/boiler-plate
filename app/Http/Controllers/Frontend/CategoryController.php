@@ -69,16 +69,18 @@ class CategoryController extends Controller
 
     public function getParticularCategory(Request $request, HomeRepository $homeRepository, ProductRepository $productRepository)
     {
-        $partner = $homeRepository->getAllUserMap();
-        $category = $productRepository->getCategory(null, $request->slug);
+        
         $user = ($request->id != null) ? $request->id : '';
-        if (count($category) > 0) {
-
-            $product = $productRepository->getProducts($category[0]['seo']);
-            $slug = $category[0]['seo'];
-        }
-        return view('frontend.catalog.listview', compact('partner', 'category', 'product', 'slug', 'user'));
-
+         $partner = $homeRepository->getAllUserMap();
+         $category = $productRepository->getCategory(null,$request->slug);
+         if(count($category)>0) {
+           
+           $product = $productRepository->getProducts($category[0]['seo']);
+           $slug = $category[0]['seo'];
+       }
+       $user = '';
+       return view('frontend.catalog.listview', compact('partner','category','product','slug','user')); 
+       
     }
 
 
