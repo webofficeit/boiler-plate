@@ -4,7 +4,8 @@
                 <div class="list-box">
                   <div class="list-thumb">
                       @if(isset($product['imagees']))
-                      <div  style="background-image: url({{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }})"></div>
+                      <img src="{{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }}" alt="">
+                      
                       @else
                       <img src="{{ asset('img/no_Image_available.png') }}" alt="">
                       @endif
