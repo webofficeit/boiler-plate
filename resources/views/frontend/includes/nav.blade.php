@@ -13,9 +13,9 @@
 
                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                         <li class="nav-item"><a href="{{route('frontend.offer')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.offer')) }}">@lang('navs.frontend.offer')</a></li>     
+                       <li class="nav-item"><a href="{{route('frontend.index')}}" class="nav-link">Home</a></li>     
+                       <li class="nav-item"><a href="{{route('frontend.offer')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.offer')) }}">@lang('navs.frontend.offer')</a></li>       
                     @guest
-                     <li class="nav-item"><a href="{{route('frontend.index')}}" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="{{route('frontend.auth.login')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.auth.login')) }}">@lang('navs.frontend.login')</a></li>
     
                     @if(config('access.registration'))
