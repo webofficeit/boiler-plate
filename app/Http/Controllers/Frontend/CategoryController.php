@@ -47,7 +47,7 @@ class CategoryController extends Controller {
         $slug ='';
        if(count($category)>0) {
            
-           $product = $productRepository->getProducts($category[0]['seo']);
+           $product = $productRepository->getProducts($category[0]['seo'],$request->id);
            $slug = $category[0]['seo'];
        }
        return view('frontend.catalog.listview', compact('partner','category','product','slug')); 

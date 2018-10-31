@@ -121,14 +121,23 @@ class ProductRepository extends BaseRepository {
         return $category;
     }
     
-    public function getProducts($slug) {
+    public function getProducts($slug,$user=null) {
        
          $category = Category::where('seo',$slug)->get();
-   
+        if($user!=null) {
+            $paramId = \Crypt::decryptString($user);
+           $productlist = ProductOffer::where([
+            ['categoryid',$category[0]->id],
+            ['user_id',$paramId],   
+            ['confirmed',1],['deleted', 0]
+                ])->get(); 
+        }
+        else {
         $productlist = ProductOffer::where([
             ['categoryid',$category[0]->id],
             ['confirmed',1],['deleted', 0]
                 ])->get();
+        }
         
         $date = new Carbon;
         $product = [];
