@@ -34,8 +34,6 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.22);
     }
 
-
-
     footer {
         padding: 15px 0;
         font-size: 14px;
@@ -55,20 +53,15 @@
         line-height: 20px;
     }
 
-    .map-area,
-    .hotoffers,
-    .categories,
-    .latest {
+    .map-area, .hotoffers, .categories, .latest {
         padding: 25px 0;
     }
 
-    .latest-box,
-    .hot-box {
+    .latest-box, .hot-box {
         margin: 20px 10px;
     }
 
-    .latest-box img,
-    .hot-box img {
+    .latest-box img, .hot-box img {
         width: 100%;
     }
 
@@ -102,8 +95,7 @@
         margin-right: 0;
     }
 
-    .cat-box li:last-child .meta-box h2,
-    .cat-box li:last-child .meta-box p {
+    .cat-box li:last-child .meta-box h2, .cat-box li:last-child .meta-box p {
         text-align: left;
     }
 
@@ -131,7 +123,26 @@
 
     .offer-thumb {
         width: 100%;
+    }
 
+    .side-menu {
+        padding: 15px;
+        margin-bottom: 50px;
+    }
+
+    .list-rating {
+        width: 190px;
+        margin: 15px auto;
+    }
+
+    .list-thumb, .list-meta {
+        float: left;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+    .list-rating h2 {
+        top: 20%;
     }
 }
 
@@ -142,7 +153,12 @@
 }
 
 /* TABLET LANDSCAPE / SMALLER DESKTOP */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .list-rating {
+        margin: 10px auto;
+        width: 85%;
+    }
+}
 
 /* TABLETS PORTRAIT to LANDSCAPE */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -171,7 +187,6 @@
         padding: 10px 0;
         display: block;
     }
-
 
     .navbar-light .navbar-brand {
         padding: 0;
@@ -215,8 +230,7 @@
         margin-right: 0;
     }
 
-    .cat-box li:last-child .meta-box h2,
-    .cat-box li:last-child .meta-box p {
+    .cat-box li:last-child .meta-box h2, .cat-box li:last-child .meta-box p {
         text-align: left;
     }
 
@@ -244,9 +258,28 @@
 
     .offer-thumb {
         width: 100%;
-
     }
+
     .categories {
         padding: 30px 0;
+    }
+
+    .side-menu {
+        padding: 15px;
+        margin-bottom: 50px;
+    }
+
+    .list-rating {
+        width: 85%;
+        margin: 5px auto;
+    }
+
+    .list-thumb, .list-meta {
+        float: left;
+        width: 100%;
+        padding: 10px;
+    }
+    .list-rating h2 {
+        font-size: 30px;
     }
 }

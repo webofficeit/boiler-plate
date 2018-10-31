@@ -7,7 +7,7 @@
                    @if(isset($category['categoryimage'])&& ($category['categoryimage']!=''))
                     <div class="cat-inner" style="padding-bottom: 140%; background-repeat: no-repeat;background-size: cover;" data-image-src="{{ asset('storage/category/'.$category['userid'].'/'.$category['categoryimage']) }}">
                       @else
-                  <div class="cat-inner" style="padding-bottom: 140%; background-repeat: no-repeat;background-size: cover;" data-image-src="img/no_Image_available.png">
+                  <div class="cat-inner" style="padding-bottom: 140%; background-repeat: no-repeat;background-size: cover;" data-image-src="{{asset('img/no_Image_available.png')}}">
                     @endif 
                     </div>
                 </a>

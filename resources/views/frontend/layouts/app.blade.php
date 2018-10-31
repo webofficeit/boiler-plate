@@ -23,12 +23,8 @@
         <script src="{{ URL::asset('js/ammap.js') }}"></script>
         <script src="{{ URL::asset('js/worldLow.js') }}"></script>
         <script src="{{ URL::asset('js/light.js') }}"></script>
-        <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
-        <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-       
-        <script src="{{ URL::asset('js/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ URL::asset('js/main.js') }}"></script>
-        <script src="{{ URL::asset('js/slick.min.js') }}"></script>
+        
+        
         
         
 
@@ -49,7 +45,12 @@
         @stack('before-scripts')
         {!! script(mix('js/manifest.js')) !!}
         {!! script(mix('js/vendor.js')) !!}
-        {!! script(mix('js/frontend.js')) !!}
+        <script src="{{ URL::asset('js/jquery.min.js') }}"></script>
+        <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+       
+        <script src="{{ URL::asset('js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ URL::asset('js/slick.min.js') }}"></script>
+        <script src="{{ URL::asset('js/main.js') }}"></script>
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
         @stack('after-scripts')

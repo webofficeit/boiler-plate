@@ -93,7 +93,7 @@ class ProductController extends Controller {
     {
        
         $output = $this->productRepository->update(
-            $request->only('name', 'descriptionoffer', 'category', 'descriptionbussiness','imagelist','rangeslider','delivery','pricelist','toggle_option','datepickerfrom','datepickerto','toggle_option_confirm')
+            $request->only('name', 'descriptionoffer', 'category', 'descriptionbussiness','imagelist','rangeslider','delivery','pricelist','toggle_option','datepickerfrom','datepickerto','toggle_option_confirm','buy')
             
         );
 

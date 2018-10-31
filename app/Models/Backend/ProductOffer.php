@@ -32,5 +32,5 @@ class ProductOffer extends Model {
      *
      * @var array
      */
-    protected $fillable = ['name', 'descriptionoffer', 'descriptionbussiness', 'categoryid', 'deliverymethodid', 'girapercentage', 'pricelistdocument','deleted','confirmed','user_id'];
+    protected $fillable = ['name', 'descriptionoffer', 'descriptionbussiness', 'categoryid', 'deliverymethodid', 'girapercentage', 'pricelistdocument','deleted','confirmed','user_id','buynow'];
 }

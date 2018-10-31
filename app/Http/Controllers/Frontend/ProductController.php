@@ -14,6 +14,8 @@ use App\Models\Backend\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Repositories\Frontend\ProductRepository;
+
 
 /**
  * Description of ProductController
@@ -62,11 +64,16 @@ class ProductController extends Controller {
         
     }
     
-    public function detailview(Request $request) {
+    public function detailview(Request $request,ProductRepository $productRepository) {
+        
         $paramId = \Crypt::decryptString($request->id);
         
         $productlist = ProductOffer::find($paramId);
+        $relatedProduct = ProductOffer::where([
+            ['confirmed',1],['user_id',$productlist->user_id],['deleted', 0]
+                ])->whereNotIn('id', [$productlist->id])->orderBy('id','DESC')->limit(4)->get();
         
-        return view('frontend.catalog.productdetailview', compact('productlist'));
+        $category = $productRepository->getLatestCategory();
+        return view('frontend.catalog.productdetailview', compact('productlist','relatedProduct','category'));
     }
 }

@@ -192,7 +192,9 @@ return [
                     'from' => 'from',
                     'to' => 'to',
                     'timeperiod' => 'Time Period',
-                    'confirmation' => 'Confirm'
+                    'confirmation' => 'Confirm',
+                    'buynow' => 'Link For Buy',
+                    'buynowplaceholder' => 'http://example.com'
                 ],
 
                 'roles' => [

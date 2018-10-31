@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\ProductOffer;
 use App\Repositories\Frontend\ProductRepository;
+use App\Repositories\Frontend\HomeRepository;
 use Carbon\Carbon;
 
 
@@ -29,7 +30,7 @@ class CategoryController extends Controller {
      */
     public function index(Request $request, ProductRepository $productRepository)
     {
-        
+       
         $category = $productRepository->getCategory($request->id);
         
         
@@ -37,41 +38,42 @@ class CategoryController extends Controller {
         
     }
     
+    public function listDetails(Request $request, HomeRepository $homeRepository, ProductRepository $productRepository) {
+        
+        $partner = $homeRepository->getAllUserMap($request->id);
+        $category = $productRepository->getCategory($request->id);
+        $product =[];
+        $slug ='';
+       if(count($category)>0) {
+           
+           $product = $productRepository->getProducts($category[0]['seo']);
+           $slug = $category[0]['seo'];
+       }
+       return view('frontend.catalog.listview', compact('partner','category','product','slug')); 
+    }
+    
     public function getAllProduct(Request $request, ProductRepository $productRepository)
     {
+       
         
-         $slug = $request->slug;
-        $category = Category::where('seo',$slug)->get();
-   
-        $productlist = ProductOffer::where([
-            ['categoryid',$category[0]->id],
-            ['confirmed',1],['deleted', 0]
-                ])->get();
+         $slug = ($request->searchdata!='')?$request->searchdata:$request->slug;
+       $product = $productRepository->getProducts($slug);
+        return view('frontend.catalog.productlist', compact('product','slug'))->render();
         
-        $date = new Carbon;
-        $product = [];
-        foreach($productlist as $productkey => $productvalue) {
-          
-             
-            if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&& !($date->between(Carbon::parse($productvalue->Offertype[0]->datefrom), Carbon::parse($productvalue->Offertype[0]->dateto)->addDay()))) {
-                continue; 
-            }
-            
-              $product[$productkey]= [
-                'id' => $productvalue->id,
-                'name' => $productvalue->name,
-                'percentage' => $productvalue->girapercentage,
-                'userid' => $productvalue->user_id
-            ];
+    }
+    
+    public function getParticularCategory(Request $request, HomeRepository $homeRepository, ProductRepository $productRepository)
+    {
+        
+        
+         $partner = $homeRepository->getAllUserMap();
+         $category = $productRepository->getCategory(null,$request->slug);
+         if(count($category)>0) {
            
-            if((isset($productvalue->Offerimage[0])))
-                $product[$productkey]['imagees'] = json_decode ($productvalue->Offerimage[0]->name)[0];
-            
-            
-            
-        }
-        
-        return view('frontend.catalog.product', compact('product','slug'));
+           $product = $productRepository->getProducts($category[0]['seo']);
+           $slug = $category[0]['seo'];
+       }
+       return view('frontend.catalog.listview', compact('partner','category','product','slug')); 
         
     }
     

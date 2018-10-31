@@ -1,39 +1,60 @@
-@extends('frontend.layouts.app')
-
-@section('title', app_name() . ' | ' . __('navs.general.home'))
-
-@section('content')
-
-    <div class="container">
-      <div class="page-title">Offers</div>
-      <div class="product-list-view list-view">
-        <div class="row">
-        @if(count($product) > 0 )
-            @foreach($product as $product)
-              <div class="col-lg-3">
-                <div class="product-list-item list-item">
-                  <a href='{{ url($slug.'/offer/'.Crypt::encryptString($product['id'])) }}'>
-                    @if(isset($product['imagees']))
-                      <div class="list-item-img" style="background-image: url({{ url('storage/category/product/'.$product['userid'].'/images/'.$product['imagees']) }}"></div>
-                    @endif
-                    <div class="list-item-title">{{ $product['name'] }}</div>
-                  </a>
-                </div>
-              </div>
-              @endforeach
-          @else
-            No records!
-          @endif
-        </div>
-
-      </div>
-    </div>
-
+<section class="offer-details">
+           <div class="container">
+             <div class="offer-thumb">
+               <ul class="slide-view slider-for">
+                 
+                  @if(count($productlist->Offerimage)>0)
+                        @forelse(json_decode($productlist->Offerimage[0]->name) as $slideplacekey =>$productlistimage)
+                    <li>
+                        <img src="{{ url('storage/category/product/'.$productlist->user_id.'/images/'.$productlistimage) }}">
+                    </li>
+                        
+                        @empty
     
-@endsection
-@push('after-scripts')
-<script>
+                        @endforelse
+                        @endif
+                </ul>
+               <ul class="slider-nav">
+                   @if(count($productlist->Offerimage)>0)
+                        @forelse(json_decode($productlist->Offerimage[0]->name) as $slideplacekey =>$productlistimage)
+                    <li><a href="#nogo">
+                        <img src="{{ url('storage/category/product/'.$productlist->user_id.'/images/'.$productlistimage) }}">
+                    </a></li>
+                        
+                        @empty
+    
+                        @endforelse
+                        @endif
+                
+                </ul>
+             </div>
 
-</script>
-@endpush
+             <div class="offer-meta">
+               <h2>{{ $productlist->name}}</h2>
+               <h3><span>{{$productlist->category->name}}</span></h3>
 
+               <div class="offer-inner">
+                 <div class="offer-blocks">
+                   <p>{!!$productlist->descriptionoffer!!}</p>
+                 </div>
+                   <div class="list-rating">
+                      <img src="{{URL::asset('/img/rating-bg.png')}}" alt="">
+                      <h2>{{$productlist->girapercentage}}%</h2>
+                    </div>
+                 
+               </div>
+
+               <p>{!!$productlist->descriptionbussiness!!}</p>
+               
+               @if((isset($productlist->Offertype[0]->type))&& ($productlist->Offertype[0]->type ==1))
+                    <div class="offer-validity">Offer valid till <span>{{ \Carbon\Carbon::parse($productlist->Offertype[0]->dateto)->format('d M Y')}}</span></div>
+                    
+                    @endif
+                    @if($productlist->pricelistdocument)
+                    <div class="view-price-list">
+                        <a href="download/{{$productlist->pricelistdocument}}/{{$productlist->user_id}}"><i class="far fa-file-pdf"></i> View Price List</a></div>
+                    @endif
+               <a class="button" href="{{$productlist->buynow}}">Buy now</a>
+             </div>
+           </div>
+         </section>

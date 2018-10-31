@@ -1,32 +1,21 @@
 $(document).ready(function(){
-	
-	// $('.slider').slick({
-	//   dots: true,
-	//   infinite: true,
-	//   speed: 300, 
-	//   arrows: false,
-	//   slidesToShow: 1,
-	//   slidesToScroll: 1,
- // 	});  
-
-  var time = 2;
-  var $bar,
-    $slick,
-    isPause,
-    tick,
-    percentTime;
-
-  $slick = $('.slider-wrapper');
- 
-
-  $bar = $('.slider-progress .progress');
-
-  
-
-  
-
-
- 
+	 
+    $('.slider-for').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      asNavFor: '.slider-nav',
+      draggable: false,
+      swipe: false
+    });
+    $('.slider-nav').slick({
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      asNavFor: '.slider-for',
+      dots: false,
+      // centerMode: true,
+      focusOnSelect: true
+    });
  	 
 	$(window).scroll(function(){
 		var headerHeight = $("header").outerHeight();

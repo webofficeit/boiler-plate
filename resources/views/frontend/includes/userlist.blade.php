@@ -4,7 +4,7 @@
   <div class="row">
       @foreach($users as $user)
     <div class="col-md-3 col-sm-6">
-      <a href="{{ url('user/'.Crypt::encryptString($user->id)) }}">
+      <a href="{{ url('list/'.Crypt::encryptString($user->id)) }}">
         <div class="latest-box">
             @if(isset($user['avatar_location']) &&  $user['avatar_location'] != "")
                 <img src="{{url('storage/'.$user['avatar_location']) }}" alt="">

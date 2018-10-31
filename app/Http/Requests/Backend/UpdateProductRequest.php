@@ -39,7 +39,8 @@ class UpdateProductRequest extends FormRequest {
             'imagelist.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'pricelist' => 'mimes:doc,pdf,docx',
             'datepickerfrom' => 'required_if:toggle_option,==,1',
-            'datepickerto' => 'required_if:toggle_option,==,1'
+            'datepickerto' => 'required_if:toggle_option,==,1',
+            'buy' => 'url'
             
         ];
     }
@@ -48,7 +49,8 @@ class UpdateProductRequest extends FormRequest {
 {
     return [
         'datepickerfrom.required_if' => 'datepickerfrom required for option TimePeriod',
-        'datepickerto.required_if'  => 'datepickerto required for option TimePeriod'
+        'datepickerto.required_if'  => 'datepickerto required for option TimePeriod',
+        'buy'  => 'The format should be http://example.com'
     ];
 }
 }

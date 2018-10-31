@@ -64,6 +64,7 @@ class ProductRepository extends BaseRepository {
                 'descriptionbussiness'           => $data['descriptionbussiness'],
                 'girapercentage'           => $data['rangeslider'],
             'deliverymethodid'           => $data['delivery'],
+            'buynow'           => $data['buy'],
             'pricelistdocument'           => isset($data['pricelist'])?$filedetails:'',
             'user_id' => $current_user,
             'toggle_option'           => $data['toggle_option'],
@@ -131,6 +132,7 @@ class ProductRepository extends BaseRepository {
         $productoffer->girapercentage = $request->rangeslider;
         $productoffer->categoryid = $request->category;
         $productoffer->deliverymethodid = $request->delivery;
+        $productoffer->buynow = $request->buy;
         if(isset($request->pricelist)) {
         $productoffer->pricelistdocument = $filedetails;
         }

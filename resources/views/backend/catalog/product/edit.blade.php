@@ -163,6 +163,19 @@
                             </div>
                         </div>
                         
+                          <div class="form-group row">
+                            {{ html()->label(__('validation.attributes.backend.access.product.buynow'))->class('col-md-2 form-control-label')->for('name') }}
+
+                            <div class="col-md-6">
+                                {{ html()->text('buy')
+                                    ->class('form-control')
+                                    ->placeholder(__('validation.attributes.backend.access.product.buynowplaceholder'))
+                                    ->attribute('maxlength', 191)
+                                    ->value($product->buynow)
+                                    ->autofocus() }}
+                            </div><!--col-->
+                        </div><!--form-group-->
+                        
                         <div class="form-group row">
                             {{ html()->label(__('validation.attributes.backend.access.product.offervalid'))->class('col-md-2 form-control-label')->for('offervalid') }}
                             <div class="col-md-10" >
