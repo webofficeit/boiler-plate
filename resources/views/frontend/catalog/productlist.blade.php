@@ -1,11 +1,12 @@
 @if(isset($product) && (count($product) > 0) )
 <div class="infinite-scroll">
+    <div class="row">
 @foreach($product as $products)
 <div class="col-sm-12 col-md-6">
                 <div class="list-box">
                   <div class="list-thumb">
                       @if((isset($products->Offerimage[0]))&&($products->Offerimage[0]->name!=''))
-                      <img src="{{ url('storage/category/product/'.$products->user_id.'/images/'.json_decode($products->Offerimage[0]->name)[0]) }}" alt="">
+                      <div style="background: url({{ url('storage/category/product/'.$products->user_id.'/images/'.json_decode($products->Offerimage[0]->name)[0]) }}) center/cover no-repeat; padding-bottom:100%; "></div>
                       
                       @else
                       <img src="{{ asset('img/no_Image_available.png') }}" alt="">
@@ -24,6 +25,7 @@
               </div>
   @endforeach
    {{ $product->links() }}
+    </div>
    </div>
           @else
             No records!
