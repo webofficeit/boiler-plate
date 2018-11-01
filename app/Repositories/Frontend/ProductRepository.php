@@ -141,27 +141,24 @@ class ProductRepository extends BaseRepository {
         
         $date = new Carbon;
         $product = [];
+        $productIds = [];
         foreach($productlist as $productkey => $productvalue) {
           
              
             if((isset($productvalue->Offertype[0]))&&($productvalue->Offertype[0]->type == 1)&& !($date->between(Carbon::parse($productvalue->Offertype[0]->datefrom), Carbon::parse($productvalue->Offertype[0]->dateto)->addDay()))) {
                 continue; 
             }
-            
-              $product[$productkey]= [
-                'id' => $productvalue->id,
-                'name' => $productvalue->name,
-                'percentage' => $productvalue->girapercentage,
-                'userid' => $productvalue->user_id,
-                'description' => $productvalue->descriptionoffer
-            ];
-           
-            if((isset($productvalue->Offerimage[0])))
-                $product[$productkey]['imagees'] = json_decode ($productvalue->Offerimage[0]->name)[0];
-            
+            array_push($productIds, $productvalue->id);
+             
             
             
         }
+        
+        if(count($productIds)>0) {
+            $product = ProductOffer::whereIn('id', $productIds)->paginate(10);
+                    
+        }
+        
         return $product;
         
     }

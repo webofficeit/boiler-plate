@@ -40,5 +40,10 @@
     
 @endsection
 
+@push('after-scripts')
+<script src="{{ URL::asset('js/listview.js') }}"></script>
+    
+@endpush
+
 
 
