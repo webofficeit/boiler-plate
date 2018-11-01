@@ -7,23 +7,8 @@
 @endforeach
 @push('after-scripts')
     <script>
-        $('input.styled-checkbox').on('change', function () {
-            $('input.styled-checkbox').not(this).prop('checked', false);
-            console.log($(this).val());
-            var categorySeo = $(this).val();
-            $.ajax({
-                url: '/category/search',
-                type: 'post',
-                dataType: 'html',
-                data: {"_token": "{{ csrf_token() }}", 'searchdata': categorySeo, 'serachdetails': '{{$user}}'},
-                success: function (data) {
-                    $('.offerlist').html(data);
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    console.log('AJAX ERROR ! Check the console !');
-
-                }
-            });
-        });
+        var serachdetails='{{$user}}';
+        var tokenkey = '{{ csrf_token() }}';
     </script>
+    <script src="{{ URL::asset('js/categorylist.js') }}"></script>
 @endpush    

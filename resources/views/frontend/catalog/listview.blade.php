@@ -39,10 +39,6 @@
 
     
 @endsection
-@push('after-scripts')
-<script>
 
-</script>
-@endpush
 
 

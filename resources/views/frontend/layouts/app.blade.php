@@ -23,11 +23,6 @@
         <script src="{{ URL::asset('js/ammap.js') }}"></script>
         <script src="{{ URL::asset('js/worldLow.js') }}"></script>
         <script src="{{ URL::asset('js/light.js') }}"></script>
-        
-        
-        
-        
-
         @stack('after-styles')
     </head>
     <body>
@@ -58,10 +53,6 @@
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
         @stack('after-scripts')
-        <script>
-        $('textarea').ckeditor();
-        
-    </script>
         @include('includes.partials.ga')
     </body>
 </html>
