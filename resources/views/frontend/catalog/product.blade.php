@@ -51,7 +51,7 @@
                                 class="far fa-file-pdf"></i> View Price List</a></div>
             @endif
             @if($productlist->buynow!='')
-                <a class="button" href="{{$productlist->buynow}}">Buy now</a>
+                <a class="button" target="_blank" href="{{$productlist->buynow}}">Buy now</a>
             @endif
         </div>
     </div>

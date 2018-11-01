@@ -175,14 +175,16 @@ class ProductController extends Controller {
       return redirect()->route('admin.product')->withFlashSuccess(__('strings.frontend.catalog.product_updated'));
     }
     
-    public function listconfirm(Request $request)
+    public function listconfirm(Request $request, User $user)
     {
-        
+        if ($user::find(Auth::user()->id)->isAdmin()) {
         $productOffer = ProductOffer::find($request->datagrid);
         $productOffer->confirmed = $request->dataval;
         $productOffer->save();
         
         return response()->json('updated');
+        }
+        return response()->json('permission denied');
         
     }
 }

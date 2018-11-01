@@ -46,6 +46,7 @@
                             
                                      {{ucwords($productlist->category['name'])}}
                                 </td>
+                                @if ($logged_in_user->isAdmin())
                                 <td>
                             <div class="radio-toggle{{$keyproduct}}">
                                     <input type="radio" name="toggle_option_confirm{{$keyproduct}}" value="1" id="{{$keyproduct}}" data-key ="{{$productlist->id}}"   {{($productlist->confirmed == 1) ? 'checked':''}} />
@@ -55,7 +56,7 @@
                                 </div>
                                      
                                 </td>
-                                @if ($logged_in_user->isAdmin())
+                                
                                 <td><a href='{!! url('admin/auth/user/'.$productlist->users['id']); !!}'>{!! $productlist->users['email'] !!}</a></td>
                                 @endif
                                 <td>{!! $productlist->action_buttons !!}</td>

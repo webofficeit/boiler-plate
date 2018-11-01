@@ -172,7 +172,7 @@
                                     ->placeholder(__('validation.attributes.backend.access.product.buynowplaceholder'))
                                     ->attribute('maxlength', 191)
                                     ->value($product->buynow)
-                                    ->autofocus() }}
+                                   }}
                             </div><!--col-->
                         </div><!--form-group-->
                         

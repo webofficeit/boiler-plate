@@ -68,7 +68,7 @@ class ProductRepository extends BaseRepository {
             'pricelistdocument'           => isset($data['pricelist'])?$filedetails:'',
             'user_id' => $current_user,
             'toggle_option'           => $data['toggle_option'],
-            'confirmed' => isset($data['toggle_option_confirm'])?$data['toggle_option_confirm']:0,
+            'confirmed' => (isset($data['toggle_option_confirm'])&& User::find($current_user)->isAdmin())?$data['toggle_option_confirm']:0,
                 
             ]);
         if (isset($data['imagelist'])) {

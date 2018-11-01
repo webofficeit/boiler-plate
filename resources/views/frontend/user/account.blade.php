@@ -1,8 +1,10 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-    <div class="row justify-content-center align-items-center mb-3">
-        <div class="col col-sm-10 align-self-center">
+   <section class="login">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12 mx-auto">
             <div class="card">
                 <div class="card-header">
                     <strong>
@@ -46,6 +48,8 @@
                     </div><!--tab panel-->
                 </div><!--card body-->
             </div><!-- card -->
-        </div><!-- col-xs-12 -->
-    </div><!-- row -->
+      </div>
+               </div>
+            </div>
+         </section>
 @endsection

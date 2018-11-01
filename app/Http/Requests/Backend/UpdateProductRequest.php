@@ -40,7 +40,7 @@ class UpdateProductRequest extends FormRequest {
             'pricelist' => 'mimes:doc,pdf,docx',
             'datepickerfrom' => 'required_if:toggle_option,==,1',
             'datepickerto' => 'required_if:toggle_option,==,1',
-            'buy' => 'url'
+            'buy' => 'nullable|url'
             
         ];
     }
