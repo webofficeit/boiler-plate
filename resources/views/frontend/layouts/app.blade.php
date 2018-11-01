@@ -36,15 +36,9 @@
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')
 
-            <section class="login flash-msg">
-           <div class="container">
-             <div class="row">
-               <div class="col-md-8 mx-auto">
+            
                 @include('includes.partials.messages')                
-            </div>
-             </div>
-           </div>
-         </section>
+            
         
             @yield('content')
 

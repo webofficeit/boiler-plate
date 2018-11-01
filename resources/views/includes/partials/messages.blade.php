@@ -1,4 +1,8 @@
- @if($errors->any())
+<section class="login flash-msg">
+           <div class="container">
+             <div class="row">
+               <div class="col-md-8 mx-auto">
+@if($errors->any())
     <div class="alert alert-danger" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -69,3 +73,7 @@
         @endif
     </div>
 @endif
+</div>
+             </div>
+           </div>
+         </section>
