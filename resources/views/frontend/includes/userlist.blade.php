@@ -7,7 +7,7 @@
       <a href="{{ url('list/'.Crypt::encryptString($user->id)) }}">
         <div class="latest-box">
             @if(isset($user['avatar_location']) &&  $user['avatar_location'] != "")
-                <img src="{{url('storage/'.$user['avatar_location']) }}" alt="">
+            <div class="" style="background: url({{url('storage/'.$user['avatar_location']) }}) center/cover no-repeat; padding-bottom: 100%;"></div>
                 @else
                 <img src="img/no-profile-image.jpg" alt="">
             @endif
