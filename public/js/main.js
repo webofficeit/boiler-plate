@@ -42,4 +42,8 @@ $(document).ready(function(){
         });
     });
  $('textarea').ckeditor();
+ 
+     $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
 });
