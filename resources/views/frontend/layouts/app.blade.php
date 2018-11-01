@@ -52,7 +52,13 @@
         <script src="{{ URL::asset('js/main.js') }}"></script>
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script src="{{ URL::asset('js/jquery.jscroll.min.js') }}"></script>
         @stack('after-scripts')
+        <script>
+            $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+            </script>
         @include('includes.partials.ga')
     </body>
 </html>

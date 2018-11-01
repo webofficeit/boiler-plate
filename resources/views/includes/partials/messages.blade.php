@@ -1,79 +1,83 @@
-<section class="login flash-msg">
-           <div class="container">
-             <div class="row">
-               <div class="col-md-8 mx-auto">
+          
+       
+      
+                   
 @if($errors->any())
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-
+    
+<div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">X</div>
         @foreach($errors->all() as $error)
-            {{ $error }}<br/>
+         <p>{{ $error }}</p>
+            
         @endforeach
     </div>
+</div>
 @elseif(session()->get('flash_success'))
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-
+   
+<div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">X</div>
         @if(is_array(json_decode(session()->get('flash_success'), true)))
-            {{ implode('', session()->get('flash_success')->all(':message<br/>')) }}
+        <p>{{ implode('', session()->get('flash_success')->all(':message<br/>')) }}</p>
         @else
-            {{ session()->get('flash_success') }}
+        <p> {{ session()->get('flash_success') }}</p>
         @endif
     </div>
+</div>
 @elseif(session()->get('flash_warning'))
-    <div class="alert alert-warning" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-
+   
+<div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">X</div>
         @if(is_array(json_decode(session()->get('flash_warning'), true)))
-            {{ implode('', session()->get('flash_warning')->all(':message<br/>')) }}
+        <p> {{ implode('', session()->get('flash_warning')->all(':message<br/>')) }}</p>
         @else
-            {{ session()->get('flash_warning') }}
+        <p> {{ session()->get('flash_warning') }}</p>
         @endif
     </div>
+</div>
 @elseif(session()->get('flash_info'))
-    <div class="alert alert-info" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-
+    
+<div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">X</div>
         @if(is_array(json_decode(session()->get('flash_info'), true)))
-            {{ implode('', session()->get('flash_info')->all(':message<br/>')) }}
+        <p> {{ implode('', session()->get('flash_info')->all(':message<br/>')) }}</p>
         @else
-            {{ session()->get('flash_info') }}
+        <p>{{ session()->get('flash_info') }}</p>
         @endif
     </div>
+</div>
 @elseif(session()->get('flash_danger'))
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">X</div>
 
         @if(is_array(json_decode(session()->get('flash_danger'), true)))
-            {{ implode('', session()->get('flash_danger')->all(':message<br/>')) }}
+        <p>   {{ implode('', session()->get('flash_danger')->all(':message<br/>')) }}</p>
         @else
-            {{ session()->get('flash_danger') }}
+        <p> {{ session()->get('flash_danger') }}</p>
         @endif
     </div>
-@elseif(session()->get('flash_message'))
-    <div class="alert alert-info" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-
-        @if(is_array(json_decode(session()->get('flash_message'), true)))
-            {{ implode('', session()->get('flash_message')->all(':message<br/>')) }}
-        @else
-            {{ session()->get('flash_message') }}
-        @endif
-    </div>
-@endif
 </div>
-             </div>
-           </div>
-         </section>
+@elseif(session()->get('flash_message'))
+    
+<div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+        <div class="popupCloseButton">X</div>
+        @if(is_array(json_decode(session()->get('flash_message'), true)))
+        <p>{{ implode('', session()->get('flash_message')->all(':message<br/>')) }}</p>
+        @else
+       <p> {{ session()->get('flash_message') }}</p>
+        @endif
+    </div>
+</div>
+@endif
+ 
