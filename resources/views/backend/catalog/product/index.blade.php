@@ -25,9 +25,11 @@
                         <tr>
                             <th>@lang('labels.backend.access.product.table.name')</th>
                             <th>@lang('labels.backend.access.product.table.description')</th>
+                           
                            <th>@lang('labels.backend.access.product.table.category')</th>
-                           <th>@lang('labels.backend.access.product.table.confirm')</th>
                            @if ($logged_in_user->isAdmin())
+                           <th>@lang('labels.backend.access.product.table.confirm')</th>
+                           
                            <th>@lang('labels.backend.access.product.table.user')</th>
                            @endif
                             <th>@lang('labels.general.actions')</th>
