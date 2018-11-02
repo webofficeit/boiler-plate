@@ -46,8 +46,8 @@
                     <span>{{ \Carbon\Carbon::parse($productlist->Offertype[0]->dateto)->format('d M Y')}}</span></div>
 
             @endif
-            <p>
-            <span class="vendor-details"><h4> Merchant Details </h4>
+           
+            <div class="vendor-details"><h4> Merchant Details </h4>
                 <div class="vendor-name"> {{$user->first_name}} {{$user->last_name }}</div>
                  <div class="vendor-email">{{$user->email}}</div>
                  <div class="vendor-type">{{isset($user->accounttype->name)?$user->accounttype->name:''}}</div>
@@ -55,7 +55,7 @@
                  <div class="vendor-phone">{{$user->phoneno}}</div>
                  <div class="vendor-city"> {{$user->city}}</div>
                  <div class="vendor-con">{{isset($user->country->country_name)?$user->country->country_name:''}}</div>
-            </span></p>
+            </div>
             @if($productlist->pricelistdocument)
                 <div class="view-price-list">
                     <a href="download/{{$productlist->pricelistdocument}}/{{$productlist->user_id}}"><i
