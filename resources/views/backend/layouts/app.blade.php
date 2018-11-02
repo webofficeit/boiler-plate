@@ -19,7 +19,7 @@
     {{ style(mix('css/backend.css')) }}
     <link rel="stylesheet" href="{{ URL::asset('css/deal.css') }}" />
     <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
-    <script src="{{ URL::asset('js/additional-methods.min.js') }}"></script>
+    
 
     @stack('after-styles')
      
@@ -61,10 +61,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script src="{{ URL::asset('js/deal.js') }}"></script>
     @stack('after-scripts')
-    <script>
-        $('textarea').ckeditor();
-        
-    </script>
 </body>
 </html>

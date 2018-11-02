@@ -2,6 +2,11 @@
   width: 100%;
   height: 500px;
 }
+@media screen and (min-width: 1200px) {
+    #chartdiv {
+        height: 650px;
+    }
+}
 
 .map-marker {
     /* adjusting for the marker dimensions

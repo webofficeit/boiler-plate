@@ -47,6 +47,7 @@ class CategoryController extends Controller
         $category = $productRepository->getCategory($request->id);
         $product = [];
         $slug = '';
+        
         if (count($category) > 0) {
 
             $product = $productRepository->getProducts($category[0]['seo'], $request->id);

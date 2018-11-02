@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="col-md-8 float-right">
-            <div class="row offerlist">
+            <div class="offerlist">
               @include('frontend.catalog.productlist')  
               
               
