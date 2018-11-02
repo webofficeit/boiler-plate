@@ -26,15 +26,16 @@
         </div>
         <div class="offer-meta">
             <h2>{{ $productlist->name}}</h2>
-            <h3><span>{{$productlist->category->name}}</span> <span>GRC{{$productlist->girapercentage}}%</span></h3>
+            <h3><span>{{$productlist->category->name}}</span></h3>
             <div class="offer-inner">
                 <div class="offer-blocks">
                     <p>{!!$productlist->descriptionoffer!!}</p>
                 </div>
-                {{--<div class="list-rating">
-                    <img src="{{URL::asset('/img/rating-bg.png')}}" alt="">
-                    <h2>{{$productlist->girapercentage}}%</h2>
-                </div>--}}
+                <div class="offer-img">
+                   <img src="{{ asset('img/gira.png') }}" alt="">
+                   <h2>{{$productlist->girapercentage}}%</h2>
+                 </div>
+                
 
             </div>
 
