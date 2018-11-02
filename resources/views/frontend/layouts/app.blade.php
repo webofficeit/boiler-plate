@@ -11,11 +11,11 @@
         <title>@yield('title', app_name())</title>
         @yield('meta')
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
-        <link rel="stylesheet" href="{{ URL::asset('css/ammap.css') }}" />
-       <link rel="stylesheet" href="{{ URL::asset('css/frontend/bootstrap.min.css') }}" />
-        <link rel="stylesheet" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" />
-        <link rel="stylesheet" href="{{ URL::asset('css/frontend/main.css') }}" />
-        <link rel="stylesheet" href="{{ URL::asset('css/frontend/responsive.css') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('css/ammap.css?v2') }}" />
+       <link rel="stylesheet" href="{{ URL::asset('css/frontend/bootstrap.min.css?v2') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('css/frontend/magnific-popup.css?v2') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('css/frontend/main.css?v2') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('css/frontend/responsive.css?v2') }}" />
         @stack('before-styles')
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
@@ -50,7 +50,7 @@
        
         <script src="{{ URL::asset('js/jquery.magnific-popup.min.js') }}"></script>
         <script src="{{ URL::asset('js/slick.min.js') }}"></script>
-        <script src="{{ URL::asset('js/main.js') }}"></script>
+        <script src="{{ URL::asset('js/main.js?v2') }}"></script>
         <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
     <script src="{{ URL::asset('js/jquery.jscroll.min.js') }}"></script>

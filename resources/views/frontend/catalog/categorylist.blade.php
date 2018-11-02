@@ -10,5 +10,5 @@
         var serachdetails='{{$user}}';
         var tokenkey = '{{ csrf_token() }}';
     </script>
-    <script src="{{ URL::asset('js/categorylist.js') }}"></script>
+    <script src="{{ URL::asset('js/categorylist.js?v2') }}"></script>
 @endpush    
