@@ -17,7 +17,7 @@
     <!-- Otherwise apply the normal LTR layouts -->
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-datetimepicker-build.css') }}" />
     {{ style(mix('css/backend.css')) }}
-    <link rel="stylesheet" href="{{ URL::asset('css/deal.css') }}" />
+    <link rel="stylesheet" href="{{ URL::asset('css/deal.css?v2') }}" />
     <script src="{{ URL::asset('js/jquery.validate.min.js') }}"></script>
     
 
@@ -61,7 +61,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
-    <script src="{{ URL::asset('js/deal.js') }}"></script>
+    <script src="{{ URL::asset('js/deal.js?v2') }}"></script>
     @stack('after-scripts')
 </body>
 </html>
