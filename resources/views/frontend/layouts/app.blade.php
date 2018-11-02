@@ -10,6 +10,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title', app_name())</title>
         @yield('meta')
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="{{ URL::asset('css/ammap.css') }}" />
        <link rel="stylesheet" href="{{ URL::asset('css/frontend/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" />
