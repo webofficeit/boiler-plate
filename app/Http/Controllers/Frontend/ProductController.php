@@ -72,8 +72,9 @@ class ProductController extends Controller {
         $relatedProduct = ProductOffer::where([
             ['confirmed',1],['user_id',$productlist->user_id],['deleted', 0]
                 ])->whereNotIn('id', [$productlist->id])->orderBy('id','DESC')->limit(4)->get();
+        $user = User::find($productlist->user_id);
         
         $category = $productRepository->getLatestCategory();
-        return view('frontend.catalog.productdetailview', compact('productlist','relatedProduct','category'));
+        return view('frontend.catalog.productdetailview', compact('productlist','relatedProduct','category','user'));
     }
 }
