@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="{{ URL::asset('css/ammap.css') }}" />
        <link rel="stylesheet" href="{{ URL::asset('css/frontend/bootstrap.min.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/frontend/magnific-popup.css') }}" />
-        <link rel="stylesheet" href="{{ URL::asset('css/frontend/responsive.css') }}" />
         <link rel="stylesheet" href="{{ URL::asset('css/frontend/main.css') }}" />
+        <link rel="stylesheet" href="{{ URL::asset('css/frontend/responsive.css') }}" />
         @stack('before-styles')
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
