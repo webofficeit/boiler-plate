@@ -1088,3 +1088,8 @@ footer p {
     background-color: #ccc;
 }
 
+/* Chart css */
+#chartdiv .amcharts-chart-div > a {
+display: none !important;
+}
+
