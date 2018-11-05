@@ -28,9 +28,9 @@
                             <th>@lang('labels.backend.access.product.table.description')</th>
                            
                            <th>@lang('labels.backend.access.product.table.category')</th>
-                           @if ($logged_in_user->isAdmin())
-                           <th>@lang('labels.backend.access.product.table.confirm')</th>
                            
+                           <th>@lang('labels.backend.access.product.table.confirm')</th>
+                           @if ($logged_in_user->isAdmin())
                            <th>@lang('labels.backend.access.product.table.user')</th>
                            @endif
                             <th>@lang('labels.general.actions')</th>
@@ -49,7 +49,7 @@
                             
                                      {{ucwords($productlist->category['name'])}}
                                 </td>
-                                @if ($logged_in_user->isAdmin())
+                                @if ($logged_in_user->isAdmin()) 
                                 <td>
                             <div class="radio-toggle{{$keyproduct}}">
                                     <input type="radio" name="toggle_option_confirm{{$keyproduct}}" value="1" id="{{$keyproduct}}" data-key ="{{$productlist->id}}"   {{($productlist->confirmed == 1) ? 'checked':''}} />
@@ -61,6 +61,11 @@
                                 </td>
                                 
                                 <td><a href='{!! url('admin/auth/user/'.$productlist->users['id']); !!}'>{!! $productlist->users['email'] !!}</a></td>
+                                @else
+                                <td>
+                            
+                                      {{($productlist->confirmed==0)?'No':'Yes'}}
+                                </td>
                                 @endif
                                 <td>{!! $productlist->action_buttons !!}</td>
                             </tr>
