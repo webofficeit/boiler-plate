@@ -3,6 +3,7 @@
 @section('title', app_name() . ' | '. __('labels.backend.access.product.management'))
 
 @section('content')
+@include('backend.catalog.product.includes.alert')
 <div class="card">
     <div class="card-body">
         <div class="row">
@@ -85,24 +86,11 @@
     </div><!--card-body-->
 </div><!--card-->
 @endsection
-
 @push('after-scripts')
 <script>
-   $('[type="radio"]').on('change', function() {
-       $.ajax({
-                    url:      '/admin/product/listconfirm',
-                    type:     'post',
-                    dataType: 'json',
-                    data:     {"_token": "{{ csrf_token() }}",'datagrid':$(this).attr('data-key'),'dataval':$(this).val()},
-                    success: function(data) {
-                        
-                         
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        console('AJAX ERROR ! Check the console !');                    
-                    }
-                });
-   
-});
-</script>
-@endpush    
+    var tokenkey = '{{ csrf_token() }}';
+    </script>
+<script src="{{ URL::asset('js/confirm.js?v2') }}"></script>
+@endpush 
+
+    

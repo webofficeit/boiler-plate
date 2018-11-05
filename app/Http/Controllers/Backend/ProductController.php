@@ -182,7 +182,7 @@ class ProductController extends Controller {
         $productOffer->confirmed = $request->dataval;
         $productOffer->save();
         
-        return response()->json('updated');
+        return response()->json('Product updated successfully');
         }
         return response()->json('permission denied');
         

@@ -1,4 +1,5 @@
- $('.popupCloseButton').click(function(){
+ $('.popupCloseButton').on('click',function(){
+     
         $('.hover_bkgr_fricc').hide();
     });
     

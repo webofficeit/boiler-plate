@@ -61,7 +61,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
-    <script src="{{ URL::asset('js/deal.js?v2') }}"></script>
+    <script src="{{ URL::asset('js/deal.js?v2.1') }}"></script>
     @stack('after-scripts')
 </body>
 </html>
